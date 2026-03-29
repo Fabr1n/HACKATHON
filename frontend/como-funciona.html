@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona - MEG Hub de Inteligência</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="meg-styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .feature-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+        
+        .step-box {
+            background: linear-gradient(135deg, #15803d 0%, #ca8a04 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            position: relative;
+            padding-left: 80px;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: white;
+            color: #15803d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .compatibility-score {
+            background: linear-gradient(135deg, #15803d 0%, #ca8a04 100%);
+            color: white;
+            padding: 40px 32px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 32px 0;
+        }
+        
+        .score-display {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .gap-card {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid #15803d;
+            margin-bottom: 16px;
+        }
+        
+        .gap-card strong {
+            color: #15803d;
+        }
+        
+        .esg-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #15803d 0%, #ca8a04 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 p-4 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="landing-meg.html" class="flex items-center space-x-3">
+                <img src="../logos/2-removebg-preview.png" alt="MEG Logo" class="h-12 w-auto drop-shadow-lg hover:scale-110 transition-transform">
+                <div>
+                    <h1 class="text-2xl font-bold text-green-700">MEG</h1>
+                    <p class="text-xs text-gray-500 font-medium">Como Funciona</p>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex space-x-6 items-center text-gray-700">
+                <a href="landing-meg.html" class="hover:text-green-700 transition">Home</a>
+                <a href="como-funciona.html" class="hover:text-green-700 transition font-semibold text-green-700">Como Funciona</a>
+                <a href="team.html" class="hover:text-green-700 transition">Equipe</a>
+                <a href="contact.html" class="hover:text-green-700 transition">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="p-6 md:p-12 bg-gradient-to-br from-green-700 to-yellow-600 text-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold mb-4">Como Funciona a MEG</h1>
+            <p class="text-xl opacity-90">
+                Um Hub de Inteligência que busca a oportunidade certa para <strong>você</strong>, não o contrário
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="p-6 md:p-12 lg:p-20">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Section 1: O Problema -->
+            <div class="feature-section">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                            <i class="fas fa-exclamation-circle text-red-500 mr-3"></i> O Problema
+                        </h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Em Goiás, existem <strong>milhares de editais</strong> do Sebrae, Governo, FAPEG, prefeituras. Há oportunidades de crédito, mentoria, parcerias B2B. Há demanda de grandes empresas por fornecedoras e prestadoras de serviço.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Mas a mulher que faz bolo, que gere uma pequena empresa de TI, que produziços artesanais? <strong>Ela não tem tempo</strong> de ler o Diário Oficial, não sabe onde procurar, não tem rede.
+                        </p>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                            <p class="text-sm font-semibold text-red-700">
+                                😞 Resultado: Oportunidades não alcançam quem precisa. E empreendedoras seguem sozinhas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative h-80 bg-gradient-to-br from-red-100 to-red-50 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">❌</div>
+                            <div class="text-gray-600">
+                                <p class="font-bold">30 mil mulheres empreendedoras</p>
+                                <p>sem visibilidade de oportunidades</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Hub de Inteligência -->
+            <div class="feature-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                    <i class="fas fa-brain text-green-700 mr-3"></i> Hub de Inteligência
+                </h2>
+                
+                <p class="text-center text-gray-600 mb-12 text-lg">
+                    A MEG <strong>agrega e processa</strong> informações de diferentes fontes em um só lugar
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg border-l-4 border-blue-500">
+                        <div class="text-3xl mb-4">📋</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Agregação de Editais</h3>
+                        <p class="text-sm text-gray-700">
+                            Rastreia editais de Sebrae, Governo, FAPEG, prefeituras em tempo real. Sem você perder nada.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-lg border-l-4 border-yellow-500">
+                        <div class="text-3xl mb-4">🤝</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Banco de Oportunidades B2B</h3>
+                        <p class="text-sm text-gray-700">
+                            Grandes empresas (ESG, diversidade) precisam de fornecedoras. A MEG conecta.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg border-l-4 border-purple-500">
+                        <div class="text-3xl mb-4">🎓</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Catálogo de Mentores</h3>
+                        <p class="text-sm text-gray-700">
+                            Mulheres experientes que ajudam. Não é consultoria paga, é orientação real.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="alert-box bg-green-50 border-2 border-green-300 rounded-lg p-6">
+                    <p class="text-center text-green-800 font-semibold">
+                        ✅ Resultado: <strong>Uma fonte única de verdade</strong> para oportunidades, sem ruído
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 3: Match Inteligente -->
+            <div class="feature-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                    <i class="fas fa-heart text-green-700 mr-3"></i> O Match Inteligente
+                </h2>
+                
+                <p class="text-center text-gray-600 mb-12 text-lg">
+                    Não é um Tinder de negócios comum. É um <strong>Match de Viabilidade</strong>
+                </p>
+
+                <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-500 mb-8">
+                    <h3 class="font-bold text-blue-900 mb-4">Como funciona?</h3>
+                    <p class="text-blue-800 mb-4">
+                        O sistema lê o <strong>CNPJ ou perfil</strong> da empreendedora (CNAE, faturamento, localização, especialidades) e cruza com as exigências de editais e vagas B2B em tempo real.
+                    </p>
+                    <ul class="space-y-2 text-blue-800">
+                        <li>✅ CNAE: Atividade econômica que você exerce</li>
+                        <li>✅ Faturamento: Seu faturamento anual</li>
+                        <li>✅ Localização: Onde você atua geograficamente</li>
+                        <li>✅ Certificações: Qualidade, ISO, etc</li>
+                        <li>✅ Especialidades: Áreas de atuação</li>
+                    </ul>
+                </div>
+
+                <div class="mb-12">
+                    <h3 class="font-bold text-gray-800 mb-6">O Resultado? Você vê apenas oportunidades <strong>100% relevantes</strong></h3>
+                    
+                    <div class="space-y-4">
+                        <div class="step-box">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Notificação Ativa</h4>
+                                <p class="text-sm">
+                                    A oportunidade não espera você procurar. <strong>Você recebe um alerta</strong> apenas se for 100% relevante. Se abrir um edital de fomento para mulheres negras em Aparecida de Goiânia, você (se se encaixa) recebe a notificação em minutos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="step-box">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Score de Compatibilidade</h4>
+                                <p class="text-sm">
+                                    Não é "talvez funcione". A MEG mostra uma porcentagem. <strong>85% de compatibilidade</strong> nesta mentoria, <strong>92% neste crédito</strong>. Você sabe exatamente o quanto faz sentido, sem gastar tempo.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="step-box">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Economia de Tempo Precioso</h4>
+                                <p class="text-sm">
+                                    Seu bem mais precioso é <strong>tempo</strong>, não dinheiro. A MEG economiza meses de pesquisa em minutos de algoritmo. Você não procura — a oportunidade te acha.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Score Display -->
+                <div class="compatibility-score">
+                    <p class="text-lg opacity-90 mb-6">Exemplo de um Match Inteligente:</p>
+                    <div class="score-display">85%</div>
+                    <p class="text-lg font-bold mb-4">Compatibilidade com Crédito BNDES MP Mulher</p>
+                    <p class="text-sm opacity-90">
+                        Você atua em Goiânia, fatura até R$ 300k/ano, é formalmente registrada (CNPJ), não está negativada. A MEG identificou que você é elegível para esse crédito.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 4: Capacitação Direcionada -->
+            <div class="feature-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                    <i class="fas fa-graduation-cap text-green-700 mr-3"></i> Capacitação Direcionada
+                </h2>
+                
+                <p class="text-center text-gray-600 mb-12 text-lg">
+                    Não é treinamento genérico. É aprendizado baseado em <strong>lacunas específicas</strong>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-red-50 p-8 rounded-lg border-l-4 border-red-500">
+                        <h3 class="font-bold text-red-800 mb-4">❌ Abordagem Tradicional (inútil)</h3>
+                        <ul class="space-y-2 text-red-700 text-sm">
+                            <li>• Cursos genéricos de 40 horas</li>
+                            <li>• "Empreendedorismo para Mulheres"</li>
+                            <li>• Assuntos que você já sabe</li>
+                            <li>• Certificado no final (que ninguém lê)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 p-8 rounded-lg border-l-4 border-green-500">
+                        <h3 class="font-bold text-green-800 mb-4">✅ MEG Smart Learning (eficaz)</h3>
+                        <ul class="space-y-2 text-green-700 text-sm">
+                            <li>• Pílulas de 10-15 minutos</li>
+                            <li>• "Gestão de Qualidade ISO 9001"</li>
+                            <li>• Exatamente o que você precisa</li>
+                            <li>• Consumível entre uma venda e outra</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-500 mb-12">
+                    <h3 class="font-bold text-blue-900 mb-6">Como Funciona a Identificação de Gaps?</h3>
+                    <div class="space-y-4">
+                        <p class="text-blue-800">
+                            <strong>Cenário Real:</strong> Você (confeitaria em Goiânia) recebe um match 88% com uma vaga de fornecedora para a Mitsubishi. É o seu maior sonho.
+                        </p>
+                        <p class="text-blue-800">
+                            Mas a Mitsubishi exige: Certificação de Qualidade (ISO 9001) e Rastreabilidade (Sistema de Controle).
+                        </p>
+                    </div>
+
+                    <div class="mt-6 space-y-4">
+                        <div class="gap-card">
+                            <strong>GAP 1: Certificação de Qualidade</strong>
+                            <p class="text-sm mt-2">
+                                A MEG oferece micro-course: "ISO 9001 para Confeitarias" (12 minutos) + Guia prático (PDF) + Link com auditores certificados em Goiás.
+                            </p>
+                        </div>
+                        
+                        <div class="gap-card">
+                            <strong>GAP 2: Sistema de Rastreabilidade</strong>
+                            <p class="text-sm mt-2">
+                                Micro-course: "Rastreabilidade para Alimentos" (10 minutos) + Softwares gratuitos recomendados + Contato com consultores parceiros.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert-box bg-green-50 border-2 border-green-300 rounded-lg p-6">
+                    <p class="text-center text-green-800 font-semibold">
+                        ✅ Resultado: <strong>Você fecha a oportunidade em vez de desistir por falta de capacitação</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 5: B2B & ESG -->
+            <div class="feature-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                    <i class="fas fa-building text-green-700 mr-3"></i> O Pilar B2B e ESG
+                </h2>
+                
+                <p class="text-center text-gray-600 mb-12 text-lg">
+                    A MEG resolve um problema das <strong>Grandes Empresas</strong>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg">
+                        <h3 class="font-bold text-green-800 mb-4">O Problema Corporativo</h3>
+                        <p class="text-green-800 mb-4">
+                            Muitas corporações em Goiás (Mitsubishi, Cargill, Hydro, etc) precisam cumprir metas de:
+                        </p>
+                        <ul class="space-y-2 text-green-800 text-sm">
+                            <li>✅ ESG (Ambiental, Social, Governança)</li>
+                            <li>✅ Certificações internacionais</li>
+                            <li>✅ Diversidade na cadeia de suprimentos</li>
+                            <li>✅ Fornecedoras qualificadas localmente</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-lg">
+                        <h3 class="font-bold text-yellow-800 mb-4">A Solução MEG</h3>
+                        <p class="text-yellow-800 mb-4">
+                            A MEG entrega para essas empresas:
+                        </p>
+                        <ul class="space-y-2 text-yellow-800 text-sm">
+                            <li>✅ Lista pronta de fornecedoras locais</li>
+                            <li>✅ Auditadas e qualificadas</li>
+                            <li>✅ Prontas para fechar contrato</li>
+                            <li>✅ Com o <strong>Selo MEG</strong> de confiança</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="esg-box bg-purple-50 border-l-4 border-purple-500 p-8 rounded-lg">
+                    <h3 class="font-bold text-purple-900 mb-4">
+                        <span class="esg-badge">ESG Badge</span> O Selo MEG
+                    </h3>
+                    <p class="text-purple-900 mb-4">
+                        Quando uma fornecedora é certificada na MEG, ela recebe o <strong>Selo MEG</strong> que sinaliza:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">✅</div>
+                            <p class="text-sm font-bold">Qualidade Auditada</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🏆</div>
+                            <p class="text-sm font-bold">Regularidade Legal</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">💪</div>
+                            <p class="text-sm font-bold">Capacidade Produtiva</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🌍</div>
+                            <p class="text-sm font-bold">Critérios ESG</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Fluxo Completo -->
+            <div class="feature-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                    <i class="fas fa-arrows-alt text-green-700 mr-3"></i> Fluxo Completo
+                </h2>
+                
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Timeline -->
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+                            <h3 class="font-bold text-blue-900 mb-2">1️⃣ Registre seu Perfil</h3>
+                            <p class="text-blue-800 text-sm">CNPJ, CNAE, faturamento, localização, especialidades, certificações.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="text-green-700 text-2xl">⬇️</div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg border-l-4 border-green-500">
+                            <h3 class="font-bold text-green-900 mb-2">2️⃣ MEG Analisa Compatibilidade</h3>
+                            <p class="text-green-800 text-sm">Sistema cruza seu perfil com 1000+ editais, vagas B2B e mentoramentos. Calcula score de compatibilidade.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="text-green-700 text-2xl">⬇️</div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-lg border-l-4 border-yellow-500">
+                            <h3 class="font-bold text-yellow-900 mb-2">3️⃣ Receba Notificações Inteligentes</h3>
+                            <p class="text-yellow-800 text-sm">Você só vê oportunidades 80%+ compatíveis. Sem spam, sem ruído. Dashboard com score visual.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="text-green-700 text-2xl">⬇️</div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
+                            <h3 class="font-bold text-purple-900 mb-2">4️⃣ Identifique Gaps</h3>
+                            <p class="text-purple-800 text-sm">A oportunidade é ótima, mas você precisa de ISO 9001? Certificação? MEG sugere exatamente o que estudar.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="text-green-700 text-2xl">⬇️</div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-pink-50 to-pink-100 p-6 rounded-lg border-l-4 border-pink-500">
+                            <h3 class="font-bold text-pink-900 mb-2">5️⃣ Complete Capacitação</h3>
+                            <p class="text-pink-800 text-sm">Micro-courses, mentoria 1-on-1, guias práticos. Tudo personalizado para você fechar a oportunidade.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="text-green-700 text-2xl">⬇️</div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 p-6 rounded-lg border-l-4 border-indigo-500">
+                            <h3 class="font-bold text-indigo-900 mb-2">6️⃣ Feche a Oportunidade</h3>
+                            <p class="text-indigo-800 text-sm">Com a capacitação certa, você está pronta. Assine o contrato, receba o crédito, começar a parceria.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="text-green-700 text-2xl">⬇️</div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-teal-50 to-teal-100 p-6 rounded-lg border-l-4 border-teal-500">
+                            <h3 class="font-bold text-teal-900 mb-2">7️⃣ Ganhe Selo MEG</h3>
+                            <p class="text-teal-800 text-sm">Parceria cumprida? Você recebe o <strong>Selo MEG</strong> que aumenta sua credibilidade para próximas oportunidades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-20">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Pronta para revolucionar sua trajetória?</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Juntas construímos o futuro do empreendedorismo feminino em Goiás. A MEG não é um mercado comum — é um ecossistema de inteligência, apoio e oportunidade.
+                </p>
+                <div class="flex gap-4 justify-center flex-wrap">
+                    <a href="register-novo.html" class="bg-green-700 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-800 transition">
+                        Começar Agora →
+                    </a>
+                    <a href="team.html" class="bg-yellow-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-yellow-700 transition">
+                        Conhecer a Equipe →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-10 text-gray-400 border-t-2 mt-20" style="background-color: #1a1a1a; border-color: #ca8a04;">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center shadow-md">
+                        <span class="text-xl font-bold text-white">M</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">MEG <span class="text-sm font-normal text-gray-500">Goianas</span></h1>
+                </div>
+                <p class="text-sm">Hub de inteligência para mulheres empreendedoras.</p>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-white mb-3">Navegação</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-yellow-400 transition">Home</a></li>
+                    <li><a href="como-funciona.html" class="hover:text-yellow-400 transition">Como Funciona</a></li>
+                    <li><a href="team.html" class="hover:text-yellow-400 transition">Equipe</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="register-novo.html" class="hover:text-yellow-400 transition">Registrar</a></li>
+                    <li><a href="login-novo.html" class="hover:text-yellow-400 transition">Login</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-400 transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-10 border-t border-gray-800 pt-6 text-center text-xs text-gray-600">
+            &copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

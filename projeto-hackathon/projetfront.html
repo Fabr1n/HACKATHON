@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEG - Mulheres Empreendedoras Goianas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5D6D7E;
+            --secondary-color: #2E3B4E;
+            --accent-color: #A6ACB8;
+            --light-bg: #F1F3F5;
+            --text-dark: #1F1F1F;
+            --text-light: #4F5B71;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ======================== HEADER ======================== */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #d84a62 100%);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-header {
+            background: white;
+            color: var(--primary-color);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-header:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* ======================== HERO ======================== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #d84a62 50%, var(--secondary-color) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* ======================== SEÇÕES ======================== */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .section-alt {
+            background: var(--light-bg);
+        }
+
+        /* ======================== SOBRE ======================== */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #d84a62 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        /* ======================== GRID ======================== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .card-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #d84a62 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-category {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ======================== FORMULÁRIO ======================== */
+        .form-container {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(232, 93, 117, 0.2);
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #d84a62 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(232, 93, 117, 0.3);
+        }
+
+        /* ======================== FOOTER ======================== */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .about { grid-template-columns: 1fr; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-rocket"></i> MEG
+            </div>
+            <nav>
+                <a href="#sobre">Sobre</a>
+                <a href="#capacitacao">Capacitação</a>
+                <a href="#mentores">Mentores</a>
+                <a href="#contato">Contato</a>
+                <button class="btn-header" onclick="window.location.href='colaboradores.html'">Seja Colaborador</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mulheres Empreendedoras Goianas</h1>
+            <p>Empoderando mulheres através de networking, capacitação e mentoria personalizada</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Entrar na Plataforma</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">Saiba Mais</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="sobre">
+        <div class="section-title">Sobre Nós</div>
+        <div class="section-subtitle">Conhecça nossa missão e impacto</div>
+        <div class="about">
+            <div class="about-content">
+                <h3>Quem Somos</h3>
+                <p>A MEG é uma plataforma dedicada a empoderar mulheres empreendedoras de Goiás, criando um ecossistema robusto de apoio, desenvolvimento profissional e oportunidades.</p>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <div><strong>Comunidade</strong><br>Conectamos mulheres em ambiente colaborativo</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div><strong>Capacitação</strong><br>Cursos ministrados por especialistas</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-star"></i></div>
+                    <div><strong>Mentoria</strong><br>Mentoras dedicadas ao seu desenvolvimento</div>
+                </div>
+            </div>
+            <div style="height: 400px; border-radius: 15px; background: linear-gradient(135deg, var(--primary-color) 0%, #d84a62 100%);"></div>
+        </div>
+    </section>
+
+    <section id="capacitacao">
+        <div class="section-title">Programas de Capacitação</div>
+        <div class="section-subtitle">Desenvolva suas habilidades e escale seu negócio</div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-image"><i class="fas fa-chart-line"></i></div>
+                <div class="card-content">
+                    <span class="card-category">Negócios</span>
+                    <h3>Gestão Financeira</h3>
+                    <p>Gerenciando finanças do seu negócio com estratégias práticas</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"><i class="fas fa-bullhorn"></i></div>
+                <div class="card-content">
+                    <span class="card-category">Marketing</span>
+                    <h3>Marketing Digital</h3>
+                    <p>Domine as principais estratégias de marketing digital</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"><i class="fas fa-lightbulb"></i></div>
+                <div class="card-content">
+                    <span class="card-category">Inovação</span>
+                    <h3>Inovação e Modelo</h3>
+                    <p>Crie modelos de negócios inovadores e escaláveis</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"><i class="fas fa-people-arrows"></i></div>
+                <div class="card-content">
+                    <span class="card-category">Liderança</span>
+                    <h3>Liderança e Equipes</h3>
+                    <p>Desenvolva habilidades de liderança eficaz</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"><i class="fas fa-handshake"></i></div>
+                <div class="card-content">
+                    <span class="card-category">Networking</span>
+                    <h3>Networking Estratégico</h3>
+                    <p>Construa relacionamentos profissionais sólidos</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"><i class="fas fa-rocket"></i></div>
+                <div class="card-content">
+                    <span class="card-category">Startup</span>
+                    <h3>Startup Academy</h3>
+                    <p>Do zero ao crescimento: transforme sua ideia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="mentores">
+        <div class="section-title">Nossos Mentores</div>
+        <div class="section-subtitle">Mentores experientes prontos para guiar sua jornada com match personalizado de acordo com seu perfil</div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-image"><i class="fas fa-user-circle"></i></div>
+                <div class="card-content">
+                    <h3>Sandra Costa</h3>
+                    <span class="card-category">Tecnologia</span>
+                    <p>20 anos em startups tech, CEO em 3 empresas</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"><i class="fas fa-user-circle"></i></div>
+                <div class="card-content">
+                    <h3>Patrícia Oliveira</h3>
+                    <span class="card-category">Marketing</span>
+                    <p>Fundadora de agência digital, 500+ clientes</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"><i class="fas fa-user-circle"></i></div>
+                <div class="card-content">
+                    <h3>Juliana Silva</h3>
+                    <span class="card-category">Finanças</span>
+                    <p>CFO em Fortune 500, MBA Stanford</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cadastro-mentor">
+        <div class="section-title">Torne-se um Mentor</div>
+        <div class="section-subtitle">Compartilhe sua experiência e impacte vidas com matches personalizados</div>
+        <div class="form-container">
+            <form onsubmit="handleMentorSubmit(event)">
+                <div class="form-group">
+                    <label>Nome Completo *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="tel">
+                </div>
+                <div class="form-group">
+                    <label>Área de Especialização *</label>
+                    <select required>
+                        <option>Tecnologia</option>
+                        <option>Marketing</option>
+                        <option>Finanças</option>
+                        <option>Estratégia</option>
+                        <option>Operações</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Experiência Profissional *</label>
+                    <textarea rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Palavras-chave *</label>
+                    <input type="text" placeholder="ex: startup, inovação, liderança" required>
+                </div>
+                <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Registrar</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section-alt" id="contato">
+        <div class="section-title">Entre em Contato</div>
+        <div class="section-subtitle">Tire suas dúvidas ou saiba mais sobre a MEG</div>
+        <div style="text-align: center;">
+            <p style="margin: 1rem 0;"><i class="fas fa-envelope" style="color: var(--primary-color); margin-right: 0.5rem;"></i> contato@meg-goianas.com.br</p>
+            <p style="margin: 1rem 0;"><i class="fas fa-phone" style="color: var(--primary-color); margin-right: 0.5rem;"></i> (62) 3000-0000</p>
+            <p style="margin: 1rem 0;"><i class="fas fa-map-marker-alt" style="color: var(--primary-color); margin-right: 0.5rem;"></i> Goiânia - GO</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre MEG</h4>
+                <p>Plataforma dedicada ao empoderamento feminino no ecossistema de empreendedorismo goiano</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <a href="#sobre">Sobre</a>
+                <a href="#capacitacao">Capacitação</a>
+                <a href="#mentores">Mentoras</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleMentorSubmit(e) {
+            e.preventDefault();
+            alert('Obrigado por se registrar como mentor! Entraremos em contato em breve.');
+            e.target.reset();
+        }
+
+        function scrollTo(id) {
+            document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+        }
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            font-weight: 700;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        .hero:hover {
+            transform: translateY(-5px);
+        }
+        .hero h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        .btn i {
+            margin-right: 10px;
+        }
+        .section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #ff758c;
+            box-shadow: 0 0 10px rgba(255, 117, 140, 0.3);
+        }
+        .mentor-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .mentor-card:hover {
+            transform: translateY(-5px);
+        }
+        .mentor-card h3 {
+            margin-top: 0;
+            color: #ff758c;
+        }
+        .mentor-card .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .keyword {
+            background: #ff758c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+        footer p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero p {
+                font-size: 1.2em;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-rocket"></i> Plataforma de Integração e Orientação</h1>
+        <nav>
+            <a href="#" onclick="showSection('hero')">Início</a>
+            <a href="#" onclick="showSection('mentors')">Mentoras</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="hero active" id="hero">
+            <h1>Bem-vinda à Nossa Plataforma!</h1>
+            <p>Empoderamento, inovação e crescimento para mulheres empreendedoras.</p>
+            <button class="btn" onclick="showSection('login')"><i class="fas fa-sign-in-alt"></i> Login</button>
+            <button class="btn" onclick="showSection('questionnaire')"><i class="fas fa-clipboard-list"></i> Questionário</button>
+        </div>
+
+        <div class="section" id="mentors">
+            <h2><i class="fas fa-users"></i> Mentoras Disponíveis</h2>
+            <p>Encontre mentoras especializadas para te guiar em sua jornada empreendedora.</p>
+            <button class="btn" onclick="showSection('register-mentor')"><i class="fas fa-user-plus"></i> Quero ser Mentora</button>
+            <button class="btn" onclick="showSection('login-mentor')"><i class="fas fa-sign-in-alt"></i> Login Mentora</button>
+            <div id="mentors-list"></div>
+            <button class="btn" onclick="showSection('hero')" style="background: #666;"><i class="fas fa-arrow-left"></i> Voltar</button>
+        </div>
+
+        <div class="section" id="register-mentor">
+            <h2><i class="fas fa-user-plus"></i> Registrar como Mentora</h2>
+            <form id="register-mentor-form">
+                <div class="form-group">
+                    <label for="mentor-name"><i class="fas fa-user"></i> Nome completo:</label>
+                    <input type="text" id="mentor-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="mentor-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-password"><i class="fas fa-lock"></i> Senha:</label>
+                    <input type="password" id="mentor-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-age"><i class="fas fa-birthday-cake"></i> Idade:</label>
+                    <input type="number" id="mentor-age" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-expertise"><i class="fas fa-briefcase"></i> Área de especialização:</label>
+                    <select id="mentor-expertise" required>
+                        <option value="">Selecione</option>
+                        <option value="tech">Tecnologia</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="finance">Finanças</option>
+                        <option value="operations">Operações</option>
+                        <option value="strategy">Estratégia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-experience"><i class="fas fa-star"></i> Experiência (descreva):</label>
+                    <textarea id="mentor-experience" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-keywords"><i class="fas fa-tags"></i> Palavras-chave (separadas por vírgula):</label>
+                    <input type="text" id="mentor-keywords" placeholder="ex: startup, inovação, liderança" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-bio"><i class="fas fa-info-circle"></i> Biografia curta:</label>
+                    <textarea id="mentor-bio" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Registrar</button>
+            </form>
+            <button class="btn" onclick="showSection('mentors')" style="background: #666;"><i class="fas fa-arrow-left"></i> Voltar</button>
+        </div>
+
+        <div class="section" id="login-mentor">
+            <h2><i class="fas fa-sign-in-alt"></i> Login Mentora</h2>
+            <form id="login-mentor-form">
+                <div class="form-group">
+                    <label for="login-mentor-email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="login-mentor-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-mentor-password"><i class="fas fa-lock"></i> Senha:</label>
+                    <input type="password" id="login-mentor-password" required>
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-arrow-right"></i> Entrar</button>
+            </form>
+            <button class="btn" onclick="showSection('mentors')" style="background: #666;"><i class="fas fa-arrow-left"></i> Voltar</button>
+        </div>
+
+        <div class="section" id="login">
+            <h2><i class="fas fa-user-circle"></i> Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password"><i class="fas fa-lock"></i> Senha:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-arrow-right"></i> Entrar</button>
+            </form>
+            <button class="btn" onclick="showSection('hero')" style="background: #666;"><i class="fas fa-arrow-left"></i> Voltar</button>
+        </div>
+
+        <div class="section" id="questionnaire">
+            <h2><i class="fas fa-question-circle"></i> Questionário Inicial</h2>
+            <form id="questionnaire-form">
+                <div class="form-group">
+                    <label for="user-name"><i class="fas fa-user"></i> Nome completo:</label>
+                    <input type="text" id="user-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-age"><i class="fas fa-birthday-cake"></i> Idade:</label>
+                    <input type="number" id="user-age" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-education"><i class="fas fa-graduation-cap"></i> Nível de escolaridade:</label>
+                    <select id="user-education" required>
+                        <option value="">Selecione</option>
+                        <option value="fundamental">Ensino Fundamental</option>
+                        <option value="medio">Ensino Médio</option>
+                        <option value="superior">Ensino Superior</option>
+                        <option value="pos">Pós-graduação</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="user-experience"><i class="fas fa-briefcase"></i> Experiência empreendedora (descreva):</label>
+                    <textarea id="user-experience" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="user-challenges"><i class="fas fa-exclamation-triangle"></i> Desafios enfrentados como mulher empreendedora:</label>
+                    <textarea id="user-challenges" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="user-goals"><i class="fas fa-bullseye"></i> Objetivos para os próximos anos:</label>
+                    <textarea id="user-goals" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="user-support"><i class="fas fa-hands-helping"></i> Que tipo de apoio você precisa?</label>
+                    <textarea id="user-support" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Enviar Questionário</button>
+            </form>
+            <button class="btn" onclick="showSection('hero')" style="background: #666;"><i class="fas fa-arrow-left"></i> Voltar</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 Plataforma para Mulheres Empreendedoras. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section, .hero').forEach(el => el.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            if (sectionId === 'mentors') {
+                loadMentors();
+            }
+        }
+
+        function loadMentors() {
+            fetch('/mentors')
+                .then(response => response.json())
+                .then(mentors => {
+                    const mentorsList = document.getElementById('mentors-list');
+                    mentorsList.innerHTML = mentors.map(mentor => `
+                        <div class="mentor-card">
+                            <h3>${mentor.name}</h3>
+                            <p><strong>Especialização:</strong> ${mentor.expertise.join(', ')}</p>
+                            <p>${mentor.bio}</p>
+                            <div class="keywords">
+                                ${mentor.keywords.map(keyword => `<span class="keyword">${keyword}</span>`).join('')}
+                            </div>
+                            <button class="btn" onclick="requestMentoring(${mentor.id})"><i class="fas fa-handshake"></i> Solicitar Mentoria</button>
+                        </div>
+                    `).join('');
+                })
+                .catch(error => console.error('Erro ao carregar mentoras:', error));
+        }
+
+        function requestMentoring(mentorId) {
+            // Aqui você pode implementar a lógica para solicitar mentoria
+            alert('Funcionalidade de solicitação de mentoria será implementada em breve!');
+        }
+
+        // Handle register mentor form
+        document.getElementById('register-mentor-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const keywords = document.getElementById('mentor-keywords').value.split(',').map(k => k.trim());
+            const data = {
+                name: document.getElementById('mentor-name').value,
+                email: document.getElementById('mentor-email').value,
+                password: document.getElementById('mentor-password').value,
+                age: document.getElementById('mentor-age').value,
+                expertise: [document.getElementById('mentor-expertise').value],
+                experience: document.getElementById('mentor-experience').value,
+                keywords: keywords,
+                bio: document.getElementById('mentor-bio').value
+            };
+            const response = await fetch('/register-mentor', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.message);
+            if (result.success) {
+                showSection('mentors');
+            }
+        });
+
+        // Handle login mentor form
+        document.getElementById('login-mentor-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-mentor-email').value;
+            const password = document.getElementById('login-mentor-password').value;
+            const response = await fetch('/login-mentor', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const result = await response.json();
+            if (result.success) {
+                localStorage.setItem('mentorToken', result.token);
+                alert('Login realizado com sucesso!');
+                // Aqui você pode redirecionar para um dashboard de mentora
+            } else {
+                alert(result.message);
+            }
+        });
+
+        // Handle login form
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const result = await response.json();
+            if (result.success) {
+                localStorage.setItem('token', result.token);
+                alert('Login realizado com sucesso!');
+                // Aqui você pode redirecionar para um dashboard
+            } else {
+                alert(result.message);
+            }
+        });
+
+        // Handle questionnaire form
+        document.getElementById('questionnaire-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                name: document.getElementById('user-name').value,
+                age: document.getElementById('user-age').value,
+                education: document.getElementById('user-education').value,
+                experience: document.getElementById('user-experience').value,
+                challenges: document.getElementById('user-challenges').value,
+                goals: document.getElementById('user-goals').value,
+                support: document.getElementById('user-support').value
+            };
+            const response = await fetch('/questionnaire', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.message);
+            if (result.success) {
+                // Após enviar o questionário, sugerir mentoras baseadas nas respostas
+                const keywords = extractKeywords(data);
+                suggestMentors(keywords);
+            }
+        });
+
+        function extractKeywords(data) {
+            // Algoritmo simples para extrair palavras-chave do questionário
+            const text = `${data.experience} ${data.challenges} ${data.goals} ${data.support}`.toLowerCase();
+            const commonKeywords = ['startup', 'inovação', 'liderança', 'marketing', 'finanças', 'tecnologia', 'vendas', 'produto', 'equipe', 'crescimento'];
+            return commonKeywords.filter(keyword => text.includes(keyword));
+        }
+
+        function suggestMentors(keywords) {
+            fetch('/match-mentors', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ keywords })
+            })
+            .then(response => response.json())
+            .then(matches => {
+                if (matches.length > 0) {
+                    const suggestions = matches.map(match => `${match.name} (Pontuação: ${match.matchScore})`).join('\n');
+                    alert(`Mentoras sugeridas baseadas no seu perfil:\n${suggestions}\n\nAcesse a aba "Mentoras" para ver todas as opções!`);
+                } else {
+                    alert('Nenhuma mentora encontrada com essas características. Tente novamente mais tarde!');
+                }
+            })
+            .catch(error => console.error('Erro ao sugerir mentoras:', error));
+        }
+    </script>
+</body>
+</html>

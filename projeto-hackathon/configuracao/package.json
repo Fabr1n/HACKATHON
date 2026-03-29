@@ -1,0 +1,17 @@
+{
+  "name": "plataforma-mulheres-empreendedoras",
+  "version": "1.0.0",
+  "description": "Plataforma para integrar e orientar mulheres empreendedoras",
+  "main": "backend/backendexpandido.js",
+  "scripts": {
+    "start": "node backend/backendexpandido.js",
+    "dev": "node backend/backendexpandido.js",
+    "legacy": "node backend/backendbase.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

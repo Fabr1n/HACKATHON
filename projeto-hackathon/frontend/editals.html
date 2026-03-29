@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editais e Oportunidades - Plataforma para Mulheres Empreendedoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .top-bar {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .filter-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .filter-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .filter-group select, .filter-group input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95em;
+            transition: border-color 0.3s ease;
+        }
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+        .btn-secondary:hover {
+            background: #ccc;
+        }
+        .edital-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .edital-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #ff6b6b;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .edital-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .edital-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        .edital-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin: 0;
+        }
+        .edital-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .status-open {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+        .status-closing {
+            background: #ffe0b2;
+            color: #e65100;
+        }
+        .status-closed {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+        .edital-org {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        .edital-description {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .edital-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .meta-item {
+            font-size: 0.9em;
+        }
+        .meta-label {
+            color: #999;
+            font-weight: 600;
+        }
+        .meta-value {
+            color: #333;
+            font-weight: 700;
+        }
+        .edital-deadline {
+            background: #fff3e0;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .days-left {
+            font-size: 0.85em;
+            color: #e65100;
+            font-weight: 600;
+        }
+        .match-score {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .match-bar {
+            flex: 1;
+            height: 8px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .match-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50 0%, #8bc34a 100%);
+        }
+        .match-text {
+            font-weight: 600;
+            color: #4caf50;
+            min-width: 50px;
+        }
+        .edital-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .btn-small {
+            padding: 10px;
+            font-size: 0.9em;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-apply {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+        }
+        .btn-apply:hover {
+            transform: translateY(-2px);
+        }
+        .btn-details {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .btn-details:hover {
+            background: #e0e0e0;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+        .empty-state i {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .stat-card .number {
+            font-size: 2.5em;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        .stat-card .label {
+            color: #666;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .modal-close {
+            float: right;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #999;
+        }
+        .modal-close:hover {
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .edital-list {
+                grid-template-columns: 1fr;
+            }
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+            .top-bar h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1><i class="fas fa-file-contract"></i> Editais e Oportunidades</h1>
+        <p>Encontre as melhores oportunidades para sua empresa</p>
+    </div>
+
+    <div class="container">
+        <!-- Estatísticas -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number" id="stat-total">0</div>
+                <div class="label">Editais Disponíveis</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="stat-open">0</div>
+                <div class="label">Abertos Agora</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="stat-value">R$ 0</div>
+                <div class="label">Valor Total Disponível</div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filter-section">
+            <h2><i class="fas fa-filter"></i> Filtrar Oportunidades</h2>
+            
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label>Setor</label>
+                    <select id="filterType">
+                        <option value="">Todos os setores</option>
+                        <option value="tech">Tecnologia</option>
+                        <option value="fashion">Moda</option>
+                        <option value="food">Alimentos</option>
+                        <option value="beauty">Beleza</option>
+                        <option value="consulting">Consultoria</option>
+                        <option value="education">Educação</option>
+                        <option value="health">Saúde</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Valor Mínimo (R$)</label>
+                    <input type="number" id="filterMinValue" placeholder="0">
+                </div>
+
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="filterStatus">
+                        <option value="">Todos</option>
+                        <option value="open">Abertos</option>
+                        <option value="closing">Fechando</option>
+                        <option value="closed">Fechados</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="btn btn-primary" onclick="applyFilters()">
+                    <i class="fas fa-search"></i> Filtrar
+                </button>
+                <button class="btn btn-secondary" onclick="clearFilters()">
+                    <i class="fas fa-times"></i> Limpar
+                </button>
+            </div>
+        </div>
+
+        <!-- Lista de Editais -->
+        <div class="section">
+            <h2><i class="fas fa-list"></i> Oportunidades</h2>
+            <div id="edalsList" class="edital-list"></div>
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <i class="fas fa-inbox"></i>
+                <h3>Nenhum edital encontrado</h3>
+                <p>Tente ajustar seus filtros ou volte em breve para novas oportunidades</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/login';
+        }
+
+        const editalDatabase = [
+            {
+                id: 1,
+                title: "Programa de Apoio a Mulheres Empreendedoras 2026",
+                organization: "BNDES - Banco Nacional de Desenvolvimento Econômico e Social",
+                description: "Financiamento de até R$ 300 mil para microempreendedoras com taxas especiais.",
+                amount: 300000,
+                targetTypes: ['tech', 'fashion', 'food', 'beauty', 'consulting'],
+                minRevenue: 0,
+                maxRevenue: 1000000,
+                deadline: "2026-06-30",
+                status: "open",
+                requirements: "Empresa formalizada, mulher proprietária, faturamento até R$ 1M"
+            },
+            {
+                id: 2,
+                title: "Edital de Inovação Feminina - TechWomen2026",
+                organization: "FINEP - Financiadora de Inovação e Pesquisa",
+                description: "Apoio a projetos inovadores liderados por mulheres em tecnologia.",
+                amount: 500000,
+                targetTypes: ['tech'],
+                minRevenue: 0,
+                maxRevenue: 5000000,
+                deadline: "2026-05-15",
+                status: "closing",
+                requirements: "Projeto com inovação significativa, equipe com pelo menos 50% mulheres"
+            },
+            {
+                id: 3,
+                title: "StartUp Brasil Feminino",
+                organization: "SEBRAE - Serviço Brasileiro de Apoio às Micro e Pequenas Empresas",
+                description: "Mentoría, recursos e networking para startups de mulheres empreendedoras.",
+                amount: 100000,
+                targetTypes: ['tech', 'consulting'],
+                minRevenue: 0,
+                maxRevenue: 500000,
+                deadline: "2026-07-20",
+                status: "open",
+                requirements: "Startup em estágio pré-seed ou seed, empreendedora mulher"
+            },
+            {
+                id: 4,
+                title: "Programa de Financiamento de Moda Sustentável",
+                organization: "Instituto Ethos",
+                description: "Apoio a empresas de moda com foco em sustentabilidade ambiental e social.",
+                amount: 200000,
+                targetTypes: ['fashion'],
+                minRevenue: 0,
+                maxRevenue: 2000000,
+                deadline: "2026-04-30",
+                status: "closing",
+                requirements: "Práticas sustentáveis, comércio justo, empoderamento feminino"
+            },
+            {
+                id: 5,
+                title: "Edital de Alimentos Artesanais e Orgânicos",
+                organization: "MAPA - Ministério da Agricultura e Pecuária",
+                description: "Financiamento para pequenos produtores de alimentos naturais e orgânicos.",
+                amount: 150000,
+                targetTypes: ['food'],
+                minRevenue: 0,
+                maxRevenue: 500000,
+                deadline: "2026-08-15",
+                status: "open",
+                requirements: "Certificação orgânica ou em processo de certificação"
+            },
+            {
+                id: 6,
+                title: "Programa Beleza Inclusiva",
+                organization: "BNDES Social",
+                description: "Apoio a empresas de beleza com foco em inclusão e empoderamento feminino.",
+                amount: 120000,
+                targetTypes: ['beauty'],
+                minRevenue: 0,
+                maxRevenue: 800000,
+                deadline: "2026-06-10",
+                status: "open",
+                requirements: "Foco em inclusão de mulheres em posições de liderança"
+            },
+            {
+                id: 7,
+                title: "Editais de Educação para Mulheres",
+                organization: "Capes - Coordenação de Aperfeiçoamento de Pessoal de Nível Superior",
+                description: "Bolsas e financiamento para educação e treinamento feminino.",
+                amount: 250000,
+                targetTypes: ['education'],
+                minRevenue: 0,
+                maxRevenue: 1000000,
+                deadline: "2026-05-25",
+                status: "open",
+                requirements: "Projeto de educação com conteúdo de qualidade"
+            },
+            {
+                id: 8,
+                title: "Programa de Aceleração de Startups Femininas",
+                organization: "Google for Startups",
+                description: "Aceleração, investimento e mentoría para startups lideradas por mulheres.",
+                amount: 300000,
+                targetTypes: ['tech'],
+                minRevenue: 0,
+                maxRevenue: 2000000,
+                deadline: "2026-09-30",
+                status: "open",
+                requirements: "MVP desenvolvido, tração inicial, equipe escalável"
+            }
+        ];
+
+        let filteredEditals = [...editalDatabase];
+
+        function calculateDaysLeft(deadline) {
+            const today = new Date();
+            const deadlineDate = new Date(deadline);
+            const daysLeft = Math.ceil((deadlineDate - today) / (1000 * 60 * 60 * 24));
+            return daysLeft;
+        }
+
+        function getStatus(daysLeft) {
+            if (daysLeft < 0) return 'closed';
+            if (daysLeft <= 7) return 'closing';
+            return 'open';
+        }
+
+        function renderEditals() {
+            const edalsList = document.getElementById('edalsList');
+            const emptyState = document.getElementById('emptyState');
+
+            if (filteredEditals.length === 0) {
+                edalsList.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            edalsList.innerHTML = filteredEditals.map(edital => {
+                const daysLeft = calculateDaysLeft(edital.deadline);
+                const status = getStatus(daysLeft);
+                const statusClass = `status-${status}`;
+                const statusText = status === 'open' ? 'Aberto' : status === 'closing' ? 'Fechando em breve' : 'Fechado';
+
+                return `
+                    <div class="edital-card">
+                        <div class="edital-header">
+                            <h3 class="edital-title">${edital.title}</h3>
+                            <span class="edital-status ${statusClass}">${statusText}</span>
+                        </div>
+                        <p class="edital-org"><i class="fas fa-building"></i> ${edital.organization}</p>
+                        <p class="edital-description">${edital.description}</p>
+                        
+                        <div class="edital-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Valor:</span>
+                                <span class="meta-value">R$ ${(edital.amount / 1000).toFixed(0)}k</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Dias Restantes:</span>
+                                <span class="meta-value">${daysLeft} dias</span>
+                            </div>
+                        </div>
+
+                        <div class="match-score">
+                            <div class="match-bar">
+                                <div class="match-fill" style="width: 75%;"></div>
+                            </div>
+                            <span class="match-text">75%</span>
+                        </div>
+
+                        <div class="edital-buttons">
+                            <button class="btn-small btn-apply" onclick="applyEdital(${edital.id})">
+                                <i class="fas fa-paper-plane"></i> Candidatar
+                            </button>
+                            <button class="btn-small btn-details" onclick="showDetails(${edital.id})">
+                                <i class="fas fa-info-circle"></i> Detalhes
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const total = editalDatabase.length;
+            const open = editalDatabase.filter(e => getStatus(calculateDaysLeft(e.deadline)) !== 'closed').length;
+            const totalValue = editalDatabase.reduce((sum, e) => sum + e.amount, 0);
+
+            document.getElementById('stat-total').textContent = total;
+            document.getElementById('stat-open').textContent = open;
+            document.getElementById('stat-value').textContent = 'R$ ' + (totalValue / 1000000).toFixed(1) + 'M';
+        }
+
+        function applyFilters() {
+            const type = document.getElementById('filterType').value;
+            const minValue = parseFloat(document.getElementById('filterMinValue').value) || 0;
+            const status = document.getElementById('filterStatus').value;
+
+            filteredEditals = editalDatabase.filter(edital => {
+                const daysLeft = calculateDaysLeft(edital.deadline);
+                const editalStatus = getStatus(daysLeft);
+                
+                const typeMatch = !type || edital.targetTypes.includes(type);
+                const valueMatch = edital.amount >= minValue;
+                const statusMatch = !status || editalStatus === status;
+
+                return typeMatch && valueMatch && statusMatch;
+            });
+
+            renderEditals();
+        }
+
+        function clearFilters() {
+            document.getElementById('filterType').value = '';
+            document.getElementById('filterMinValue').value = '';
+            document.getElementById('filterStatus').value = '';
+            filteredEditals = [...editalDatabase];
+            renderEditals();
+        }
+
+        function applyEdital(editalId) {
+            const edital = editalDatabase.find(e => e.id === editalId);
+            
+            fetch('/api/editals/apply', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ editalId })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`✅ Você se candidatou a "${edital.title}"! Boa sorte!`);
+                } else {
+                    alert('Erro ao candidatar');
+                }
+            })
+            .catch(err => alert('Erro de conexão'));
+        }
+
+        function showDetails(editalId) {
+            const edital = editalDatabase.find(e => e.id === editalId);
+            const daysLeft = calculateDaysLeft(edital.deadline);
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <h2>${edital.title}</h2>
+                <p><strong>Organização:</strong> ${edital.organization}</p>
+                <p><strong>Descrição:</strong> ${edital.description}</p>
+                <p><strong>Valor Disponível:</strong> R$ ${(edital.amount / 1000).toFixed(0)}k</p>
+                <p><strong>Prazo:</strong> ${new Date(edital.deadline).toLocaleDateString('pt-BR')} (${daysLeft} dias restantes)</p>
+                <p><strong>Requisitos:</strong> ${edital.requirements}</p>
+                <p><strong>Setores Focados:</strong> ${edital.targetTypes.join(', ')}</p>
+                <button class="btn btn-primary" onclick="applyEdital(${edital.id}); closeModal();">
+                    <i class="fas fa-paper-plane"></i> Candidatar
+                </button>
+            `;
+            document.getElementById('detailsModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('detailsModal').classList.remove('show');
+        }
+
+        // Render inicial
+        renderEditals();
+    </script>
+</body>
+</html>

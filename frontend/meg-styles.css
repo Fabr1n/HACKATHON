@@ -1,0 +1,51 @@
+/* MEG - Mulheres Empreendedoras Goianas
+   Design System - Colors & Styles
+*/
+
+:root {
+    /* Cores Primárias */
+    --meg-primary: #15803d;          /* Verde Cerrado Profundo */
+    --meg-accent: #ca8a04;           /* Dourado Ipê Amarelo */
+    --meg-dark: #1a1a1a;             /* Cinza Escuro */
+    --meg-light: #f5f5f5;            /* Cinza Claro */
+    
+    /* Fontes */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
+}
+
+/* Paleta de Cores Tailwind Customizadas */
+.bg-meg-primary { background-color: #15803d; }
+.text-meg-primary { color: #15803d; }
+.border-meg-primary { border-color: #15803d; }
+
+.bg-meg-accent { background-color: #ca8a04; }
+.text-meg-accent { color: #ca8a04; }
+.border-meg-accent { border-color: #ca8a04; }
+
+/* Efeito de Vidro (Frosted Glass) */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Transições Suaves */
+.transition {
+    transition: all 0.3s ease;
+}
+
+/* Sombras MEG */
+.shadow-meg {
+    box-shadow: 0 10px 25px rgba(21, 128, 61, 0.1);
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}

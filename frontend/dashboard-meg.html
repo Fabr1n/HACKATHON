@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MEG Goianas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="meg-styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        
+        .dashboard-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #15803d;
+            transition: all 0.3s ease;
+        }
+        
+        .dashboard-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #15803d 0%, #ca8a04 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="landing-meg.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center shadow-md">
+                    <span class="text-xl font-bold text-white">M</span>
+                </div>
+                <h1 class="text-2xl font-bold text-green-700">MEG <span class="text-sm font-normal text-gray-500">Goianas</span></h1>
+            </a>
+            
+            <div class="hidden md:flex space-x-6 items-center text-gray-700">
+                <a href="dashboard-meg.html" class="hover:text-green-700 transition font-semibold">Dashboard</a>
+                <a href="videochamadas-novo.html" class="hover:text-green-700 transition">Mentorias</a>
+                <a href="landing-meg.html" class="hover:text-green-700 transition">Home</a>
+                <div id="userMenuNav" class="relative">
+                    <button id="userMenuBtn" class="bg-green-700 text-white px-5 py-2 rounded-full hover:bg-green-800 transition shadow-md flex items-center gap-2">
+                        <i class="fas fa-user-circle"></i> <span id="userName">User</span>
+                    </button>
+                </div>
+            </div>
+            <button class="md:hidden text-green-700 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="p-6 md:p-12 bg-gradient-to-br from-green-700 to-yellow-600 text-white">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl font-bold mb-2">Bem-vinda ao Dashboard!</h1>
+            <p class="text-lg opacity-90">Acompanhe suas oportunidades e mentorias</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="p-6 md:p-12 lg:p-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Stats Row -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="stat-box">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Oportunidades B2B</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Mentorias Agendadas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Linhas de Crédito</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Conexões Ativas</div>
+                </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                
+                <!-- Left Column - Main Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <!-- Oportunidades -->
+                    <div class="dashboard-card">
+                        <h2 class="text-2xl font-bold text-green-700 mb-4">
+                            <i class="fas fa-star mr-2"></i> Oportunidades Recentes
+                        </h2>
+                        
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-yellow-500 pl-4 py-3 bg-yellow-50 rounded">
+                                <h3 class="font-bold text-gray-800">Fornecedor de Alimentos Orgânicos</h3>
+                                <p class="text-sm text-gray-600 mt-1">Empresa: Agricultura Sustentável GO</p>
+                                <p class="text-xs text-yellow-700 font-semibold mt-2">
+                                    <i class="fas fa-calendar mr-1"></i> Prazo: 5 dias
+                                </p>
+                            </div>
+
+                            <div class="border-l-4 border-green-500 pl-4 py-3 bg-green-50 rounded">
+                                <h3 class="font-bold text-gray-800">Crédito BNDES - Programa MPME</h3>
+                                <p class="text-sm text-gray-600 mt-1">Valor disponível: R$ 50.000</p>
+                                <p class="text-xs text-green-700 font-semibold mt-2">
+                                    <i class="fas fa-check-circle mr-1"></i> Pré-aprovado
+                                </p>
+                            </div>
+
+                            <div class="border-l-4 border-blue-500 pl-4 py-3 bg-blue-50 rounded">
+                                <h3 class="font-bold text-gray-800">Parceria B2B - Distribuidora Regional</h3>
+                                <p class="text-sm text-gray-600 mt-1">Potencial de faturamento: R$ 100.000/mês</p>
+                                <p class="text-xs text-blue-700 font-semibold mt-2">
+                                    <i class="fas fa-handshake mr-1"></i> Nova oportunidade
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="landing-meg.html#features" class="inline-block mt-6 text-green-700 font-bold hover:text-green-800">
+                            Ver todas as oportunidades <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Mentorias -->
+                    <div class="dashboard-card">
+                        <h2 class="text-2xl font-bold text-green-700 mb-4">
+                            <i class="fas fa-graduation-cap mr-2"></i> Suas Mentorias
+                        </h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between border p-4 rounded-lg hover:bg-gray-50 transition">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold">
+                                        B
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Beatriz Alves</h4>
+                                        <p class="text-sm text-gray-600">Especialista em Confeitaria</p>
+                                    </div>
+                                </div>
+                                <a href="videochamadas-novo.html" class="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition">
+                                    <i class="fas fa-video mr-1"></i> Agendar
+                                </a>
+                            </div>
+
+                            <div class="flex items-center justify-between border p-4 rounded-lg hover:bg-gray-50 transition">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold">
+                                        A
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Ana Paula Santos</h4>
+                                        <p class="text-sm text-gray-600">Especialista em Tecnologia</p>
+                                    </div>
+                                </div>
+                                <a href="videochamadas-novo.html" class="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition">
+                                    <i class="fas fa-video mr-1"></i> Agendar
+                                </a>
+                            </div>
+                        </div>
+
+                        <a href="videochamadas-novo.html" class="inline-block mt-6 text-green-700 font-bold hover:text-green-800">
+                            Ver todas as mentoras <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Right Column - Sidebar -->
+                <div class="space-y-8">
+                    
+                    <!-- Perfil -->
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-bold text-green-700 mb-4">Meu Perfil</h2>
+                        
+                        <div class="text-center mb-4">
+                            <div class="w-20 h-20 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center text-white text-4xl mx-auto font-bold" id="avatarInitial">
+                                U
+                            </div>
+                        </div>
+                        
+                        <div id="profileInfo" class="space-y-3 text-sm">
+                            <p><strong>Nome:</strong> <span id="profileName">-</span></p>
+                            <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
+                            <p><strong>Telefone:</strong> <span id="profilePhone">-</span></p>
+                        </div>
+
+                        <button onclick="window.location.href='profile.html'" class="w-full mt-6 bg-green-700 text-white font-bold py-2 rounded hover:bg-green-800 transition">
+                            <i class="fas fa-edit mr-2"></i> Editar Perfil
+                        </button>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-bold text-green-700 mb-4">Ações Rápidas</h2>
+                        
+                        <div class="space-y-3">
+                            <a href="videochamadas-novo.html" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded transition">
+                                <i class="fas fa-video text-green-700 text-lg"></i>
+                                <span>Iniciar Videochamada</span>
+                            </a>
+                            <a href="mentor-register.html" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded transition">
+                                <i class="fas fa-heart text-green-700 text-lg"></i>
+                                <span>Virar Mentora</span>
+                            </a>
+                            <a href="landing-meg.html#features" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded transition">
+                                <i class="fas fa-search text-green-700 text-lg"></i>
+                                <span>Buscar Oportunidades</span>
+                            </a>
+                            <a href="contact.html" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded transition">
+                                <i class="fas fa-envelope text-green-700 text-lg"></i>
+                                <span>Entrar em Contato</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Notificações -->
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-bold text-green-700 mb-4">Notificações</h2>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start gap-3 p-3 bg-blue-50 rounded border-l-4 border-blue-500">
+                                <i class="fas fa-bell text-blue-700 mt-1"></i>
+                                <span>Você tem uma novo matching B2B!</span>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-green-50 rounded border-l-4 border-green-500">
+                                <i class="fas fa-check-circle text-green-700 mt-1"></i>
+                                <span>Crédito BNDES pré-aprovado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-10 text-gray-400 border-t-2" style="background-color: #1a1a1a; border-color: #ca8a04;">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                 <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center shadow-md">
+                        <span class="text-xl font-bold text-white">M</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">MEG <span class="text-sm font-normal text-gray-500">Goianas</span></h1>
+                </div>
+                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-white mb-3">Links Rápidos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-yellow-400 transition">Início</a></li>
+                    <li><a href="landing-meg.html#features" class="hover:text-yellow-400 transition">Funcionalidades</a></li>
+                    <li><a href="dashboard-meg.html" class="hover:text-yellow-400 transition">Dashboard</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="videochamadas-novo.html" class="hover:text-yellow-400 transition">Videochamadas</a></li>
+                    <li><a href="mentor-register.html" class="hover:text-yellow-400 transition">Ser Mentor</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-400 transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="text-sm">contato@meggoianas.com.br</p>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-10 border-t border-gray-800 pt-6 text-center text-xs text-gray-600">
+            &copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Script de Autenticação -->
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = megAuth.getCurrentUser();
+            
+            if (!user) {
+                alert('⚠️ Você precisa estar logada para acessar o dashboard');
+                window.location.href = 'login-novo.html';
+                return;
+            }
+            
+            // Preencher informações do usuário
+            document.getElementById('userName').textContent = user.name.split(' ')[0];
+            document.getElementById('profileName').textContent = user.name;
+            document.getElementById('profileEmail').textContent = user.email;
+            document.getElementById('profilePhone').textContent = user.phone || 'Não informado';
+            document.getElementById('avatarInitial').textContent = user.name.charAt(0).toUpperCase();
+        });
+
+        // Menu do usuário
+        document.getElementById('userMenuBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            megAuth.showUserMenu();
+        });
+    </script>
+
+</body>
+</html>

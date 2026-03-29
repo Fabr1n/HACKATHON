@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videochamadas - Plataforma Mulheres Empreendedoras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .header h1 { color: #667eea; margin-bottom: 10px; }
+        .header p { color: #666; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .call-card {
+            text-align: center;
+        }
+        
+        .call-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .call-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .call-description {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .btn.secondary {
+            background: #f0f0f0;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        .btn.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active { display: flex; }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        .close-btn:hover { color: #333; }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .video-frame {
+            background: #000;
+            border-radius: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .video-embed {
+            width: 100%;
+            height: 600px;
+            border-radius: 10px;
+        }
+        
+        .meeting-list {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .meeting-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .meeting-info h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .meeting-info p {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .timer {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #667eea;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .feature-icon {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        
+        .feature-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9em;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .alert.success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-left: 3px solid #4caf50;
+        }
+        
+        .alert.info {
+            background: #e3f2fd;
+            color: #1565c0;
+            border-left: 3px solid #2196f3;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .status-scheduled {
+            background: #ff9800;
+            color: white;
+        }
+        
+        .status-ended {
+            background: #f44336;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .video-embed {
+                height: 300px;
+            }
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-video"></i> Videochamadas & Conferências</h1>
+            <p>Conecte-se face a face com outras empreendedoras, mentores e parceiros</p>
+        </div>
+        
+        <div class="grid">
+            <div class="card call-card">
+                <div class="call-icon"><i class="fas fa-phone"></i></div>
+                <div class="call-title">Iniciar Chamada Rápida</div>
+                <div class="call-description">Comece uma videochamada direta com outro usuário. Perfeito para mentorias 1-a-1 e discussões rápidas.</div>
+                <button class="btn" onclick="openStartCallModal()">
+                    <i class="fas fa-play"></i> Iniciar Agora
+                </button>
+            </div>
+            
+            <div class="card call-card">
+                <div class="call-icon"><i class="fas fa-video"></i></div>
+                <div class="call-title">Agendar Conferência</div>
+                <div class="call-description">Agende uma videochamada para uma data e hora específica. Seus contatos serão notificados.</div>
+                <button class="btn" onclick="openScheduleCallModal()">
+                    <i class="fas fa-calendar"></i> Agendar
+                </button>
+            </div>
+            
+            <div class="card call-card">
+                <div class="call-icon"><i class="fas fa-users"></i></div>
+                <div class="call-title">Reunião em Grupo</div>
+                <div class="call-description">Crie salas de conferência para múltiplos participantes. Ideal para eventos, workshops e reuniões.</div>
+                <button class="btn" onclick="openGroupMeetingModal()">
+                    <i class="fas fa-users"></i> Criar Reunião
+                </button>
+            </div>
+        </div>
+        
+        <!-- Chamadas Agendadas -->
+        <div class="card" style="margin-bottom: 20px;">
+            <h2 style="margin-bottom: 20px; color: #333;">
+                <i class="fas fa-calendar-check"></i> Minhas Chamadas Agendadas
+            </h2>
+            
+            <div class="meeting-list" id="scheduledMeetings">
+                <div class="meeting-item">
+                    <div class="meeting-info">
+                        <h3>Mentoria com Cynthia (Raízen)</h3>
+                        <p><i class="fas fa-clock"></i> Amanhã às 14:30</p>
+                    </div>
+                    <div>
+                        <span class="status-badge status-scheduled">Agendado</span>
+                        <button class="btn" style="margin-top: 10px; width: 120px; padding: 8px;" onclick="joinCall()">
+                            <i class="fas fa-sign-in-alt"></i> Entrar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="meeting-item">
+                    <div class="meeting-info">
+                        <h3>Workshop: Marketing Digital</h3>
+                        <p><i class="fas fa-clock"></i> Sexta 10:00</p>
+                    </div>
+                    <div>
+                        <span class="status-badge status-scheduled">Agendado</span>
+                        <button class="btn" style="margin-top: 10px; width: 120px; padding: 8px;" onclick="joinCall()">
+                            <i class="fas fa-sign-in-alt"></i> Entrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recursos -->
+        <div class="card">
+            <h2 style="margin-bottom: 20px; color: #333;">
+                <i class="fas fa-star"></i> Recursos da Plataforma
+            </h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="feature-name">Criptografado</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-microphone"></i></div>
+                    <div class="feature-name">Áudio Cristalino</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-share-screen"></i></div>
+                    <div class="feature-name">Compartilhamento</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-record-vinyl"></i></div>
+                    <div class="feature-name">Gravação</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="feature-name">Perfil Profissional</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-history"></i></div>
+                    <div class="feature-name">Histórico</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal - Iniciar Chamada -->
+    <div class="modal" id="startCallModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><i class="fas fa-phone"></i> Iniciar Chamada Rápida</span>
+                <button class="close-btn" onclick="closeStartCallModal()">&times;</button>
+            </div>
+            
+            <form onsubmit="startCall(event)">
+                <div class="form-group">
+                    <label for="callRecipient">Selecione um contato <span style="color: red;">*</span></label>
+                    <select id="callRecipient" required onchange="loadContactProfile()">
+                        <option value="">-- Escolha um contato --</option>
+                        <option value="sofia@empreendedora.com">Sofia Santos - Tech Startup</option>
+                        <option value="marina@fashion.com">Marina Costa - Fashion Design</option>
+                        <option value="ana@food.com">Ana Oliveira - Café Artesanal</option>
+                        <option value="lucas@mentor.com">Lucas Mendes - Mentor</option>
+                    </select>
+                </div>
+                
+                <div id="contactProfile" style="display: none; margin-bottom: 20px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+                    <h4 style="margin-bottom: 10px; color: #333;">Informações do Contato</h4>
+                    <p id="profileInfo" style="color: #666;"></p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="callSubject">Assunto (opcional)</label>
+                    <input type="text" id="callSubject" placeholder="Ex: Discussão sobre parceria">
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">
+                    <i class="fas fa-phone"></i> Iniciar Chamada
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal - Agendar Chamada -->
+    <div class="modal" id="scheduleCallModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><i class="fas fa-calendar"></i> Agendar Chamada</span>
+                <button class="close-btn" onclick="closeScheduleCallModal()">&times;</button>
+            </div>
+            
+            <form onsubmit="scheduleCall(event)">
+                <div class="form-group">
+                    <label for="scheduleRecipient">Contato <span style="color: red;">*</span></label>
+                    <select id="scheduleRecipient" required>
+                        <option value="">-- Selecione --</option>
+                        <option value="sofia@empreendedora.com">Sofia Santos</option>
+                        <option value="marina@fashion.com">Marina Costa</option>
+                        <option value="ana@food.com">Ana Oliveira</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="scheduleDate">Data <span style="color: red;">*</span></label>
+                    <input type="date" id="scheduleDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="scheduleTime">Hora <span style="color: red;">*</span></label>
+                    <input type="time" id="scheduleTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="scheduleTopic">Tópico da Reunião <span style="color: red;">*</span></label>
+                    <input type="text" id="scheduleTopic" required placeholder="Ex: Mentoria de Marketing">
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">
+                    <i class="fas fa-calendar-plus"></i> Agendar Reunião
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal - Reunião em Grupo -->
+    <div class="modal" id="groupMeetingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><i class="fas fa-users"></i> Criar Reunião em Grupo</span>
+                <button class="close-btn" onclick="closeGroupMeetingModal()">&times;</button>
+            </div>
+            
+            <form onsubmit="createGroupMeeting(event)">
+                <div class="form-group">
+                    <label for="meetingTitle">Título da Reunião <span style="color: red;">*</span></label>
+                    <input type="text" id="meetingTitle" required placeholder="Ex: Workshop de Inovação">
+                </div>
+                
+                <div class="form-group">
+                    <label for="meetingDescription">Descrição <span style="color: red;">*</span></label>
+                    <textarea id="meetingDescription" style="width: 100%; min-height: 80px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Roboto', sans-serif;" required placeholder="Descreva os objetivos da reunião..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="meetingDate">Data <span style="color: red;">*</span></label>
+                    <input type="date" id="meetingDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="meetingTime">Hora <span style="color: red;">*</span></label>
+                    <input type="time" id="meetingTime" required>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">
+                    <i class="fas fa-video"></i> Criar Reunião
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal - Chamada em Andamento -->
+    <div class="modal" id="callModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <span><i class="fas fa-video"></i> Chamada em Andamento</span>
+                <button class="close-btn" onclick="endCall()">&times;</button>
+            </div>
+            
+            <!-- Embed Jitsi Meet -->
+            <div id="jitsi-container" class="video-frame">
+                <p>Carregando integração de vídeo...</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <div class="timer">
+                    Duração: <span id="callDuration">00:00</span>
+                </div>
+                <button class="btn secondary" onclick="toggleMute()">
+                    <i class="fas fa-microphone-slash"></i> Mutar
+                </button>
+                <button class="btn secondary" onclick="toggleVideo()" style="margin-left: 10px;">
+                    <i class="fas fa-video-slash"></i> Desativar Câmera
+                </button>
+                <button class="btn" onclick="endCall()" style="margin-left: 10px; background: #f44336;">
+                    <i class="fas fa-phone"></i> Encerrar Chamada
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let token = localStorage.getItem('token');
+        let userEmail = localStorage.getItem('userEmail');
+        let callStartTime;
+        let durationInterval;
+        
+        if (!token) {
+            window.location.href = '/login';
+        }
+        
+        // Modais - Iniciar Chamada
+        function openStartCallModal() {
+            document.getElementById('startCallModal').classList.add('active');
+        }
+        
+        function closeStartCallModal() {
+            document.getElementById('startCallModal').classList.remove('active');
+        }
+        
+        function loadContactProfile() {
+            const email = document.getElementById('callRecipient').value;
+            if (!email) return;
+            
+            const profiles = {
+                'sofia@empreendedora.com': 'Sofia Santos | Tech Startup | Especialista em IA',
+                'marina@fashion.com': 'Marina Costa | Fashion Design | 5 anos de experiência',
+                'ana@food.com': 'Ana Oliveira | Café Artesanal | Líder em sustentabilidade',
+                'lucas@mentor.com': 'Lucas Mendes | Mentor | 15 anos em startups'
+            };
+            
+            document.getElementById('profileInfo').textContent = profiles[email] || 'Contato não encontrado';
+            document.getElementById('contactProfile').style.display = 'block';
+        }
+        
+        function startCall(e) {
+            e.preventDefault();
+            const recipient = document.getElementById('callRecipient').value;
+            const subject = document.getElementById('callSubject').value;
+            
+            if (!recipient) {
+                alert('Selecione um contato');
+                return;
+            }
+            
+            // Salvar chamada no servidor
+            fetch('/api/video/start', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ targetEmail: recipient })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    closeStartCallModal();
+                    joinCall();
+                }
+            })
+            .catch(err => console.error('Erro:', err));
+        }
+        
+        // Modais - Agendar
+        function openScheduleCallModal() {
+            document.getElementById('scheduleCallModal').classList.add('active');
+        }
+        
+        function closeScheduleCallModal() {
+            document.getElementById('scheduleCallModal').classList.remove('active');
+        }
+        
+        function scheduleCall(e) {
+            e.preventDefault();
+            alert('Chamada agendada com sucesso! O contato receberá uma notificação.');
+            closeScheduleCallModal();
+        }
+        
+        // Modal - Reunião em Grupo
+        function openGroupMeetingModal() {
+            document.getElementById('groupMeetingModal').classList.add('active');
+        }
+        
+        function closeGroupMeetingModal() {
+            document.getElementById('groupMeetingModal').classList.remove('active');
+        }
+        
+        function createGroupMeeting(e) {
+            e.preventDefault();
+            alert('Reunião em grupo criada! Link compartilhado com os participantes.');
+            closeGroupMeetingModal();
+        }
+        
+        // Chamada em Andamento
+        function joinCall() {
+            document.getElementById('callModal').classList.add('active');
+            callStartTime = Date.now();
+            
+            // Iniciar contador de duração
+            durationInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - callStartTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('callDuration').textContent = 
+                    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }, 1000);
+            
+            // Inicializar Jitsi Meet
+            initJitsi();
+        }
+        
+        function initJitsi() {
+            const container = document.getElementById('jitsi-container');
+            const roomName = 'MulheresEmpreendedoras_' + Math.random().toString(36).substr(2, 9);
+            
+            // Script do Jitsi Meet
+            const script = document.createElement('script');
+            script.src = 'https://meet.jit.si/external_api.js';
+            document.head.appendChild(script);
+            
+            script.onload = () => {
+                container.innerHTML = '';
+                
+                const options = {
+                    roomName: roomName,
+                    width: '100%',
+                    height: '100%',
+                    parentNode: container,
+                    userInfo: {
+                        displayName: userEmail.split('@')[0]
+                    },
+                    interfaceConfigOverrides: {
+                        DEFAULT_REMOTE_DISPLAY_NAME_KEY: 'Nick',
+                        DISABLE_DOMINANT_SPEAKER_INDICATOR: false,
+                        SHOW_JITSI_WATERMARK: true
+                    }
+                };
+                
+                const api = new JitsiMeetExternalAPI('meet.jit.si', options);
+            };
+        }
+        
+        function toggleMute() {
+            alert('Microfone ativado/desativado');
+        }
+        
+        function toggleVideo() {
+            alert('Câmera ativada/desativada');
+        }
+        
+        function endCall() {
+            clearInterval(durationInterval);
+            document.getElementById('callModal').classList.remove('active');
+            alert('Chamada encerrada');
+        }
+        
+        // Verificar se há chamadas agendadas ao carregar
+        window.addEventListener('load', () => {
+            console.log('Página de videochamadas carregada');
+            // Aqui você poderia carregar as chamadas agendadas do servidor
+        });
+    </script>
+</body>
+</html>

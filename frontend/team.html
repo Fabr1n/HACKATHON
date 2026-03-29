@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe MEG - Mulheres Empreendedoras Goianas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="meg-styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 24px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(21, 128, 61, 0.2);
+            border-color: #15803d;
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #15803d 0%, #ca8a04 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 8px 16px rgba(21, 128, 61, 0.3);
+        }
+        
+        .role-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #15803d 0%, #ca8a04 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .mission-item {
+            background: #f5f5f5;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 12px 0;
+            text-align: left;
+            border-left: 4px solid #15803d;
+        }
+        
+        .mission-item strong {
+            color: #15803d;
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 p-4 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="landing-meg.html" class="flex items-center space-x-3">
+                <img src="../logos/2-removebg-preview.png" alt="MEG Logo" class="h-12 w-auto drop-shadow-lg hover:scale-110 transition-transform">
+                <div>
+                    <h1 class="text-2xl font-bold text-green-700">MEG</h1>
+                    <p class="text-xs text-gray-500 font-medium">Equipe</p>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex space-x-6 items-center text-gray-700">
+                <a href="landing-meg.html" class="hover:text-green-700 transition">Home</a>
+                <a href="como-funciona.html" class="hover:text-green-700 transition font-semibold text-green-700">Como Funciona</a>
+                <a href="team.html" class="hover:text-green-700 transition">Equipe</a>
+                <a href="contact.html" class="hover:text-green-700 transition">Contato</a>
+            </div>
+            <button class="md:hidden text-green-700 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="p-6 md:p-12 bg-gradient-to-br from-green-700 to-yellow-600 text-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold mb-4">Conheça a Equipe MEG</h1>
+            <p class="text-xl opacity-90 mb-6">
+                Três líderes apaixonadas por transformar o ecossistema empreendedor de Goiás
+            </p>
+            <p class="text-base opacity-85">
+                <strong>Visão:</strong> Unificar o ecossistema | 
+                <strong>Estratégia:</strong> Filtrar o ruído | 
+                <strong>Execução:</strong> Criar a tecnologia
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="p-6 md:p-12 lg:p-20">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+                
+                <!-- Card 1: Naomi -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="role-badge">Founder & Visionary</div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Naomi Ferreira</h2>
+                    <p class="text-gray-500 italic mb-6">"Quem enxerga além do horizonte"</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <p class="text-gray-700 leading-relaxed">
+                            Identificou a <strong>dor latente</strong> das empreendedoras goianas: não é falta de vontade, é falta de <strong>visibilidade, conexão e orientação</strong>.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Naomi transformou frustração em propósito. Desenhou a visão de um hub que não força oportunidades às empreendedoras — a hub <strong>busca a empreendedora certa para cada oportunidade</strong>.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="mission-item">
+                            <strong>🎯 Missão no Projeto</strong>
+                            Identificar a dor latente e desenhar o propósito da marca. Garantir que cada decisão reflita o compromisso com a transformação.
+                        </div>
+                        <div class="mission-item">
+                            <strong>✨ Contribuição</strong>
+                            Visão estratégica, design thinking, liderança na definição do north star da MEG.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Jéssica -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="role-badge">Strategy & Optimization</div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Jéssica Ferreira</h2>
+                    <p class="text-gray-500 italic mb-6">"Quem transforma ideias em processos"</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <p class="text-gray-700 leading-relaxed">
+                            Transformou a visão de Naomi em <strong>processos viáveis e escaláveis</strong>. Jéssica pensa em sistemas: como automatizar o match? Como garantir qualidade?
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Ela otimiza cada ideia para garantir que o modelo de negócio seja <strong>robusto, eficiente e replicável</strong> em outros estados.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="mission-item">
+                            <strong>🎯 Missão no Projeto</strong>
+                            Estruturar processos, definir fluxos de qualidade, otimizar estratégias. Garantir viabilidade operacional.
+                        </div>
+                        <div class="mission-item">
+                            <strong>✨ Contribuição</strong>
+                            Otimização de processos, gestão de qualidade, design de fluxos, documentação de metodologias.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Tiago -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="role-badge">CTO & Lead Dev</div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Tiago Fabrini</h2>
+                    <p class="text-gray-500 italic mb-6">"Quem traduz sonho em algoritmo"</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <p class="text-gray-700 leading-relaxed">
+                            Traduziu o propósito e a estratégia em <strong>código executável</strong>. Tiago construiu:
+                        </p>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>✅ <strong>Algoritmo de matchmaking</strong> (85% de compatibilidade)</li>
+                            <li>✅ <strong>Infraestrutura fullstack</strong> (Flask + HTML5/JS)</li>
+                            <li>✅ <strong>Sistema de autenticação</strong> com persistência segura</li>
+                            <li>✅ <strong>Hub de inteligência</strong> para agregar editais</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="mission-item">
+                            <strong>🎯 Missão no Projeto</strong>
+                            Construir a arquitetura técnica, implementar algoritmos de IA, garantir escalabilidade. Fazer funcionar em milissegundos.
+                        </div>
+                        <div class="mission-item">
+                            <strong>✨ Contribuição</strong>
+                            Full-stack development, arquitetura de sistemas, machine learning, otimização de performance.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- The Trinity Section -->
+            <section class="bg-gradient-to-r from-green-700 to-yellow-600 text-white rounded-lg p-12 mb-20">
+                <h2 class="text-3xl font-bold text-center mb-12">A Trindade do Sucesso MEG</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">💡</div>
+                        <h3 class="text-xl font-bold mb-3">Visão (Naomi)</h3>
+                        <p class="text-sm opacity-90">
+                            Identifica o <strong>por quê</strong> — a razão profunda que move a MEG. Sem visão clara, tudo é desorganizado.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">⚙️</div>
+                        <h3 class="text-xl font-bold mb-3">Estratégia (Jéssica)</h3>
+                        <p class="text-sm opacity-90">
+                            Define o <strong>como</strong> — os processos, fluxos e otimizações. Transforma visão em ação escalável.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🚀</div>
+                        <h3 class="text-xl font-bold mb-3">Execução (Tiago)</h3>
+                        <p class="text-sm opacity-90">
+                            Constrói o <strong>quê</strong> — o produto, a tecnologia, o algoritmo. Faz acontecer em código.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Values Section -->
+            <section class="mb-20">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Valores que Guiam a MEG</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg p-8 border-l-4 border-green-700 shadow-sm hover:shadow-md transition">
+                        <div class="text-3xl mb-4">🤝</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Inclusão</h3>
+                        <p class="text-sm text-gray-600">
+                            Todas as mulheres merecem voz, visibilidade e oportunidade. Nenhuma fica para trás.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-8 border-l-4 border-yellow-600 shadow-sm hover:shadow-md transition">
+                        <div class="text-3xl mb-4">⚡</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Agilidade</h3>
+                        <p class="text-sm text-gray-600">
+                            Tecnologia serve para economizar tempo. A empreendedora não tem tempo para ruído.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-8 border-l-4 border-green-700 shadow-sm hover:shadow-md transition">
+                        <div class="text-3xl mb-4">🎯</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Precisão</h3>
+                        <p class="text-sm text-gray-600">
+                            Matches inteligentes, não aleatórios. 85% de compatibilidade, não esperança.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-8 border-l-4 border-yellow-600 shadow-sm hover:shadow-md transition">
+                        <div class="text-3xl mb-4">🌱</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Crescimento</h3>
+                        <p class="text-sm text-gray-600">
+                            Capacitação contínua. A MEG não vende cursos genéricos, identifica lacunas e preenche.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline -->
+            <section>
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Jornada MEG</h2>
+                
+                <div class="relative max-w-3xl mx-auto">
+                    <!-- Timeline line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-green-700 to-yellow-600"></div>
+
+                    <!-- Timeline items -->
+                    <div class="space-y-12">
+                        <!-- Item 1 -->
+                        <div class="relative">
+                            <div class="flex items-center">
+                                <div class="ml-auto w-5/12 pr-8 text-right">
+                                    <h3 class="text-lg font-bold text-green-700">Identificação da Dor</h3>
+                                    <p class="text-sm text-gray-600 mt-2">
+                                        Naomi percebe que 30 mil mulheres empreendedoras em Goiás não acessam editais por falta de visibilidade.
+                                    </p>
+                                </div>
+                                <div class="w-4 h-4 bg-green-700 rounded-full border-4 border-white absolute left-1/2 transform -translate-x-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="relative">
+                            <div class="flex items-center">
+                                <div class="w-5/12 pl-8">
+                                    <h3 class="text-lg font-bold text-green-700">Desenho da Solução</h3>
+                                    <p class="text-sm text-gray-600 mt-2">
+                                        Jéssica estrutura os processos: como agregar editais? Como fazer match automático?
+                                    </p>
+                                </div>
+                                <div class="w-4 h-4 bg-green-700 rounded-full border-4 border-white absolute left-1/2 transform -translate-x-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="relative">
+                            <div class="flex items-center">
+                                <div class="ml-auto w-5/12 pr-8 text-right">
+                                    <h3 class="text-lg font-bold text-green-700">Desenvolvimento do MVP</h3>
+                                    <p class="text-sm text-gray-600 mt-2">
+                                        Tiago constrói o primeiro algoritmo de matchmaking, dashboard e sistema de notificações.
+                                    </p>
+                                </div>
+                                <div class="w-4 h-4 bg-yellow-600 rounded-full border-4 border-white absolute left-1/2 transform -translate-x-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="relative">
+                            <div class="flex items-center">
+                                <div class="w-5/12 pl-8">
+                                    <h3 class="text-lg font-bold text-yellow-600">Validação no Mercado</h3>
+                                    <p class="text-sm text-gray-600 mt-2">
+                                        Piloto com 100 empreendedoras. Validar match score, qualidade de oportunidades.
+                                    </p>
+                                </div>
+                                <div class="w-4 h-4 bg-yellow-600 rounded-full border-4 border-white absolute left-1/2 transform -translate-x-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="relative">
+                            <div class="flex items-center">
+                                <div class="ml-auto w-5/12 pr-8 text-right">
+                                    <h3 class="text-lg font-bold text-yellow-600">Escala Regional</h3>
+                                    <p class="text-sm text-gray-600 mt-2">
+                                        Expandir para 5 mil empreendedoras em Goiás. Integrar com grandes empresas (ESG).
+                                    </p>
+                                </div>
+                                <div class="w-4 h-4 bg-yellow-600 rounded-full border-4 border-white absolute left-1/2 transform -translate-x-1/2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="p-6 md:p-12 bg-green-700 text-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4">Junte-se ao Movimento</h2>
+            <p class="text-lg mb-8 opacity-90">
+                A MEG está procurando por mulheres apaixonadas que querem transformar Goiás. Se você é empreendedora ou mentora, comece hoje.
+            </p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="landing-meg.html" class="bg-white text-green-700 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+                    ← Voltar para Home
+                </a>
+                <a href="como-funciona.html" class="bg-yellow-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-yellow-700 transition">
+                    Entender o Algoritmo →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-10 text-gray-400 border-t-2" style="background-color: #1a1a1a; border-color: #ca8a04;">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center shadow-md">
+                        <span class="text-xl font-bold text-white">M</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">MEG <span class="text-sm font-normal text-gray-500">Goianas</span></h1>
+                </div>
+                <p class="text-sm">O maior hub de inteligência liderado por mulheres de Goiás.</p>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-white mb-3">Navegação</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-yellow-400 transition">Home</a></li>
+                    <li><a href="como-funciona.html" class="hover:text-yellow-400 transition">Como Funciona</a></li>
+                    <li><a href="team.html" class="hover:text-yellow-400 transition">Equipe</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="login-novo.html" class="hover:text-yellow-400 transition">Login</a></li>
+                    <li><a href="register-novo.html" class="hover:text-yellow-400 transition">Registrar</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-400 transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="text-sm">contato@meggoianas.com.br</p>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-10 border-t border-gray-800 pt-6 text-center text-xs text-gray-600">
+            &copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

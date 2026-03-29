@@ -1,0 +1,310 @@
+```
+projeto hackathon/
+│
+├─ 📁 backend/                           [4 arquivos - Servidor Node.js]
+│  ├─ 🚀 backendexpandido.js            (Principal - 500+ linhas, 15+ rotas)
+│  ├─ backendbase.js                    (Alternativo - 146 linhas)
+│  ├─ backend.py                        (Python - backup)
+│  └─ seed-data.js                      (Dados iniciais)
+│
+├─ 📁 frontend/                          [14 páginas - Interface Responsiva]
+│  ├─ 🏠 index.html                     (Página inicial)
+│  ├─ 🔐 login.html                     (Autenticação)
+│  ├─ 📝 register.html                  (Registrar usuário)
+│  ├─ 📊 dashboard.html                 (Dashboard alternativo)
+│  ├─ 📊 dashboard-new.html             (Dashboard principal)
+│  ├─ 🏢 companies-register.html        (Registrar empresa - 4 passos)
+│  ├─ 📢 editals.html                   (Editais com matching)
+│  ├─ 🎓 courses.html                   (Cursos e recomendações)
+│  ├─ ⚙️  admin.html                     (Admin panel)
+│  ├─ ℹ️  about.html                     (Sobre)
+│  ├─ 📧 contact.html                   (Contato)
+│  ├─ 📋 questionnaire.html             (Questionário)
+│  ├─ 🎯 landingpage1.html              (Landing page)
+│  └─ 💼 projetfront.html               (Frontend principal)
+│
+├─ 📁 dados/                             [9 arquivos - Banco de Dados JSON]
+│  ├─ 👥 users.json                     (Usuários cadastrados)
+│  ├─ 🏢 companies.json                 (Empresas registradas)
+│  ├─ 🎓 courses.json                   (Base de cursos - 10+)
+│  ├─ 📢 editals.json                   (Base de editals - 8+)
+│  ├─ 📋 applications.json              (Candidaturas a editals)
+│  ├─ 🤝 mentoring_sessions.json        (Sessões de mentoria)
+│  ├─ 👨‍🏫 mentors.json                    (Perfil de mentores - 3+)
+│  ├─ 📊 user_scores.json               (Pontuação e gamificação)
+│  └─ 📝 questionnaires.json            (Respostas de questionários)
+│
+├─ 📁 documentacao/                      [9 arquivos - 2600+ linhas]
+│  ├─ 📖 README.md                      (Documentação principal)
+│  ├─ 🚀 COMECE-AQUI.md                 (Guia rápido - 5 minutos)
+│  ├─ 📚 GUIA-USO.md                    (Tutorial completo - 20 min)
+│  ├─ 🔧 TECNICO.md                     (Docs técnicas - 30 min)
+│  ├─ 🗺️  MAPA-VISUAL.md                 (Diagramas e flowcharts)
+│  ├─ 📑 INDICE.md                      (Índice de documentação)
+│  ├─ 📊 SUMARIO.md                     (Sumário do projeto)
+│  ├─ ✅ FINAL.md                       (Instruções finais)
+│  └─ 📝 README-FINAL.md                (Resumo executivo)
+│
+├─ 📁 configuracao/                      [4 arquivos - Setup]
+│  ├─ 📦 package.json                   (Dependências Node.js)
+│  ├─ 🔒 package-lock.json              (Lock de versões)
+│  ├─ 🐍 requirements.txt                (Dependências Python)
+│  └─ 🗄️  bancodedados.sql              (Schema SQL - futuro)
+│
+├─ 📁 node_modules/                      [Dependências npm instaladas]
+│
+├─ ⚡ iniciar-servidor.bat               [Script Windows - Iniciar servidor]
+├─ ⚡ iniciar-servidor.ps1              [Script PowerShell - Iniciar servidor]
+├─ 📄 README-INICIO.md                  [🟢 COMECE AQUI - Ponto de partida]
+├─ 📄 ESTRUTURA-PROJETO.md              [Documentação desta organização]
+└─ 📄 ARVORE-PROJETO.txt               [Este arquivo - Árvore do projeto]
+```
+
+---
+
+## 📊 ESTATÍSTICAS
+
+```
+┌─────────────────────────────────────────┐
+│        ESTRUTURA DO PROJETO             │
+├─────────────────────────────────────────┤
+│ Total de Arquivos:       40+            │
+│ Total de Linhas:         7400+          │
+│ Total de Pastas:         5 principais   │
+│                                         │
+│ Backend:                 400+ linhas    │
+│ Frontend:                3000+ linhas   │
+│ Documentação:            2600+ linhas   │
+│ Dados:                   Persistência   │
+│                                         │
+│ HTML Pages:              14             │
+│ Rotas API:               15+            │
+│ Algoritmos IA:           3              │
+│ Cursos na Base:          10+            │
+│ Editals na Base:         8+             │
+│ Mentores:                3+             │
+│ Níveis de Gamification:  10             │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 COMO USAR ESTA ESTRUTURA
+
+### 1️⃣ DESENVOLVIMENTO
+
+```
+Para adicionar nova funcionalidade:
+
+1. Criar rota no → backend/backendexpandido.js
+2. Criar página no → frontend/nova-page.html
+3. Adicionar dados no → dados/*.json
+4. Documentar em → documentacao/TECNICO.md
+5. Testar em → localhost:3000
+```
+
+### 2️⃣ ORGANIZAÇÃO
+
+```
+Cada pasta tem responsabilidade clara:
+
+backend/        → Lógica, APIs, Algoritmos
+frontend/       → UI, Formulários, Views
+dados/          → Persistência, Base de dados
+documentacao/   → Guias, Tutoriais, Referência
+configuracao/   → Setup, Dependências, Secrets
+```
+
+### 3️⃣ MANUTENÇÃO
+
+```
+Pastas pequenas = Fácil manutenção
+Separação clara = Fácil encontrar código
+Documentação centralizada = Fácil entender
+Dados separados = Fácil migrar banco
+```
+
+---
+
+## 🚀 INÍCIO RÁPIDO
+
+### ✅ PASSO 1: Ler documentação
+```
+Abrir: README-INICIO.md
+Tempo: 5 minutos
+```
+
+### ✅ PASSO 2: Iniciar servidor
+```
+Executar: iniciar-servidor.bat
+Tempo: 30 segundos
+```
+
+### ✅ PASSO 3: Acessar plataforma
+```
+Abrir: http://localhost:3000
+Login: admin@exemplo.com / 123456
+Tempo: 1 minuto
+```
+
+### ✅ PASSO 4: Explorar funcionalidades
+```
+Testar: Todas as páginas
+Revisar: Dados em JSON
+Tempo: 10 minutos
+```
+
+---
+
+## 📚 DOCUMENTAÇÃO RECOMENDADA
+
+### Para Iniciantes
+1. `README-INICIO.md` ........... Visão geral
+2. `ESTRUTURA-PROJETO.md` ....... Organização
+3. `documentacao/COMECE-AQUI.md` . Guia rápido
+
+### Para Desenvolvedores
+1. `documentacao/TECNICO.md` .... Arquitetura
+2. `backend/backendexpandido.js` . Código principal
+3. `documentacao/GUIA-USO.md` ... API Reference
+
+### Para Product Managers
+1. `documentacao/SUMARIO.md` .... Resumo
+2. `documentacao/MAPA-VISUAL.md` . Diagramas
+3. `ESTRUTURA-PROJETO.md` ....... Roadmap
+
+### Para Designers
+1. `frontend/` .................. Páginas HTML
+2. `documentacao/GUIA-USO.md` ... Screenshots
+3. `documentacao/MAPA-VISUAL.md` . UI Flows
+
+---
+
+## 🔄 FLUXO DE TRABALHO RECOMENDADO
+
+```
+┌─────────────────────────────────────────┐
+│  1. Ler README-INICIO.md                │
+├─────────────────────────────────────────┤
+│  ↓                                      │
+│  2. Executar iniciar-servidor.bat       │
+├─────────────────────────────────────────┤
+│  ↓                                      │
+│  3. Acessar http://localhost:3000       │
+├─────────────────────────────────────────┤
+│  ↓                                      │
+│  4. Fazer login                         │
+├─────────────────────────────────────────┤
+│  ↓                                      │
+│  5. Explorar dashboard                  │
+├─────────────────────────────────────────┤
+│  ↓                                      │
+│  6. Testar: Empresa → Editais → Cursos  │
+├─────────────────────────────────────────┤
+│  ↓                                      │
+│  7. Revisar código/dados conforme necessário
+│                                         │
+│  ✅ PRONTO PARA HACKATHON!             │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## 💡 DICAS IMPORTANTES
+
+### ✨ Estrutura Escalável
+- Cada pasta é independente
+- Fácil adicionar novas funcionalidades
+- Fácil reorganizar conforme crescimento
+
+### 🔒 Boas Práticas
+- Backend em `backend/`
+- Frontend em `frontend/`
+- Dados separados em `dados/`
+- Docs centralizadas em `documentacao/`
+
+### 📦 Fácil de Manter
+- Pasta = Responsabilidade
+- Arquivo = Feature/Module
+- Documentação = Compreensão
+- Testes = Validação
+
+### 🚀 Fácil de Expandir
+- Adicionar nova rota? → backend/
+- Adicionar nova página? → frontend/
+- Adicionar novos dados? → dados/
+- Documentar mudança? → documentacao/
+
+---
+
+## 🎓 ARQUITETURA EM CAMADAS
+
+```
+┌─────────────────────────────────────────┐
+│  FRONTEND (14 páginas HTML)             │
+│  ├─ Responsiva                          │
+│  ├─ Moderna (CSS3 gradients)            │
+│  └─ Interativa (JavaScript vanilla)     │
+├─────────────────────────────────────────┤
+│  API (Express.js - 15+ rotas)           │
+│  ├─ Auth (JWT 24h)                      │
+│  ├─ CRUD (Empresas, Editais, Cursos)   │
+│  └─ AI (RecommendationEngine)           │
+├─────────────────────────────────────────┤
+│  BANCO DE DADOS (9 arquivos JSON)       │
+│  ├─ Users                               │
+│  ├─ Companies                           │
+│  ├─ Courses                             │
+│  ├─ Editals                             │
+│  └─ Scores                              │
+├─────────────────────────────────────────┤
+│  CONFIGURAÇÃO                           │
+│  ├─ Dependencies                        │
+│  ├─ Setup                               │
+│  └─ Build                               │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## 📞 SUPORTE RÁPIDO
+
+| Problema | Solução | Arquivo |
+|----------|---------|---------|
+| Não sei por onde começar | Leia README-INICIO.md | root |
+| Servidor não inicia | Ver troubleshooting | ESTRUTURA-PROJETO.md |
+| Entender algoritmos | Ler TECNICO.md | documentacao/ |
+| Usar API | Consultar GUIA-USO.md | documentacao/ |
+| Ver diagramas | Abrir MAPA-VISUAL.md | documentacao/ |
+| Apresentar projeto | Usar FINAL.md | documentacao/ |
+
+---
+
+## ✅ CHECKLIST FINAL
+
+- [ ] Lido README-INICIO.md
+- [ ] Estrutura de pastas compreendida
+- [ ] Servidor iniciado com sucesso
+- [ ] Plataforma acessível em localhost:3000
+- [ ] Login funcionando
+- [ ] Páginas carregando
+- [ ] Dados salvando corretamente
+- [ ] Pronto para desenvolver
+
+---
+
+**Projeto Hackathon - Empreendedorismo da Mulher**  
+**Status: ✅ ESTRUTURA COMPLETA E FUNCIONAL**  
+**Última atualização: Março 2026**
+
+---
+
+### 🎯 LEMBRE-SE
+> Bem-vindo ao projeto! 
+> Esta estrutura foi criada para facilitar:
+> - **Desenvolvimento** (organização clara)
+> - **Manutenção** (separação de responsabilidades)
+> - **Escalabilidade** (fácil adicionar features)
+> - **Compreensão** (documentação completa)
+>
+> Aproveite! 🚀
