@@ -6,191 +6,162 @@
     <title>Login - MEG Goianas</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="meg-styles.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .bg-meg-primary { background-color: #15803d; }
+        .text-meg-primary { color: #15803d; }
+        .bg-meg-accent { background-color: #ca8a04; }
+        .text-meg-accent { color: #ca8a04; }
         
-        .login-gradient {
-            background: linear-gradient(135deg, #15803d 0%, #ca8a04 100%);
-        }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
     <!-- Navigation -->
-    <nav class="glass sticky top-0 z-50 p-4 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <nav class="glass sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="landing-meg.html" class="flex items-center space-x-3">
-                <img src="../logos/2-removebg-preview.png" alt="MEG Logo" class="h-12 w-auto drop-shadow-lg hover:scale-110 transition-transform">
+                <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
                 <div>
-                    <h1 class="text-2xl font-bold text-green-700">MEG</h1>
-                    <p class="text-xs text-gray-500 font-medium">Login</p>
+                    <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
+                    <p class="text-xs text-gray-600">Login</p>
                 </div>
             </a>
             
-            <div class="hidden md:flex space-x-6 items-center text-gray-700">
-                <a href="landing-meg.html" class="hover:text-green-700 transition">Voltar ao Início</a>
-                <a href="landing-meg.html#features" class="hover:text-green-700 transition">Funcionalidades</a>
-                <a href="register.html" class="bg-green-700 text-white px-5 py-2 rounded-full hover:bg-green-800 transition shadow-md">Registrar <i class="fas fa-user-plus ml-1"></i></a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="landing-meg.html" class="text-gray-700 hover:text-meg-primary transition">Voltar</a>
+                <a href="register-novo.html" class="bg-meg-primary text-white px-5 py-2 rounded-full hover:bg-green-800 transition">Registrar</a>
             </div>
-            <button class="md:hidden text-green-700 text-2xl">
+            <button class="md:hidden text-meg-primary text-2xl">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
     <!-- Login Section -->
-    <div class="min-h-screen flex items-center justify-center p-4 pt-20">
+    <div class="min-h-screen flex items-center justify-center p-4 py-20">
         <div class="w-full max-w-md">
-            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 border-t-8 border-meg-primary">
                 <div class="text-center mb-8">
-                    <div class="inline-block w-16 h-16 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center mb-4">
-                        <span class="text-3xl font-bold text-white">M</span>
-                    </div>
-                    <h1 class="text-3xl font-bold text-green-700 mb-2">Login MEG</h1>
-                    <p class="text-gray-600">Conectar à sua conta de empreendedora</p>
+                    <h1 class="text-4xl font-black text-meg-primary mb-3">Login</h1>
+                    <p class="text-gray-600">Conecte-se à sua conta MEG</p>
                 </div>
 
-                <form class="space-y-5" action="#" method="POST">
+                <form class="space-y-5" id="loginForm" onsubmit="handleLogin(event)">
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">Email ou CNPJ</label>
-                        <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-green-700 transition" required>
+                        <label class="block text-sm font-semibold text-meg-primary mb-2">Email ou CNPJ</label>
+                        <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">Senha</label>
-                        <input type="password" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-green-700 transition" required>
+                        <label class="block text-sm font-semibold text-meg-primary mb-2">Senha</label>
+                        <input type="password" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                     </div>
 
                     <div class="flex items-center justify-between">
                         <label class="flex items-center">
-                            <input type="checkbox" class="w-4 h-4 text-green-700 rounded">
+                            <input type="checkbox" class="w-4 h-4 text-meg-primary rounded">
                             <span class="ml-2 text-sm text-gray-600">Lembrar de mim</span>
                         </label>
-                        <a href="#" class="text-sm text-green-700 hover:text-green-800 font-semibold">Esqueceu a senha?</a>
+                        <a href="#" class="text-sm text-meg-primary hover:text-green-800 font-semibold">Esqueceu a senha?</a>
                     </div>
 
-                    <button type="submit" class="w-full bg-gradient-to-r from-green-700 to-yellow-600 text-white font-bold py-3 rounded-lg hover:opacity-90 transition shadow-lg transform hover:scale-105">
-                        Entrar na Plataforma
+                    <button type="submit" class="w-full bg-meg-primary text-white font-bold py-4 rounded-lg hover:bg-green-800 transition shadow-lg text-lg">
+                        <i class="fas fa-sign-in-alt mr-2"></i> Entrar
                     </button>
                 </form>
 
-                <div class="mt-6 relative">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                        <span class="px-2 bg-white text-gray-600">Ou continue com</span>
-                    </div>
-                </div>
-
-                <div class="mt-6 grid grid-cols-2 gap-4">
-                    <button class="flex items-center justify-center border-2 border-gray-300 rounded-lg py-3 hover:border-green-700 transition">
-                        <i class="fab fa-google text-green-700 text-lg"></i>
-                    </button>
-                    <button class="flex items-center justify-center border-2 border-gray-300 rounded-lg py-3 hover:border-green-700 transition">
-                        <i class="fab fa-linkedin text-green-700 text-lg"></i>
-                    </button>
-                </div>
-
                 <p class="mt-8 text-center text-gray-600">
-                    Não tem conta? <a href="register.html" class="text-green-700 font-bold hover:text-green-800">Registre-se agora</a>
+                    Não tem conta? <a href="register-novo.html" class="text-meg-primary font-bold hover:text-green-800">Registre-se aqui</a>
                 </p>
             </div>
 
             <!-- Info Box -->
-            <div class="mt-8 bg-green-50 border-l-4 border-green-700 p-6 rounded-r-lg">
-                <h3 class="text-green-700 font-bold mb-2">🚀 Primeiros Passos</h3>
-                <p class="text-sm text-gray-700">Faça login ou crie sua conta para acessar:</p>
+            <div class="mt-8 bg-green-50 border-l-4 border-meg-primary p-6 rounded-r-lg">
+                <h3 class="text-meg-primary font-bold mb-2">🚀 Bem-vinda ao MEG</h3>
+                <p class="text-sm text-gray-700">Na sua conta você encontra:</p>
                 <ul class="text-sm text-gray-700 mt-3 space-y-1">
-                    <li>✓ Matchmaking B2B com empresas goianas</li>
+                    <li>✓ Matchmaking B2B inteligente</li>
                     <li>✓ Linhas de crédito personalizadas</li>
-                    <li>✓ Mentorias de impacto</li>
+                    <li>✓ Acesso a mentorias de impacto</li>
                 </ul>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="p-10 text-gray-400 border-t-2 mt-20" style="background-color: #1a1a1a; border-color: #ca8a04;">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="space-y-4">
-                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center shadow-md">
-                        <span class="text-xl font-bold text-white">M</span>
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 border-t-4 border-meg-accent">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+                    <div>
+                        <p class="font-bold text-white">MEG</p>
+                        <p class="text-xs">Goianas</p>
                     </div>
-                    <h1 class="text-2xl font-bold text-white">MEG <span class="text-sm font-normal text-gray-500">Goianas</span></h1>
                 </div>
                 <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
             </div>
-            
+
             <div>
                 <h5 class="font-bold text-white mb-3">Links Rápidos</h5>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="landing-meg.html#hero" class="hover:text-yellow-400 transition">Início</a></li>
-                    <li><a href="landing-meg.html#features" class="hover:text-yellow-400 transition">Funcionalidades</a></li>
-                    <li><a href="landing-meg.html#testimonials" class="hover:text-yellow-400 transition">Histórias</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h5 class="font-bold text-white mb-3">Recursos</h5>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="dashboard.html" class="hover:text-yellow-400 transition">Dashboard</a></li>
-                    <li><a href="contact.html" class="hover:text-yellow-400 transition">Contato</a></li>
-                    <li><a href="#" class="hover:text-yellow-400 transition">Termos de Uso</a></li>
+                    <li><a href="landing-meg.html" class="hover:text-meg-accent transition">Início</a></li>
+                    <li><a href="landing-meg.html#pilares" class="hover:text-meg-accent transition">3 Pilares</a></li>
+                    <li><a href="landing-meg.html#funcionalidades" class="hover:text-meg-accent transition">Funcionalidades</a></li>
                 </ul>
             </div>
 
-            <div class="space-y-4">
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="register-novo.html" class="hover:text-meg-accent transition">Registrar</a></li>
+                    <li><a href="contact.html" class="hover:text-meg-accent transition">Contato</a></li>
+                    <li><a href="#" class="hover:text-meg-accent transition">Privacidade</a></li>
+                </ul>
+            </div>
+
+            <div>
                 <h5 class="font-bold text-white mb-3">Siga-nos</h5>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-whatsapp"></i></a>
                 </div>
-                <p class="text-sm">contato@meggoianas.com.br</p>
             </div>
         </div>
-        
-        <div class="max-w-7xl mx-auto mt-10 border-t border-gray-800 pt-6 text-center text-xs text-gray-600">
-            &copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados.
+
+        <div class="max-w-7xl mx-auto border-t border-gray-700 pt-8 text-center text-sm">
+            <p>&copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados. 💚</p>
         </div>
     </footer>
 
     <!-- Script de Autenticação -->
     <script src="js/auth.js"></script>
     <script>
-        document.querySelector('form')?.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        function handleLogin(event) {
+            event.preventDefault();
             
             const email = document.querySelector('input[type="email"]').value;
             const password = document.querySelector('input[type="password"]').value;
             
-            try {
-                const response = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    megAuth.saveSession(data.token, data.user);
-                    alert(`✅ Bem-vinda, ${data.user.name}!`);
-                    window.location.href = 'dashboard.html';
-                } else {
-                    alert(`❌ ${data.error}`);
-                }
-            } catch (error) {
-                alert('❌ Erro de conexão. Tente mais tarde.');
-                console.error(error);
+            if (!email || !password) {
+                alert('❌ Preencha email e senha!');
+                return;
             }
-        });
+            
+            const result = megAuth.login(email, password);
+            
+            if (result.success) {
+                alert(`✅ Bem-vinda, ${result.user.name}!`);
+                window.location.href = 'dashboard-novo.html';
+            } else {
+                alert('❌ ' + result.error);
+            }
+        }
     </script>
 
 </body>

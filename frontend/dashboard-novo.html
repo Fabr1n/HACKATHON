@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MEG</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .bg-meg-primary { background-color: #15803d; }
+        .text-meg-primary { color: #15803d; }
+        .bg-meg-accent { background-color: #ca8a04; }
+        .text-meg-accent { color: #ca8a04; }
+        
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .sidebar-active { background-color: #15803d; color: white; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(21, 128, 61, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="glass sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
+                <div>
+                    <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
+                    <p class="text-xs text-gray-600">Dashboard</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="landing-meg.html" class="text-gray-700 hover:text-meg-primary transition">Home</a>
+                <button class="text-gray-700 hover:text-meg-primary transition" onclick="document.getElementById('profileMenu').classList.toggle('hidden')">
+                    <i class="fas fa-user-circle text-2xl"></i>
+                </button>
+            </div>
+            <button class="md:hidden text-meg-primary text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div id="profileMenu" class="hidden absolute top-16 right-4 bg-white rounded-lg shadow-lg p-4 w-48">
+            <a href="#" class="block text-gray-700 hover:text-meg-primary py-2">Meu Perfil</a>
+            <a href="#" class="block text-gray-700 hover:text-meg-primary py-2">Configurações</a>
+            <a href="login-novo.html" class="block text-red-600 hover:text-red-800 py-2 border-t mt-2 pt-2">Sair</a>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        
+        <!-- WELCOME SECTION -->
+        <div class="bg-meg-primary text-white rounded-2xl p-8 mb-8 shadow-lg">
+            <h1 class="text-4xl font-black mb-3">Bem-vinda, [Nome]! 👋</h1>
+            <p class="text-lg text-white/90">Seu hub inteligente está pronto para multiplicar suas oportunidades</p>
+        </div>
+
+        <!-- STATS CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="card-hover bg-white rounded-xl p-6 shadow-md border-l-4 border-meg-primary">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Matches Novos</p>
+                        <h3 class="text-3xl font-bold text-meg-primary">12</h3>
+                    </div>
+                    <i class="fas fa-heart text-4xl text-meg-accent opacity-20"></i>
+                </div>
+            </div>
+
+            <div class="card-hover bg-white rounded-xl p-6 shadow-md border-l-4 border-meg-accent">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Mensagens</p>
+                        <h3 class="text-3xl font-bold text-meg-accent">5</h3>
+                    </div>
+                    <i class="fas fa-envelope text-4xl text-meg-primary opacity-20"></i>
+                </div>
+            </div>
+
+            <div class="card-hover bg-white rounded-xl p-6 shadow-md border-l-4 border-meg-primary">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Mentorias Agendadas</p>
+                        <h3 class="text-3xl font-bold text-meg-primary">3</h3>
+                    </div>
+                    <i class="fas fa-graduation-cap text-4xl text-meg-accent opacity-20"></i>
+                </div>
+            </div>
+
+            <div class="card-hover bg-white rounded-xl p-6 shadow-md border-l-4 border-meg-accent">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Perfil Completo</p>
+                        <h3 class="text-3xl font-bold text-meg-accent">85%</h3>
+                    </div>
+                    <i class="fas fa-chart-pie text-4xl text-meg-primary opacity-20"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- MAIN SECTION: MATCHES -->
+            <div class="lg:col-span-2 space-y-8">
+                
+                <!-- MATCHES SECTION (PRINCIPAL) -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="bg-meg-primary text-white p-6">
+                        <h2 class="text-2xl font-black">🔥 Matches para Você</h2>
+                        <p class="text-white/90 text-sm mt-1">Oportunidades personalizadas baseadas no seu perfil</p>
+                    </div>
+
+                    <div class="p-6 space-y-4">
+                        <!-- Match Card 1 -->
+                        <div class="card-hover bg-gradient-to-r from-blue-50 to-white border-2 border-gray-200 rounded-xl p-5 hover:border-meg-primary">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <div class="flex items-center space-x-2">
+                                        <h4 class="text-lg font-bold text-meg-primary">Edital SEBRAE - Modernização</h4>
+                                        <span class="bg-green-100 text-meg-primary text-xs px-3 py-1 rounded-full font-bold">87% Match</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Edital | Prazo: 15 dias</p>
+                                </div>
+                                <button class="text-meg-accent text-2xl hover:text-meg-primary">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-700 text-sm mb-4">Oportunidade de até R$ 50 mil para empresas em fase de modernização digital...</p>
+                            <div class="flex gap-2">
+                                <a href="#" class="flex-1 bg-meg-primary text-white py-2 rounded-lg text-sm font-bold hover:bg-green-800 transition text-center">
+                                    Ver Detalhes
+                                </a>
+                                <button class="flex-1 border-2 border-meg-primary text-meg-primary py-2 rounded-lg text-sm font-bold hover:bg-green-50 transition">
+                                    Salvar para Depois
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Match Card 2 -->
+                        <div class="card-hover bg-gradient-to-r from-green-50 to-white border-2 border-gray-200 rounded-xl p-5 hover:border-meg-primary">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <div class="flex items-center space-x-2">
+                                        <h4 class="text-lg font-bold text-meg-primary">Empresa B2B - Fornecedores Sustentáveis</h4>
+                                        <span class="bg-green-100 text-meg-primary text-xs px-3 py-1 rounded-full font-bold">92% Match</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">B2B | Oportunidade Permanente</p>
+                                </div>
+                                <button class="text-meg-accent text-2xl hover:text-meg-primary">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-700 text-sm mb-4">Grande corporação de Goiás busca fornecedoras de brindes sustentáveis. Contrato de 1 ano garantido...</p>
+                            <div class="flex gap-2">
+                                <a href="#" class="flex-1 bg-meg-primary text-white py-2 rounded-lg text-sm font-bold hover:bg-green-800 transition text-center">
+                                    Ver Detalhes
+                                </a>
+                                <button class="flex-1 border-2 border-meg-primary text-meg-primary py-2 rounded-lg text-sm font-bold hover:bg-green-50 transition">
+                                    Salvar para Depois
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Match Card 3 -->
+                        <div class="card-hover bg-gradient-to-r from-yellow-50 to-white border-2 border-gray-200 rounded-xl p-5 hover:border-meg-primary">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <div class="flex items-center space-x-2">
+                                        <h4 class="text-lg font-bold text-meg-primary">Linha de Crédito BNDES</h4>
+                                        <span class="bg-green-100 text-meg-primary text-xs px-3 py-1 rounded-full font-bold">78% Match</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Crédito | Taxa 2.8% a.a.</p>
+                                </div>
+                                <button class="text-meg-accent text-2xl hover:text-meg-primary">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-700 text-sm mb-4">Financiamento de até R$ 300 mil para expansão e equipamentos. Você está pré-aprovada...</p>
+                            <div class="flex gap-2">
+                                <a href="#" class="flex-1 bg-meg-primary text-white py-2 rounded-lg text-sm font-bold hover:bg-green-800 transition text-center">
+                                    Ver Detalhes
+                                </a>
+                                <button class="flex-1 border-2 border-meg-primary text-meg-primary py-2 rounded-lg text-sm font-bold hover:bg-green-50 transition">
+                                    Salvar para Depois
+                                </button>
+                            </div>
+                        </div>
+
+                        <a href="matching.html" class="block text-center mt-6 text-meg-primary font-bold hover:text-green-800">
+                            Ver Todos os Matches →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CURSOS SECTION -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="bg-meg-primary text-white p-6">
+                        <h2 class="text-2xl font-black">📚 Cursos & Capacitação</h2>
+                        <p class="text-white/90 text-sm mt-1">Aprenda o que você precisa em 10-15 minutos</p>
+                    </div>
+
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="card-hover bg-gradient-to-br from-blue-50 to-white border-2 border-meg-primary rounded-xl p-4 hover:shadow-lg">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-file-invoice-dollar text-2xl text-meg-primary mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-meg-primary">Como Acessar Crédito</h4>
+                                    <p class="text-xs text-gray-600 mt-1">12 min • Iniciante</p>
+                                    <button class="text-meg-accent text-sm font-bold mt-2 hover:text-meg-primary">Assistir →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-hover bg-gradient-to-br from-green-50 to-white border-2 border-meg-accent rounded-xl p-4 hover:shadow-lg">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-handshake text-2xl text-meg-accent mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-meg-primary">Fechar Vendas B2B</h4>
+                                    <p class="text-xs text-gray-600 mt-1">15 min • Intermediário</p>
+                                    <button class="text-meg-accent text-sm font-bold mt-2 hover:text-meg-primary">Assistir →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-hover bg-gradient-to-br from-purple-50 to-white border-2 border-meg-primary rounded-xl p-4 hover:shadow-lg">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-chart-line text-2xl text-meg-primary mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-meg-primary">Precificar seu Produto</h4>
+                                    <p class="text-xs text-gray-600 mt-1">10 min • Iniciante</p>
+                                    <button class="text-meg-accent text-sm font-bold mt-2 hover:text-meg-primary">Assistir →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-hover bg-gradient-to-br from-yellow-50 to-white border-2 border-meg-accent rounded-xl p-4 hover:shadow-lg">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-briefcase text-2xl text-meg-accent mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-meg-primary">Estruturar Seu Negócio</h4>
+                                    <p class="text-xs text-gray-600 mt-1">14 min • Intermediário</p>
+                                    <button class="text-meg-accent text-sm font-bold mt-2 hover:text-meg-primary">Assistir →</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t p-6 text-center">
+                        <a href="courses.html" class="text-meg-primary font-bold hover:text-green-800">
+                            Ver Biblioteca Completa →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="space-y-6">
+                
+                <!-- PRÓXIMA MENTORIA -->
+                <div class="card-hover bg-gradient-to-br from-meg-primary to-green-700 text-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Próxima Mentoria</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-white/90 text-sm">Mentora</p>
+                            <h4 class="font-bold text-lg">Carolina Mendes</h4>
+                            <p class="text-xs text-white/80">Consultora Estratégica</p>
+                        </div>
+                        <div>
+                            <p class="text-white/90 text-sm">Data & Hora</p>
+                            <h4 class="font-bold">Quarta, 2 de Abril</h4>
+                            <p class="text-xs text-white/80">14:00 - 15:00</p>
+                        </div>
+                        <button class="w-full bg-white text-meg-primary font-bold py-2 rounded-lg hover:bg-gray-100 transition">
+                            Acessar Reunião
+                        </button>
+                        <button class="w-full border-2 border-white text-white py-2 rounded-lg hover:bg-white/10 transition text-sm">
+                            Reagendar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GUIAS RÁPIDOS -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-meg-primary mb-4">📖 Guias Rápidos</h3>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-meg-primary/10 transition">
+                            <i class="fas fa-book text-meg-primary"></i>
+                            <span class="text-sm text-gray-700 hover:text-meg-primary">Como Completar Seu Perfil</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-meg-primary/10 transition">
+                            <i class="fas fa-book text-meg-primary"></i>
+                            <span class="text-sm text-gray-700 hover:text-meg-primary">Manual de Editais</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-meg-primary/10 transition">
+                            <i class="fas fa-book text-meg-primary"></i>
+                            <span class="text-sm text-gray-700 hover:text-meg-primary">Dicas de Venda B2B</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-meg-primary/10 transition">
+                            <i class="fas fa-book text-meg-primary"></i>
+                            <span class="text-sm text-gray-700 hover:text-meg-primary">Planejamento Financeiro</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MANUAIS -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-meg-primary mb-4">📋 Manuais Completos</h3>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-meg-primary/10 transition">
+                            <i class="fas fa-file-pdf text-red-500"></i>
+                            <span class="text-sm text-gray-700 hover:text-meg-primary">Manual Completo MEG</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-meg-primary/10 transition">
+                            <i class="fas fa-file-pdf text-red-500"></i>
+                            <span class="text-sm text-gray-700 hover:text-meg-primary">Guia de Crédito</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-meg-primary/10 transition">
+                            <i class="fas fa-file-pdf text-red-500"></i>
+                            <span class="text-sm text-gray-700 hover:text-meg-primary">Checklist de Sucesso</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 border-t-4 border-meg-accent mt-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+                    <div>
+                        <p class="font-bold text-white">MEG</p>
+                        <p class="text-xs">Goianas</p>
+                    </div>
+                </div>
+                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Links</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-meg-accent transition">Início</a></li>
+                    <li><a href="landing-meg.html#pilares" class="hover:text-meg-accent transition">3 Pilares</a></li>
+                    <li><a href="landing-meg.html#funcionalidades" class="hover:text-meg-accent transition">Funcionalidades</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="contact.html" class="hover:text-meg-accent transition">Contato</a></li>
+                    <li><a href="#" class="hover:text-meg-accent transition">Privacidade</a></li>
+                    <li><a href="#" class="hover:text-meg-accent transition">Termos</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-gray-700 pt-8 text-center text-sm">
+            <p>&copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados. 💚</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Carregar dados do usuário
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('megUser') || '{}');
+            if (userData.name) {
+                document.querySelector('h1').textContent = `Bem-vinda, ${userData.name}! 👋`;
+            }
+        });
+    </script>
+</body>
+</html>

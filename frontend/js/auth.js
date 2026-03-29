@@ -3,103 +3,69 @@
 
 class MEGAuth {
     constructor() {
-        this.storageKey = 'meg_session';
-        this.userKey = 'meg_user';
+        this.usersKey = 'meg_users';
+        this.currentUserKey = 'meg_current_user';
         this.init();
     }
 
     init() {
-        // Verificar sessão ao carregar página
+        this.ensureStorageInitialized();
         this.checkSession();
-        // Atualizar UI baseado no estado de login
         this.updateUIAccordingToLogin();
     }
 
-    // Salvar sessão no localStorage
-    saveSession(token, user) {
-        const session = {
-            token: token,
-            user: user,
-            timestamp: Date.now(),
-            expiresIn: 7 * 24 * 60 * 60 * 1000 // 7 dias
-        };
-        localStorage.setItem(this.storageKey, JSON.stringify(session));
-        localStorage.setItem(this.userKey, JSON.stringify(user));
-        
-        // Registrar no arquivo de log (simulado)
-        console.log('✅ Sessão salva:', user.name);
+    // Garantir que o storage existe
+    ensureStorageInitialized() {
+        if (!localStorage.getItem(this.usersKey)) {
+            localStorage.setItem(this.usersKey, JSON.stringify([]));
+        }
     }
 
-    // Recuperar sessão
-    getSession() {
-        const sessionData = localStorage.getItem(this.storageKey);
-        if (!sessionData) return null;
-
+    // Registrar novo usuário
+    register(userData) {
         try {
-            const session = JSON.parse(sessionData);
-            // Verificar se expirou
-            if (Date.now() - session.timestamp > session.expiresIn) {
-                this.clearSession();
-                return null;
+            const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
+            
+            // Verificar se email já existe
+            if (users.some(u => u.email === userData.email)) {
+                return { success: false, error: 'Email já cadastrado!' };
             }
-            return session;
-        } catch (e) {
-            console.error('Erro ao recuperar sessão:', e);
-            return null;
-        }
-    }
 
-    // Obter usuário logado
-    getCurrentUser() {
-        const userData = localStorage.getItem(this.userKey);
-        if (!userData) return null;
-        
-        try {
-            return JSON.parse(userData);
-        } catch (e) {
-            return null;
-        }
-    }
+            // Criar novo usuário
+            const newUser = {
+                id: Date.now().toString(),
+                ...userData,
+                createdAt: new Date().toISOString(),
+                favorites: []
+            };
 
-    // Limpar sessão
-    clearSession() {
-        localStorage.removeItem(this.storageKey);
-        localStorage.removeItem(this.userKey);
-        console.log('❌ Sessão removida');
-    }
-
-    // Verificar se há sessão ativa
-    checkSession() {
-        const session = this.getSession();
-        if (session) {
-            console.log('✅ Sessão ativa:', session.user.name);
-            return true;
+            users.push(newUser);
+            localStorage.setItem(this.usersKey, JSON.stringify(users));
+            
+            // Auto-login
+            this.saveCurrentUser(newUser);
+            
+            console.log('✅ Usuário registrado:', newUser.name);
+            return { success: true, user: newUser };
+        } catch (error) {
+            console.error('Erro no registro:', error);
+            return { success: false, error: error.message };
         }
-        return false;
     }
 
     // Fazer login
-    async login(email, password) {
+    login(email, password) {
         try {
-            // Chamar API de login
-            const response = await fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password })
-            });
+            const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
+            const user = users.find(u => u.email === email && u.password === password);
 
-            if (!response.ok) {
-                throw new Error('Falha no login');
+            if (!user) {
+                return { success: false, error: 'Email ou senha incorretos!' };
             }
 
-            const data = await response.json();
-            
-            // Salvar sessão
-            this.saveSession(data.token, data.user);
-            
-            return { success: true, user: data.user };
+            this.saveCurrentUser(user);
+            console.log('✅ Login realizado:', user.name);
+            return { success: true, user };
         } catch (error) {
             console.error('Erro no login:', error);
             return { success: false, error: error.message };
@@ -108,36 +74,35 @@ class MEGAuth {
 
     // Fazer logout
     logout() {
-        this.clearSession();
+        localStorage.removeItem(this.currentUserKey);
+        console.log('❌ Logout realizado');
         this.updateUIAccordingToLogin();
-        window.location.href = 'landing-meg.html';
     }
 
-    // Registrar novo usuário
-    async register(userData) {
-        try {
-            const response = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userData)
-            });
+    // Salvar usuário atual
+    saveCurrentUser(user) {
+        localStorage.setItem(this.currentUserKey, JSON.stringify(user));
+    }
 
-            if (!response.ok) {
-                throw new Error('Falha no registro');
-            }
+    // Obter usuário logado
+    getCurrentUser() {
+        const userData = localStorage.getItem(this.currentUserKey);
+        return userData ? JSON.parse(userData) : null;
+    }
 
-            const data = await response.json();
-            
-            // Salvar sessão após registro bem-sucedido
-            this.saveSession(data.token, data.user);
-            
-            return { success: true, user: data.user };
-        } catch (error) {
-            console.error('Erro no registro:', error);
-            return { success: false, error: error.message };
+    // Verificar se há sessão ativa
+    checkSession() {
+        const user = this.getCurrentUser();
+        if (user) {
+            console.log('✅ Sessão ativa:', user.name);
+            return true;
         }
+        return false;
+    }
+
+    // Obter todos os usuários
+    getAllUsers() {
+        return JSON.parse(localStorage.getItem(this.usersKey) || '[]');
     }
 
     // Atualizar UI baseado em estado de login
@@ -191,29 +156,27 @@ class MEGAuth {
                     </div>
                 </div>
                 
-                <a href="dashboard.html" style="display: block; padding: 10px; color: #333; text-decoration: none; border-radius: 8px; margin-bottom: 8px;">
-                    <i class="fas fa-chart-line" style="color: #15803d; margin-right: 8px;"></i> Meu Dashboard
+                <a href="dashboard-novo.html" style="display: block; padding: 10px; color: #333; text-decoration: none; border-radius: 8px; margin-bottom: 8px;">
+                    <i class="fas fa-chart-line" style="color: #15803d; margin-right: 8px;"></i> Dashboard
                 </a>
-                <a href="profile.html" style="display: block; padding: 10px; color: #333; text-decoration: none; border-radius: 8px; margin-bottom: 8px;">
-                    <i class="fas fa-user" style="color: #15803d; margin-right: 8px;"></i> Meu Perfil
+                <a href="#profile" style="display: block; padding: 10px; color: #333; text-decoration: none; border-radius: 8px; margin-bottom: 8px;">
+                    <i class="fas fa-user" style="color: #15803d; margin-right: 8px;"></i> Perfil
                 </a>
-                <a href="videochamadas.html" style="display: block; padding: 10px; color: #333; text-decoration: none; border-radius: 8px; margin-bottom: 8px;">
-                    <i class="fas fa-video" style="color: #15803d; margin-right: 8px;"></i> Mentorias
+                <a href="matching-novo.html" style="display: block; padding: 10px; color: #333; text-decoration: none; border-radius: 8px; margin-bottom: 8px;">
+                    <i class="fas fa-heart" style="color: #15803d; margin-right: 8px;"></i> Matches
                 </a>
                 <hr style="margin: 8px 0; border: none; border-top: 1px solid #f0f0f0;">
-                <button onclick="megAuth.logout()" style="width: 100%; padding: 10px; background-color: #f5f5f5; border: none; border-radius: 8px; color: #d32f2f; font-weight: bold; cursor: pointer;">
+                <button onclick="megAuth.logout(); window.location.href='landing-meg.html';" style="width: 100%; padding: 10px; background-color: #f5f5f5; border: none; border-radius: 8px; color: #d32f2f; font-weight: bold; cursor: pointer;">
                     <i class="fas fa-sign-out-alt"></i> Sair
                 </button>
             </div>
         `;
 
-        // Remover menu anterior se existir
         const oldMenu = document.getElementById('userMenu');
         if (oldMenu) oldMenu.remove();
 
         document.body.appendChild(menu);
 
-        // Fechar menu ao clicar fora
         document.addEventListener('click', (e) => {
             if (!e.target.closest('#navLoginBtn') && !e.target.closest('#userMenu')) {
                 const menu = document.getElementById('userMenu');
@@ -224,7 +187,7 @@ class MEGAuth {
 
     // Verificar se está autenticado
     isAuthenticated() {
-        return !!this.getSession();
+        return !!this.getCurrentUser();
     }
 }
 

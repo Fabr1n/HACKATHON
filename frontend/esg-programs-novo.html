@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programas ESG - MEG</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .bg-meg-primary { background-color: #15803d; }
+        .text-meg-primary { color: #15803d; }
+        .bg-meg-accent { background-color: #ca8a04; }
+        .text-meg-accent { color: #ca8a04; }
+        
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(21, 128, 61, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="glass sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
+                <div>
+                    <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
+                    <p class="text-xs text-gray-600">Programas ESG</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="landing-meg.html" class="text-gray-700 hover:text-meg-primary transition">Home</a>
+                <a href="login-novo.html" class="text-gray-700 hover:text-meg-primary transition">Login</a>
+            </div>
+            <button class="md:hidden text-meg-primary text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        
+        <!-- HEADER -->
+        <div class="bg-meg-primary text-white rounded-2xl p-8 mb-12 shadow-lg text-center">
+            <h1 class="text-4xl font-black mb-3">Programas ESG da MEG 🌱</h1>
+            <p class="text-lg text-white/90">Sustentabilidade, Governança e Impacto Social - Transformando Empresas e Comunidades</p>
+        </div>
+
+        <!-- O QUE É ESG -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-green-600">
+                <h3 class="text-2xl font-black text-meg-primary mb-4">E - Environmental 🌍</h3>
+                <p class="text-gray-700 mb-4">Práticas sustentáveis e responsabilidade ambiental para empresas com propósito e visão de futuro</p>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li>✓ Eficiência energética</li>
+                    <li>✓ Redução de resíduos</li>
+                    <li>✓ Economia circular</li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-blue-600">
+                <h3 class="text-2xl font-black text-meg-primary mb-4">S - Social 🤝</h3>
+                <p class="text-gray-700 mb-4">Responsabilidade social e impacto positivo na comunidade onde você está inserida</p>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li>✓ Direitos trabalhistas</li>
+                    <li>✓ Inclusão e diversidade</li>
+                    <li>✓ Impacto comunitário</li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-purple-600">
+                <h3 class="text-2xl font-black text-meg-primary mb-4">G - Governance 📋</h3>
+                <p class="text-gray-700 mb-4">Ética e transparência nas decisões empresariais e estrutura organizacional</p>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li>✓ Transparência financeira</li>
+                    <li>✓ Ética empresarial</li>
+                    <li>✓ Conformidade legal</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PROGRAMAS -->
+        <h2 class="text-3xl font-black text-meg-primary mb-8 text-center">Nossos Programas</h2>
+
+        <div class="space-y-12 mb-12">
+            <!-- PROGRAMA 1 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-green-600">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 p-8 text-white flex items-center justify-center">
+                        <i class="fas fa-leaf text-9xl opacity-30"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-black text-meg-primary mb-4">
+                            <i class="fas fa-leaf text-green-600 mr-2"></i> Empresas Sustentáveis
+                        </h3>
+                        <p class="text-gray-700 mb-6">Programa de certificação para empresas que adotam práticas sustentáveis e reduzem seu impacto ambiental.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <span class="text-gray-700"><strong>Auditoria gratuita de sustentabilidade</strong></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <span class="text-gray-700"><strong>Plano de ação personalizado</strong></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <span class="text-gray-700"><strong>Certificação MEG GREEN</strong></span>
+                            </li>
+                        </ul>
+                        <button class="mt-6 bg-meg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-green-800 transition">
+                            Participar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRAMA 2 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-blue-600">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="order-2 md:order-1 p-8">
+                        <h3 class="text-2xl font-black text-meg-primary mb-4">
+                            <i class="fas fa-people-group text-blue-600 mr-2"></i> Impacto Social
+                        </h3>
+                        <p class="text-gray-700 mb-6">Reconhecimento de empresas que impactam positivamente suas comunidades locais através de ações sociais.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                                <span class="text-gray-700"><strong>Mapeamento de iniciativas sociais</strong></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                                <span class="text-gray-700"><strong>Conexão com ONGs locais</strong></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                                <span class="text-gray-700"><strong>Selo Social MEG</strong></span>
+                            </li>
+                        </ul>
+                        <button class="mt-6 bg-meg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-green-800 transition">
+                            Participar
+                        </button>
+                    </div>
+                    <div class="order-1 md:order-2 bg-gradient-to-br from-blue-500 to-blue-600 p-8 text-white flex items-center justify-center">
+                        <i class="fas fa-heart text-9xl opacity-30"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRAMA 3 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-purple-600">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 p-8 text-white flex items-center justify-center">
+                        <i class="fas fa-balance-scale text-9xl opacity-30"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-black text-meg-primary mb-4">
+                            <i class="fas fa-balance-scale text-purple-600 mr-2"></i> Governança Corporativa
+                        </h3>
+                        <p class="text-gray-700 mb-6">Estrutura e conformidade: adote as melhores práticas de governança e ética empresarial.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-purple-600"></i>
+                                <span class="text-gray-700"><strong>Consultoria em governança</strong></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-purple-600"></i>
+                                <span class="text-gray-700"><strong>Código de ética empresarial</strong></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-purple-600"></i>
+                                <span class="text-gray-700"><strong>Certificação MEG ÉTICA</strong></span>
+                            </li>
+                        </ul>
+                        <button class="mt-6 bg-meg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-green-800 transition">
+                            Participar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EMPRESAS PARTICIPANTES -->
+        <div class="bg-meg-primary text-white rounded-2xl p-12 mb-12 shadow-lg">
+            <h2 class="text-3xl font-black mb-8 text-center">Empresas que já Transformaram 💚</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white/10 p-4 rounded-lg text-center">
+                    <p class="text-4xl font-black">45+</p>
+                    <p class="text-white/90">Empresas Certificadas</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg text-center">
+                    <p class="text-4xl font-black">230 mil</p>
+                    <p class="text-white/90">Pessoas Beneficiadas</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg text-center">
+                    <p class="text-4xl font-black">R$ 12M</p>
+                    <p class="text-white/90">Investimento em Iniciativas</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg text-center">
+                    <p class="text-4xl font-black">95%</p>
+                    <p class="text-white/90">Taxa de Satisfação</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-r from-meg-primary to-green-700 text-white rounded-2xl p-12 shadow-lg text-center">
+            <h2 class="text-3xl font-black mb-4">Sua Empresa Está Pronta para o ESG?</h2>
+            <p class="text-lg text-white/90 mb-8">Comece sua jornada de transformação sustentável e impacto social hoje mesmo</p>
+            <a href="contact.html" class="inline-block bg-white text-meg-primary font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition text-lg">
+                Solicitar Análise Gratuita
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 border-t-4 border-meg-accent mt-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+                    <div>
+                        <p class="font-bold text-white">MEG</p>
+                        <p class="text-xs">Goianas</p>
+                    </div>
+                </div>
+                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Links</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-meg-accent transition">Início</a></li>
+                    <li><a href="como-funciona-novo.html" class="hover:text-meg-accent transition">Como Funciona</a></li>
+                    <li><a href="contact.html" class="hover:text-meg-accent transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="register-novo.html" class="hover:text-meg-accent transition">Registrar</a></li>
+                    <li><a href="dashboard-novo.html" class="hover:text-meg-accent transition">Dashboard</a></li>
+                    <li><a href="#" class="hover:text-meg-accent transition">Privacidade</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-gray-700 pt-8 text-center text-sm">
+            <p>&copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados. 💚</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,300 +1,189 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar - MEG Goianas</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Registrar - Plataforma para Mulheres Empreendedoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        
-        .step-indicator {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 2rem;
+        * {
+            box-sizing: border-box;
         }
-        
-        .step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-        }
-        
-        .step.active .step-circle {
-            background-color: #15803d;
-            color: white;
-        }
-        
-        .step-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px;
-            background-color: #e5e7eb;
-            color: #6b7280;
-            font-weight: bold;
-            transition: all 0.3s ease;
         }
-        
-        .step-line {
-            position: absolute;
-            top: 20px;
-            left: 50%;
+        .register-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 90%;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo h1 {
+            color: #ff6b6b;
+            font-size: 2em;
+            margin: 0;
+        }
+        .logo p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 10px 0 0 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        input {
             width: 100%;
-            height: 2px;
-            background-color: #e5e7eb;
-            z-index: -1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+        }
+        .btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+        }
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .links a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 0 10px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .success {
+            color: #388e3c;
+            background: #e8f5e9;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: none;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-
-    <!-- Navigation -->
-    <nav class="glass sticky top-0 z-50 p-4 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="landing-meg.html" class="flex items-center space-x-3">
-                <img src="../logos/2-removebg-preview.png" alt="MEG Logo" class="h-12 w-auto drop-shadow-lg hover:scale-110 transition-transform">
-                <div>
-                    <h1 class="text-2xl font-bold text-meg-primary" style="color: #15803d;">MEG</h1>
-                    <p class="text-xs text-gray-500 font-medium">Registrar</p>
-                </div>
-            </a>
-            
-            <div class="hidden md:flex space-x-6 items-center text-gray-700">
-                <a href="landing-meg.html" class="hover:text-meg-primary transition" style="color: inherit;">Voltar ao Início</a>
-                <a href="landing-meg.html#features" class="hover:text-meg-primary transition" style="color: inherit;">Funcionalidades</a>
-                <a href="login.html" class="text-white px-5 py-2 rounded-full hover:opacity-90 transition shadow-md" style="background-color: #15803d;"><i class="fas fa-sign-in-alt mr-1"></i>Login</a>
-            </div>
-            <button class="md:hidden text-meg-primary text-2xl" style="color: #15803d;">
-                <i class="fas fa-bars"></i>
-            </button>
+<body>
+    <div class="register-container">
+        <div class="logo">
+            <h1><i class="fas fa-user-plus"></i> Registrar</h1>
+            <p>Crie sua conta</p>
         </div>
-    </nav>
-
-    <!-- Register Section -->
-    <div class="min-h-screen flex items-center justify-center p-4 pt-20 pb-20">
-        <div class="w-full max-w-2xl">
-            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10">
-                <div class="text-center mb-10">
-                    <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg" style="background: linear-gradient(to right, #15803d, #ca8a04);">
-                        <span class="text-3xl font-bold text-white">M</span>
-                    </div>
-                    <h1 class="text-3xl font-bold mb-2" style="color: #15803d;">Registre-se na MEG</h1>
-                    <p class="text-gray-600">Junte-se à rede de mulheres empreendedoras de Goiás</p>
-                </div>
-
-                <!-- Step Indicator -->
-                <div class="step-indicator mb-8">
-                    <div class="step active">
-                        <div class="step-circle">1</div>
-                        <p class="text-xs text-gray-600">Dados Pessoais</p>
-                    </div>
-                    <div class="step-line"></div>
-                    <div class="step">
-                        <div class="step-circle">2</div>
-                        <p class="text-xs text-gray-600">Dados da Empresa</p>
-                    </div>
-                    <div class="step-line"></div>
-                    <div class="step">
-                        <div class="step-circle">3</div>
-                        <p class="text-xs text-gray-600">Área de Interesse</p>
-                    </div>
-                </div>
-
-                <!-- Registration Form -->
-                <form class="space-y-4" id="registerForm" action="#" method="POST">
-                    <!-- Step 1: Personal Data -->
-                    <div class="space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Nome Completo</label>
-                                <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" style="focus: border-color #15803d;" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                                <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" required>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Telefone</label>
-                                <input type="tel" placeholder="(62) 9999-9999" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">CPF</label>
-                                <input type="text" placeholder="123.456.789-00" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" required>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Senha</label>
-                            <input type="password" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" required>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Confirmar Senha</label>
-                            <input type="password" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" required>
-                        </div>
-                    </div>
-
-                    <!-- Company Data -->
-                    <div class="space-y-4 pt-6 border-t-2 border-gray-300">
-                        <h3 class="text-lg font-bold text-gray-700">Dados da sua Empresa</h3>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Nome da Empresa</label>
-                                <input type="text" placeholder="Ex: Sabores do Cerrado" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">CNPJ</label>
-                                <input type="text" placeholder="12.345.678/0001-90" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" required>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Ramo de Atividade</label>
-                            <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition">
-                                <option>Selecione uma opção</option>
-                                <option>Confeitaria / Alimentos</option>
-                                <option>Tecnologia / TI</option>
-                                <option>Brindes / Presentes</option>
-                                <option>Consultoria</option>
-                                <option>Educação</option>
-                                <option>Outro</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Qual é sua principal necessidade?</label>
-                            <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition">
-                                <option>Selecione uma opção</option>
-                                <option>Encontrar clientes B2B</option>
-                                <option>Acessar linhas de crédito</option>
-                                <option>Receber mentoria</option>
-                                <option>Expandir negócio</option>
-                                <option>Outro</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Agreement -->
-                    <div class="pt-6 space-y-4">
-                        <label class="flex items-start cursor-pointer">
-                            <input type="checkbox" class="w-4 h-4 rounded mt-1" style="border-color: #15803d;" required>
-                            <span class="ml-3 text-sm text-gray-600">
-                                Concordo com os <a href="#" class="font-semibold hover:opacity-80" style="color: #15803d;">Termos de Uso</a> e <a href="#" class="font-semibold hover:opacity-80" style="color: #15803d;">Política de Privacidade</a>
-                            </span>
-                        </label>
-
-                        <label class="flex items-start cursor-pointer">
-                            <input type="checkbox" class="w-4 h-4 rounded mt-1">
-                            <span class="ml-3 text-sm text-gray-600">
-                                Desejo receber notificações sobre oportunidades e dicas de crescimento
-                            </span>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="w-full text-white font-bold py-3 rounded-lg hover:opacity-90 transition shadow-lg transform hover:scale-105 mt-6" style="background: linear-gradient(to right, #15803d, #ca8a04);">
-                        <i class="fas fa-check mr-2"></i>Criar Minha Conta
-                    </button>
-                </form>
-
-                <p class="mt-8 text-center text-gray-600">
-                    Já tem conta? <a href="login.html" class="font-bold hover:opacity-80" style="color: #15803d;">Faça login aqui</a>
-                </p>
+        <div class="error" id="error"></div>
+        <div class="success" id="success"></div>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                <input type="email" id="email" required>
             </div>
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Senha:</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword"><i class="fas fa-lock"></i> Confirmar Senha:</label>
+                <input type="password" id="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn"><i class="fas fa-check"></i> Registrar</button>
+        </form>
+        <div class="links">
+            <a href="/login"><i class="fas fa-sign-in-alt"></i> Já tem conta?</a>
+            <a href="/"><i class="fas fa-home"></i> Voltar</a>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="p-10 text-gray-400 border-t-4" style="background-color: #1a1a1a; border-color: #ca8a04;">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="space-y-4">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center shadow-md" style="background: linear-gradient(to right, #15803d, #ca8a04);">
-                        <span class="text-xl font-bold text-white">M</span>
-                    </div>
-                    <h1 class="text-2xl font-bold text-white">MEG <span class="text-sm font-normal text-gray-500">Goianas</span></h1>
-                </div>
-                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
-            </div>
-            
-            <div>
-                <h5 class="font-bold text-white mb-3">Links Rápidos</h5>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="landing-meg.html#hero" class="hover:opacity-80 transition">Início</a></li>
-                    <li><a href="landing-meg.html#features" class="hover:opacity-80 transition">Funcionalidades</a></li>
-                    <li><a href="landing-meg.html#testimonials" class="hover:opacity-80 transition">Histórias</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h5 class="font-bold text-white mb-3">Recursos</h5>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="dashboard.html" class="hover:opacity-80 transition">Dashboard</a></li>
-                    <li><a href="contact.html" class="hover:opacity-80 transition">Contato</a></li>
-                    <li><a href="#" class="hover:opacity-80 transition">Termos de Uso</a></li>
-                </ul>
-            </div>
-
-            <div class="space-y-4">
-                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-2xl hover:opacity-80 transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-2xl hover:opacity-80 transition"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-2xl hover:opacity-80 transition"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                <p class="text-sm">contato@meggoianas.com.br</p>
-            </div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto mt-10 border-t border-gray-800 pt-6 text-center text-xs text-gray-600">
-            &copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados. 💚
-        </div>
-    </footer>
-
-    <!-- Script de Autenticação -->
-    <script src="js/auth.js"></script>
     <script>
-        document.getElementById('registerForm')?.addEventListener('submit', async (e) => {
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorDiv = document.getElementById('error');
+            const successDiv = document.getElementById('success');
+            errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
             
-            const formData = new FormData(document.getElementById('registerForm'));
-            const data = Object.fromEntries(formData);
+            if (password !== confirmPassword) {
+                errorDiv.textContent = 'As senhas não conferem';
+                errorDiv.style.display = 'block';
+                return;
+            }
+            
+            if (password.length < 6) {
+                errorDiv.textContent = 'A senha deve ter pelo menos 6 caracteres';
+                errorDiv.style.display = 'block';
+                return;
+            }
             
             try {
-                const response = await fetch('/api/register', {
+                const response = await fetch('/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify({ email, password })
                 });
-
                 const result = await response.json();
-
+                
                 if (result.success) {
-                    alert(`✅ ${result.message}`);
-                    console.log('Registro enviado:', data);
-                    setTimeout(() => {
-                        window.location.href = 'login.html';
-                    }, 2000);
+                    successDiv.textContent = result.message;
+                    successDiv.style.display = 'block';
+                    setTimeout(() => window.location.href = '/login', 2000);
                 } else {
-                    alert(`❌ ${result.error}`);
+                    errorDiv.textContent = result.message;
+                    errorDiv.style.display = 'block';
                 }
-            } catch (error) {
-                console.error('Erro:', error);
-                alert('❌ Erro de conexão. Tente mais tarde.');
+            } catch (err) {
+                errorDiv.textContent = 'Erro ao conectar ao servidor';
+                errorDiv.style.display = 'block';
             }
         });
     </script>
-
 </body>
 </html>
