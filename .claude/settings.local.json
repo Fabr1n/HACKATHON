@@ -3,7 +3,9 @@
     "allow": [
       "Bash(find . -type f -name *.html -o -name *.js -o -name *.css -o -name *.py -o -name *.json -o -name *.sql)",
       "Bash(grep \"\\\\.\\\\./logos/\" *.html)",
-      "Bash(curl -s http://localhost:3000/api/health)"
+      "Bash(curl -s http://localhost:3000/api/health)",
+      "Bash(node:*)",
+      "Bash(node -e \"require\\(''''./backend/backendexpandido.js''''\\)\")"
     ]
   }
 }
