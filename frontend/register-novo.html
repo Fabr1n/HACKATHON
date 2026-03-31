@@ -24,7 +24,11 @@
     <nav class="glass sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="landing-meg.html" class="flex items-center space-x-3">
+<<<<<<< HEAD
                 <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
+=======
+                <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
                 <div>
                     <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
                     <p class="text-xs text-gray-600">Registrar-se</p>
@@ -165,7 +169,11 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
                 <div class="flex items-center space-x-2 mb-4">
+<<<<<<< HEAD
                     <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+=======
+                    <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
                     <div>
                         <p class="font-bold text-white">MEG</p>
                         <p class="text-xs">Goianas</p>
@@ -210,12 +218,22 @@
     <!-- Script de Autenticação -->
     <script src="js/auth.js"></script>
     <script>
+<<<<<<< HEAD
         async function handleRegister(event) {
             event.preventDefault();
 
             // Capturar todos os inputs
             const form = document.getElementById('registerForm');
 
+=======
+        function handleRegister(event) {
+            event.preventDefault();
+            
+            // Capturar todos os inputs
+            const form = document.getElementById('registerForm');
+            const inputs = form.querySelectorAll('input, select');
+            
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
             // Construir objeto com dados
             const formData = {
                 name: form.querySelector('input[placeholder="Seu nome"]')?.value,
@@ -246,6 +264,7 @@
                 return;
             }
 
+<<<<<<< HEAD
             // Desabilitar botão durante o registro
             const btn = event.target.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
@@ -280,6 +299,28 @@
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = originalText;
+=======
+            // Registrar usuário usando megAuth
+            const result = megAuth.register({
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                cpf: formData.cpf,
+                password: formData.password,
+                company: formData.company,
+                cnpj: formData.cnpj,
+                segment: formData.segment,
+                necessity: formData.necessity
+            });
+
+            if (result.success) {
+                alert('✅ Cadastro realizado com sucesso! Redirecionando para o dashboard...');
+                setTimeout(() => {
+                    window.location.href = 'dashboard-novo.html';
+                }, 1500);
+            } else {
+                alert('❌ ' + result.error);
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
             }
         }
     </script>

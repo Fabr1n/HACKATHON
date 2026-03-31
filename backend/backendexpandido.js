@@ -14,6 +14,7 @@ const io = socketIo(server, { cors: { origin: '*' } });
 const PORT = 3000;
 
 // Middleware
+<<<<<<< HEAD
 app.use(cors({
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -27,6 +28,12 @@ app.use(express.static(path.join(__dirname, '..')));
 app.use('/logos', express.static(path.join(__dirname, '../logos')));
 app.use('/frontend', express.static(path.join(__dirname, '../frontend')));
 app.use('/js', express.static(path.join(__dirname, '../frontend/js')));
+=======
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '..')));
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
 
 // Data files - usando caminhos absolutos para evitar erros
 const DATA_DIR = path.join(__dirname, '../dados');
@@ -43,9 +50,13 @@ const FILES = {
     messages: path.join(DATA_DIR, 'messages.json'),
     forum_threads: path.join(DATA_DIR, 'forum_threads.json'),
     video_calls: path.join(DATA_DIR, 'video_calls.json'),
+<<<<<<< HEAD
     matches: path.join(DATA_DIR, 'matches.json'),
     collaborators: path.join(DATA_DIR, 'collaborators.json'),
     enrollments: path.join(DATA_DIR, 'enrollments.json')
+=======
+    matches: path.join(DATA_DIR, 'matches.json')
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
 };
 
 // Criar pasta dados se não existir
@@ -56,6 +67,7 @@ if (!fs.existsSync(DATA_DIR)) {
 // Initialize data files
 Object.values(FILES).forEach(file => {
     if (!fs.existsSync(file)) {
+<<<<<<< HEAD
         let initialData = [];
         if (file === FILES.users) {
             initialData = [{
@@ -87,6 +99,14 @@ Object.values(FILES).forEach(file => {
         }
         fs.writeFileSync(file, JSON.stringify(initialData, null, 2));
         console.log(`✅ Arquivo criado: ${file}`);
+=======
+        const initialData = file === FILES.users ? 
+            [{ id: 1, email: 'admin@exemplo.com', password: '123456', name: 'Administrador' }] : [];
+        fs.writeFileSync(file, JSON.stringify(initialData, null, 2));
+        console.log(`Arquivo criado: ${file}`);
+    } else {
+        console.log(`Arquivo já existe: ${file}`);
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
     }
 });
 
@@ -321,6 +341,7 @@ app.get('/mentors', (req, res) => {
     try {
         const mentors = readData(FILES.mentors);
         // Retornar apenas mentoras disponíveis com informações públicas
+<<<<<<< HEAD
         const publicMentors = mentors.filter(m => m.availability === 'Disponível' || m.isAvailable === true).map(m => ({
             id: m.id,
             name: m.name,
@@ -334,6 +355,17 @@ app.get('/mentors', (req, res) => {
         res.json(publicMentors);
     } catch (err) {
         console.error('Erro ao buscar mentoras:', err);
+=======
+        const publicMentors = mentors.filter(m => m.availability === 'Disponível').map(m => ({
+            id: m.id,
+            name: m.name,
+            expertise: [m.expertise],
+            keywords: [m.specialty], // Usando specialty como keywords
+            bio: m.background
+        }));
+        res.json(publicMentors);
+    } catch (err) {
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
         res.status(500).json({ message: 'Erro ao buscar mentoras' });
     }
 });
@@ -1040,7 +1072,11 @@ app.post('/collaborators', (req, res) => {
         }
 
         // Verificar se já existe candidatura com este email
+<<<<<<< HEAD
         const collaborators = readData(FILES.collaborators);
+=======
+        const collaborators = readData(FILES.collaborators || FILES.users);
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
         const existingApplication = collaborators.find(c => c.email === email && c.type === 'collaborator');
 
         if (existingApplication) {
@@ -1065,7 +1101,11 @@ app.post('/collaborators', (req, res) => {
         };
 
         collaborators.push(newCollaborator);
+<<<<<<< HEAD
         writeData(FILES.collaborators, collaborators);
+=======
+        writeData(FILES.collaborators || FILES.users, collaborators);
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
 
         console.log(`Nova candidatura de colaborador: ${name} - ${interest}`);
 
@@ -1080,6 +1120,7 @@ app.post('/collaborators', (req, res) => {
     }
 });
 
+<<<<<<< HEAD
 // ======================== ROTAS - CURSOS PÚBLICOS ========================
 app.get('/api/courses', (req, res) => {
     try {
@@ -1112,6 +1153,8 @@ app.get('/api/health', (req, res) => {
     });
 });
 
+=======
+>>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
 // ======================== INICIAR SERVIDOR ========================
 console.log('Iniciando servidor...');
 server.listen(PORT, () => {
