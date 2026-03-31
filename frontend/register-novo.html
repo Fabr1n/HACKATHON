@@ -9,12 +9,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        
+
         .bg-meg-primary { background-color: #15803d; }
         .text-meg-primary { color: #15803d; }
         .bg-meg-accent { background-color: #ca8a04; }
         .text-meg-accent { color: #ca8a04; }
-        
+
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
     </style>
 </head>
@@ -24,17 +24,13 @@
     <nav class="glass sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="landing-meg.html" class="flex items-center space-x-3">
-<<<<<<< HEAD
-                <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
-=======
                 <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
->>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
                 <div>
                     <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
                     <p class="text-xs text-gray-600">Registrar-se</p>
                 </div>
             </a>
-            
+
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="landing-meg.html" class="text-gray-700 hover:text-meg-primary transition">Voltar</a>
                 <a href="login-novo.html" class="bg-meg-primary text-white px-5 py-2 rounded-full hover:bg-green-800 transition">Login</a>
@@ -59,37 +55,37 @@
                     <!-- Dados Pessoais -->
                     <div class="space-y-4">
                         <h3 class="text-lg font-bold text-meg-primary border-b-2 border-meg-primary pb-2">Dados Pessoais</h3>
-                        
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-semibold text-meg-primary mb-2">Nome Completo *</label>
-                                <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
+                                <input type="text" id="regName" placeholder="Seu nome" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-meg-primary mb-2">Email *</label>
-                                <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
+                                <input type="email" id="regEmail" placeholder="seu@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-semibold text-meg-primary mb-2">Telefone *</label>
-                                <input type="tel" placeholder="(62) 9999-9999" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
+                                <input type="tel" id="regPhone" placeholder="(62) 9999-9999" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-meg-primary mb-2">CPF *</label>
-                                <input type="text" placeholder="123.456.789-00" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
+                                <input type="text" id="regCpf" placeholder="123.456.789-00" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-semibold text-meg-primary mb-2">Senha *</label>
-                                <input type="password" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
+                                <input type="password" id="regPassword" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-meg-primary mb-2">Confirmar Senha *</label>
-                                <input type="password" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
+                                <input type="password" id="regPasswordConfirm" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                             </div>
                         </div>
                     </div>
@@ -97,22 +93,22 @@
                     <!-- Dados da Empresa -->
                     <div class="space-y-4 pt-6 border-t-2 border-gray-300">
                         <h3 class="text-lg font-bold text-meg-primary border-b-2 border-meg-primary pb-2">Dados da Empresa</h3>
-                        
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-semibold text-meg-primary mb-2">Nome da Empresa *</label>
-                                <input type="text" placeholder="Ex: Sabores do Cerrado" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
+                                <input type="text" id="regCompany" placeholder="Ex: Sabores do Cerrado" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-meg-primary mb-2">CNPJ *</label>
-                                <input type="text" placeholder="12.345.678/0001-90" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
+                                <input type="text" id="regCnpj" placeholder="12.345.678/0001-90" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition" required>
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-meg-primary mb-2">Ramo de Atividade *</label>
-                            <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition">
-                                <option>Selecione...</option>
+                            <select id="regSegment" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition">
+                                <option value="">Selecione...</option>
                                 <option>Confeitaria / Alimentos</option>
                                 <option>Tecnologia / TI</option>
                                 <option>Brindes / Presentes</option>
@@ -124,8 +120,8 @@
 
                         <div>
                             <label class="block text-sm font-semibold text-meg-primary mb-2">Qual é sua principal necessidade? *</label>
-                            <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition">
-                                <option>Selecione...</option>
+                            <select id="regNecessity" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-meg-primary transition">
+                                <option value="">Selecione...</option>
                                 <option>Encontrar clientes B2B</option>
                                 <option>Acessar linhas de crédito</option>
                                 <option>Receber mentoria</option>
@@ -138,7 +134,7 @@
                     <!-- Agreement -->
                     <div class="pt-6 space-y-3 bg-gray-50 p-4 rounded-lg">
                         <label class="flex items-start cursor-pointer">
-                            <input type="checkbox" class="w-4 h-4 text-meg-primary rounded mt-1" required>
+                            <input type="checkbox" id="regTerms" class="w-4 h-4 text-meg-primary rounded mt-1" required>
                             <span class="ml-3 text-sm text-gray-700">
                                 Concordo com os <a href="#" class="text-meg-primary font-semibold hover:text-green-800">Termos de Uso</a> e <a href="#" class="text-meg-primary font-semibold hover:text-green-800">Política de Privacidade</a>
                             </span>
@@ -152,7 +148,7 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="w-full bg-meg-primary text-white font-bold py-4 rounded-lg hover:bg-green-800 transition shadow-lg text-lg">
+                    <button type="submit" id="submitBtn" class="w-full bg-meg-primary text-white font-bold py-4 rounded-lg hover:bg-green-800 transition shadow-lg text-lg">
                         <i class="fas fa-rocket mr-2"></i> Criar Minha Conta
                     </button>
                 </form>
@@ -169,11 +165,7 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
                 <div class="flex items-center space-x-2 mb-4">
-<<<<<<< HEAD
-                    <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
-=======
                     <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
->>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
                     <div>
                         <p class="font-bold text-white">MEG</p>
                         <p class="text-xs">Goianas</p>
@@ -218,34 +210,21 @@
     <!-- Script de Autenticação -->
     <script src="js/auth.js"></script>
     <script>
-<<<<<<< HEAD
         async function handleRegister(event) {
             event.preventDefault();
 
             // Capturar todos os inputs
-            const form = document.getElementById('registerForm');
-
-=======
-        function handleRegister(event) {
-            event.preventDefault();
-            
-            // Capturar todos os inputs
-            const form = document.getElementById('registerForm');
-            const inputs = form.querySelectorAll('input, select');
-            
->>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
-            // Construir objeto com dados
             const formData = {
-                name: form.querySelector('input[placeholder="Seu nome"]')?.value,
-                email: form.querySelector('input[placeholder="seu@email.com"]')?.value,
-                phone: form.querySelector('input[placeholder="(62) 9999-9999"]')?.value,
-                cpf: form.querySelector('input[placeholder="123.456.789-00"]')?.value,
-                password: form.querySelectorAll('input[type="password"]')[0]?.value,
-                passwordConfirm: form.querySelectorAll('input[type="password"]')[1]?.value,
-                company: form.querySelector('input[placeholder="Ex: Sabores do Cerrado"]')?.value,
-                cnpj: form.querySelector('input[placeholder="12.345.678/0001-90"]')?.value,
-                segment: form.querySelectorAll('select')[0]?.value,
-                necessity: form.querySelectorAll('select')[1]?.value
+                name: document.getElementById('regName').value,
+                email: document.getElementById('regEmail').value,
+                phone: document.getElementById('regPhone').value,
+                cpf: document.getElementById('regCpf').value,
+                password: document.getElementById('regPassword').value,
+                passwordConfirm: document.getElementById('regPasswordConfirm').value,
+                company: document.getElementById('regCompany').value,
+                cnpj: document.getElementById('regCnpj').value,
+                segment: document.getElementById('regSegment').value,
+                necessity: document.getElementById('regNecessity').value
             };
 
             // Validações básicas
@@ -264,9 +243,8 @@
                 return;
             }
 
-<<<<<<< HEAD
             // Desabilitar botão durante o registro
-            const btn = event.target.querySelector('button[type="submit"]');
+            const btn = document.getElementById('submitBtn');
             const originalText = btn.innerHTML;
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Criando conta...';
@@ -299,28 +277,6 @@
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = originalText;
-=======
-            // Registrar usuário usando megAuth
-            const result = megAuth.register({
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-                cpf: formData.cpf,
-                password: formData.password,
-                company: formData.company,
-                cnpj: formData.cnpj,
-                segment: formData.segment,
-                necessity: formData.necessity
-            });
-
-            if (result.success) {
-                alert('✅ Cadastro realizado com sucesso! Redirecionando para o dashboard...');
-                setTimeout(() => {
-                    window.location.href = 'dashboard-novo.html';
-                }, 1500);
-            } else {
-                alert('❌ ' + result.error);
->>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
             }
         }
     </script>

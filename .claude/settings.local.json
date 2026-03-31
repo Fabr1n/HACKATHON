@@ -5,7 +5,12 @@
       "Bash(grep \"\\\\.\\\\./logos/\" *.html)",
       "Bash(curl -s http://localhost:3000/api/health)",
       "Bash(node:*)",
-      "Bash(node -e \"require\\(''''./backend/backendexpandido.js''''\\)\")"
+      "Bash(node -e \"require\\(''''./backend/backendexpandido.js''''\\)\")",
+      "Bash(cd:*)",
+      "Bash(curl -s http://localhost:3000/mentors)",
+      "Bash(curl -s http://localhost:3000/api/editals/public)",
+      "Bash(curl -s http://localhost:3000/api/courses)",
+      "Bash(curl:*)"
     ]
   }
 }

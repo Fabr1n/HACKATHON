@@ -9,12 +9,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        
+
         .bg-meg-primary { background-color: #15803d; }
         .text-meg-primary { color: #15803d; }
         .bg-meg-accent { background-color: #ca8a04; }
         .text-meg-accent { color: #ca8a04; }
-        
+
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
     </style>
 </head>
@@ -24,17 +24,13 @@
     <nav class="glass sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-<<<<<<< HEAD
-                <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
-=======
                 <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
->>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
                 <div>
                     <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
                     <p class="text-xs text-gray-600">Seja Mentora</p>
                 </div>
             </div>
-            
+
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="landing-meg.html" class="text-gray-700 hover:text-meg-primary transition">Home</a>
                 <a href="login-novo.html" class="bg-meg-primary text-white px-5 py-2 rounded-full hover:bg-green-800 transition">Login</a>
@@ -46,7 +42,7 @@
     </nav>
 
     <div class="max-w-7xl mx-auto p-4 md:p-8">
-        
+
         <!-- HEADER -->
         <div class="bg-meg-primary text-white rounded-2xl p-8 mb-12 shadow-lg text-center">
             <h1 class="text-4xl font-black mb-3">Seja Uma Mentora MEG 💚</h1>
@@ -82,56 +78,98 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-meg-primary mb-2">Nome Completo *</label>
-                        <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                        <input type="text" id="mentorName" placeholder="Seu nome" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-meg-primary mb-2">Email *</label>
-                        <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                        <input type="email" id="mentorEmail" placeholder="seu@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-meg-primary mb-2">Telefone *</label>
-                        <input type="tel" placeholder="(62) 9999-9999" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                        <input type="tel" id="mentorPhone" placeholder="(62) 9999-9999" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-meg-primary mb-2">CPF/CNPJ *</label>
-                        <input type="text" placeholder="123.456.789-00" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                        <input type="text" id="mentorCpf" placeholder="123.456.789-00" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-bold text-meg-primary mb-2">Especialidades *</label>
-                    <textarea placeholder="Ex: Gestão financeira, Marketing digital, Vendas B2B..." rows="4" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition resize-none" required></textarea>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Senha *</label>
+                    <input type="password" id="mentorPassword" placeholder="••••••••" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-bold text-meg-primary mb-2">Sua Experiência em Poucas Palavras *</label>
-                    <textarea placeholder="Descreva sua trajetória profissional..." rows="4" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition resize-none" required></textarea>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Especialidade Principal *</label>
+                    <select id="mentorSpecialty" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                        <option value="">Selecione...</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Finanças">Finanças</option>
+                        <option value="Consultoria">Consultoria</option>
+                        <option value="Alimentos">Alimentos</option>
+                        <option value="Moda">Moda</option>
+                        <option value="Beleza">Beleza</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Expertise Detalhada *</label>
+                    <textarea id="mentorExpertise" placeholder="Descreva sua expertise em detalhes..." rows="3" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition resize-none" required></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Sua Experiência / Background *</label>
+                    <textarea id="mentorBackground" placeholder="Descreva sua trajetória profissional..." rows="4" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition resize-none" required></textarea>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-bold text-meg-primary mb-2">Disponibilidade (horas/semana) *</label>
-                        <input type="number" placeholder="Ex: 10" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                        <label class="block text-sm font-bold text-meg-primary mb-2">Nível de Experiência *</label>
+                        <select id="mentorLevel" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                            <option value="">Selecione...</option>
+                            <option value="iniciante">Iniciante (1-3 anos)</option>
+                            <option value="intermediário">Intermediário (3-5 anos)</option>
+                            <option value="avançado">Avançado (5-8 anos)</option>
+                            <option value="experiente">Experiente (8-15 anos)</option>
+                            <option value="expert">Expert (15+ anos)</option>
+                        </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-meg-primary mb-2">Valor da Mentoria (R$/hora) *</label>
-                        <input type="number" placeholder="Ex: 300" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                        <label class="block text-sm font-bold text-meg-primary mb-2">Localização *</label>
+                        <input type="text" id="mentorLocation" placeholder="Ex: Goiânia, Goiás" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
                     </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Palavras-chave (separadas por vírgula) *</label>
+                    <input type="text" id="mentorKeywords" placeholder="Ex: marketing digital, vendas, branding, B2B" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Objetivos de Mentoria *</label>
+                    <textarea id="mentorGoals" placeholder="Quais são seus objetivos como mentora?" rows="3" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition resize-none" required></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Desafios Superados *</label>
+                    <textarea id="mentorChallenges" placeholder="Descreva desafios que você superou na carreira..." rows="3" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-meg-primary focus:outline-none transition resize-none"></textarea>
                 </div>
 
                 <div class="bg-gray-50 p-4 rounded-lg">
                     <label class="flex items-start cursor-pointer">
-                        <input type="checkbox" class="w-4 h-4 text-meg-primary rounded mt-1" required>
+                        <input type="checkbox" id="mentorTerms" class="w-4 h-4 text-meg-primary rounded mt-1" required>
                         <span class="ml-3 text-sm text-gray-700">
                             Concordo em dedicar meu tempo para mentorar mulheres empreendedoras com ética e profissionalismo
                         </span>
                     </label>
                 </div>
 
-                <button type="submit" class="w-full bg-meg-primary text-white font-bold py-4 rounded-lg hover:bg-green-800 transition shadow-lg text-lg">
+                <button type="submit" id="mentorSubmitBtn" class="w-full bg-meg-primary text-white font-bold py-4 rounded-lg hover:bg-green-800 transition shadow-lg text-lg">
                     <i class="fas fa-heart mr-2"></i> Registrar-me Como Mentora
                 </button>
             </form>
@@ -140,63 +178,8 @@
         <!-- MENTORAS DESTAQUE -->
         <div class="mb-12">
             <h2 class="text-3xl font-black text-meg-primary mb-8 text-center">Mentoras Que Fazem Diferença 💪</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border-t-4 border-meg-primary">
-                    <div class="h-40 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                        <i class="fas fa-user-tie text-6xl text-white opacity-30"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-meg-primary mb-2">Carolina Mendes</h3>
-                        <p class="text-sm text-meg-accent font-bold mb-3">Consultora Estratégica</p>
-                        <p class="text-gray-700 text-sm mb-4">Especialista em gestão financeira e crescimento empresarial. Mais de 15 anos de experiência.</p>
-                        <div class="flex items-center space-x-2 text-yellow-500 text-sm">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span class="text-gray-600">(42 avaliações)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border-t-4 border-meg-accent">
-                    <div class="h-40 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-                        <i class="fas fa-user-tie text-6xl text-white opacity-30"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-meg-primary mb-2">Juliana Silva</h3>
-                        <p class="text-sm text-meg-accent font-bold mb-3">Expert em Vendas B2B</p>
-                        <p class="text-gray-700 text-sm mb-4">Ajudou mais de 100 empresas a fechar grandes contratos. Metodologia comprovada.</p>
-                        <div class="flex items-center space-x-2 text-yellow-500 text-sm">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span class="text-gray-600">(38 avaliações)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border-t-4 border-meg-primary">
-                    <div class="h-40 bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
-                        <i class="fas fa-user-tie text-6xl text-white opacity-30"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-meg-primary mb-2">Beatriz Costa</h3>
-                        <p class="text-sm text-meg-accent font-bold mb-3">Coach de Marketing Digital</p>
-                        <p class="text-gray-700 text-sm mb-4">Especialista em redes sociais e marketing para pequenas empresas online.</p>
-                        <div class="flex items-center space-x-2 text-yellow-500 text-sm">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span class="text-gray-600">(31 avaliações)</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="mentorsList">
+                <!-- Será preenchido via JavaScript -->
             </div>
         </div>
 
@@ -215,11 +198,7 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
                 <div class="flex items-center space-x-2 mb-4">
-<<<<<<< HEAD
-                    <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
-=======
                     <img src="../logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
->>>>>>> 259911726c1ea015d7d84ff6e148f80650b98c0a
                     <div>
                         <p class="font-bold text-white">MEG</p>
                         <p class="text-xs">Goianas</p>
@@ -263,10 +242,102 @@
 
     <script src="js/auth.js"></script>
     <script>
-        function handleMentorRegistration(event) {
+        // Carregar mentoras disponíveis
+        async function loadMentors() {
+            try {
+                const mentors = await megAuth.getMentors();
+                const mentorsList = document.getElementById('mentorsList');
+
+                if (mentors.length > 0) {
+                    mentorsList.innerHTML = mentors.slice(0, 3).map((mentor, index) => {
+                        const colors = ['from-blue-500 to-blue-600', 'from-green-500 to-green-600', 'from-purple-500 to-purple-600'];
+                        const color = colors[index % colors.length];
+                        return `
+                            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border-t-4 border-meg-primary">
+                                <div class="h-40 bg-gradient-to-br ${color} flex items-center justify-center">
+                                    <i class="fas fa-user-tie text-6xl text-white opacity-30"></i>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-lg font-bold text-meg-primary mb-2">${mentor.name}</h3>
+                                    <p class="text-sm text-meg-accent font-bold mb-3">${mentor.specialty || mentor.expertise?.[0] || 'Mentora'}</p>
+                                    <p class="text-gray-700 text-sm mb-4">${mentor.bio?.substring(0, 100) || 'Especialista em mentoria'}...</p>
+                                    <div class="flex items-center space-x-2 text-yellow-500 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="text-gray-600">(${Math.floor(Math.random() * 50) + 10} avaliações)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            } catch (error) {
+                console.error('Erro ao carregar mentoras:', error);
+            }
+        }
+
+        // Carregar mentoras ao iniciar
+        loadMentors();
+
+        // Handler de registro
+        async function handleMentorRegistration(event) {
             event.preventDefault();
-            alert('✅ Formulário de mentora recebido! Analisaremos sua aplicação em até 48h. Obrigada por querer impactar mulheres empreendedoras goianas!');
-            document.getElementById('mentorForm').reset();
+
+            const formData = {
+                name: document.getElementById('mentorName').value,
+                email: document.getElementById('mentorEmail').value,
+                password: document.getElementById('mentorPassword').value,
+                phone: document.getElementById('mentorPhone').value,
+                cpf: document.getElementById('mentorCpf').value,
+                specialty: document.getElementById('mentorSpecialty').value,
+                expertise: document.getElementById('mentorExpertise').value,
+                background: document.getElementById('mentorBackground').value,
+                experience_level: document.getElementById('mentorLevel').value,
+                location: document.getElementById('mentorLocation').value,
+                keywords: document.getElementById('mentorKeywords').value.split(',').map(k => k.trim()),
+                mentoring_goals: document.getElementById('mentorGoals').value,
+                past_challenges: document.getElementById('mentorChallenges').value,
+                availability: 'Disponível',
+                isAvailable: true
+            };
+
+            // Validações
+            if (!formData.name || !formData.email || !formData.password) {
+                alert('❌ Preencha todos os campos obrigatórios!');
+                return;
+            }
+
+            if (formData.password.length < 6) {
+                alert('❌ A senha deve ter no mínimo 6 caracteres!');
+                return;
+            }
+
+            const btn = document.getElementById('mentorSubmitBtn');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando...';
+
+            try {
+                const result = await megAuth.registerMentor(formData);
+
+                if (result.success) {
+                    alert('✅ Cadastro de mentora realizado com sucesso! Analisaremos sua aplicação em até 48h.');
+                    document.getElementById('mentorForm').reset();
+                    // Recarregar a lista de mentoras
+                    loadMentors();
+                } else {
+                    alert('❌ ' + result.error);
+                }
+            } catch (error) {
+                console.error('Erro no registro:', error);
+                alert('❌ Erro ao enviar cadastro. Tente novamente.');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
         }
     </script>
 
