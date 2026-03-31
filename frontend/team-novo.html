@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Equipe - MEG</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .bg-meg-primary { background-color: #15803d; }
+        .text-meg-primary { color: #15803d; }
+        .bg-meg-accent { background-color: #ca8a04; }
+        .text-meg-accent { color: #ca8a04; }
+        
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(21, 128, 61, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="glass sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
+                <div>
+                    <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
+                    <p class="text-xs text-gray-600">Nossa Equipe</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="landing-meg.html" class="text-gray-700 hover:text-meg-primary transition">Home</a>
+                <a href="login-novo.html" class="text-gray-700 hover:text-meg-primary transition">Login</a>
+            </div>
+            <button class="md:hidden text-meg-primary text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        
+        <!-- HEADER -->
+        <div class="bg-meg-primary text-white rounded-2xl p-8 mb-12 shadow-lg text-center">
+            <h1 class="text-4xl font-black mb-3">Conheça Nossa Equipe 💚</h1>
+            <p class="text-lg text-white/90">Mulheres dedicadas a transformar o ecossistema de empreendedorismo feminino em Goiás</p>
+        </div>
+
+        <!-- MISSÃO, VISÃO, VALORES -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-meg-primary text-center">
+                <div class="text-4xl text-meg-primary mb-4"><i class="fas fa-bullseye"></i></div>
+                <h3 class="text-2xl font-bold text-meg-primary mb-3">Missão</h3>
+                <p class="text-gray-700">Empoderar mulheres empreendedoras através de oportunidades, mentorias e educação financeira contínua</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-meg-accent text-center">
+                <div class="text-4xl text-meg-accent mb-4"><i class="fas fa-telescope"></i></div>
+                <h3 class="text-2xl font-bold text-meg-primary mb-3">Visão</h3>
+                <p class="text-gray-700">Ser o maior hub produtivo liderado por mulheres, transformando a economia de Goiás</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-meg-primary text-center">
+                <div class="text-4xl text-meg-primary mb-4"><i class="fas fa-heart"></i></div>
+                <h3 class="text-2xl font-bold text-meg-primary mb-3">Valores</h3>
+                <p class="text-gray-700">Sororidade, Transparência, Inovação e Impacto Social para todas as mulheres</p>
+            </div>
+        </div>
+
+        <!-- LIDERANÇA -->
+        <h2 class="text-3xl font-black text-meg-primary mb-8 text-center">Liderança MEG 🌟</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- MEMBRO 1 -->
+            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-meg-primary">
+                <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-user-circle text-7xl text-white opacity-30"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-meg-primary mb-1">Fernanda Silva</h3>
+                    <p class="text-sm text-meg-accent font-bold mb-3">Founder & CEO</p>
+                    <p class="text-gray-700 text-sm mb-4">Empreendedora serial, mentora e apaixonada por transformar vidas através do empreendedorismo. 15+ anos de experiência.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEMBRO 2 -->
+            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-meg-accent">
+                <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                    <i class="fas fa-user-circle text-7xl text-white opacity-30"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-meg-primary mb-1">Carla Oliveira</h3>
+                    <p class="text-sm text-meg-accent font-bold mb-3">Diretora de Operações</p>
+                    <p class="text-gray-700 text-sm mb-4">Especialista em gestão de operações e processos. Responsável pela excelência operacional da MEG.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEMBRO 3 -->
+            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-meg-primary">
+                <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                    <i class="fas fa-user-circle text-7xl text-white opacity-30"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-meg-primary mb-1">Juliana Costa</h3>
+                    <p class="text-sm text-meg-accent font-bold mb-3">Diretora de Parcerias</p>
+                    <p class="text-gray-700 text-sm mb-4">Conecta MEG com bancos, fundações e empresas. Especialista em relacionamentos estratégicos.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEMBRO 4 -->
+            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-meg-accent">
+                <div class="h-48 bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
+                    <i class="fas fa-user-circle text-7xl text-white opacity-30"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-meg-primary mb-1">Beatriz Mendes</h3>
+                    <p class="text-sm text-meg-accent font-bold mb-3">Head de Educação</p>
+                    <p class="text-gray-700 text-sm mb-4">Desenvolve cursos e programas de capacitação. Apaixonada por educação empreendedora.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEMBRO 5 -->
+            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-meg-primary">
+                <div class="h-48 bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center">
+                    <i class="fas fa-user-circle text-7xl text-white opacity-30"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-meg-primary mb-1">Marina Gou</h3>
+                    <p class="text-sm text-meg-accent font-bold mb-3">Head de Tecnologia</p>
+                    <p class="text-gray-700 text-sm mb-4">Desenvolvedora full-stack. Cria as ferramentas de matching e automação da MEG.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEMBRO 6 -->
+            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 border-meg-accent">
+                <div class="h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                    <i class="fas fa-user-circle text-7xl text-white opacity-30"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-meg-primary mb-1">Leticia Martins</h3>
+                    <p class="text-sm text-meg-accent font-bold mb-3">Head de Comunicação</p>
+                    <p class="text-gray-700 text-sm mb-4">Constrói narrativas poderosas sobre mulheres empreendedoras. Marketing e storytelling.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-meg-primary hover:text-meg-accent transition"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NÚMEROS -->
+        <div class="bg-meg-primary text-white rounded-2xl p-12 mb-12 shadow-lg">
+            <h2 class="text-3xl font-black text-center mb-12">Impacto da Equipe 📊</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <p class="text-4xl font-black">30k+</p>
+                    <p class="text-white/90">Mulheres Impactadas</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black">R$ 500M</p>
+                    <p class="text-white/90">Oportunidades Conectadas</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black">5k+</p>
+                    <p class="text-white/90">Mentorias Realizadas</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black">98%</p>
+                    <p class="text-white/90">Taxa de Satisfação</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRABALHE CONOSCO -->
+        <div class="bg-gradient-to-r from-meg-primary to-green-700 text-white rounded-2xl p-12 shadow-lg text-center">
+            <h2 class="text-3xl font-black mb-4">Quer Fazer Parte da Nossa Equipe?</h2>
+            <p class="text-lg text-white/90 mb-8">Buscamos profissionais apaixonadas por transformar o empreendedorismo feminino em Goiás</p>
+            <a href="contact.html" class="inline-block bg-white text-meg-primary font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition text-lg">
+                Envie Seu Currículo
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 border-t-4 border-meg-accent mt-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+                    <div>
+                        <p class="font-bold text-white">MEG</p>
+                        <p class="text-xs">Goianas</p>
+                    </div>
+                </div>
+                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Links</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-meg-accent transition">Início</a></li>
+                    <li><a href="como-funciona-novo.html" class="hover:text-meg-accent transition">Como Funciona</a></li>
+                    <li><a href="contact.html" class="hover:text-meg-accent transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="register-novo.html" class="hover:text-meg-accent transition">Registrar</a></li>
+                    <li><a href="dashboard-novo.html" class="hover:text-meg-accent transition">Dashboard</a></li>
+                    <li><a href="#" class="hover:text-meg-accent transition">Privacidade</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-gray-700 pt-8 text-center text-sm">
+            <p>&copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados. 💚</p>
+        </div>
+    </footer>
+
+</body>
+</html>

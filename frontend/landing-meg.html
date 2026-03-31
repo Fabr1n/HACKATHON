@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEG - Hub de Inteligência para Mulheres Empreendedoras</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .bg-meg-primary { background-color: #15803d; }
+        .text-meg-primary { color: #15803d; }
+        .border-meg-primary { border-color: #15803d; }
+        .bg-meg-accent { background-color: #ca8a04; }
+        .text-meg-accent { color: #ca8a04; }
+        
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(21, 128, 61, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="glass sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
+                <div>
+                    <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
+                    <p class="text-xs text-gray-600">Mulheres Empreendedoras</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#hero" class="text-gray-700 hover:text-meg-primary transition">Início</a>
+                <a href="#pilares" class="text-gray-700 hover:text-meg-primary transition">Os 3 Pilares</a>
+                <a href="#funcionalidades" class="text-gray-700 hover:text-meg-primary transition">Funcionalidades</a>
+                <a href="#mentor" class="text-gray-700 hover:text-meg-primary transition">Seja Mentor</a>
+                <a href="login-novo.html" class="bg-meg-primary text-white px-5 py-2 rounded-full hover:bg-green-800 transition">Login</a>
+            </div>
+            <button class="md:hidden text-meg-primary text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="bg-meg-primary text-white py-20 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h1 class="text-5xl md:text-6xl font-black leading-tight">
+                    Seu Crescimento é Nossa Missão
+                </h1>
+                <p class="text-lg text-white/90">
+                    MEG é o hub inteligente que conecta você a oportunidades reais: crédito, corporações e mentorias. Sem ruído, sem perda de tempo.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="register-novo.html" class="bg-white text-meg-primary font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition text-center">
+                        <i class="fas fa-rocket mr-2"></i> Criar Meu Perfil
+                    </a>
+                    <a href="#pilares" class="bg-meg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-green-800 transition text-center">
+                        <i class="fas fa-info-circle mr-2"></i> Saiba Mais
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://vocesa.abril.com.br/wp-content/uploads/2020/01/gettyimages-642501464.jpg?quality=70&strip=info&w=414&h=280&crop=1" alt="Mulher Líder" class="rounded-2xl shadow-2xl w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- OS 3 PILARES -->
+    <section id="pilares" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-meg-primary mb-4">Os 3 Pilares da MEG</h2>
+                <p class="text-xl text-gray-600">Tudo que você precisa para crescer</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- PILAR 1: HUB -->
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border-l-4 border-meg-primary">
+                    <div class="w-16 h-16 bg-meg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-layer-group text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-meg-primary mb-3">Hub de Inteligência</h3>
+                    <p class="text-gray-700">
+                        Editais do SEBRAE, governo, FAPEG, créditos, vagas B2B... tudo em um só lugar.
+                    </p>
+                    <a href="#" class="inline-block mt-4 text-meg-primary font-bold hover:text-green-700">Explorar →</a>
+                </div>
+
+                <!-- PILAR 2: MATCH -->
+                <div class="card-hover bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 shadow-lg border-l-4 border-meg-accent">
+                    <div class="w-16 h-16 bg-meg-accent rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-magic text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-meg-primary mb-3">Match Inteligente</h3>
+                    <p class="text-gray-700">
+                        IA cruza seu CNPJ com editais. Você só recebe notificação do que é 85%+ compatível.
+                    </p>
+                    <a href="#" class="inline-block mt-4 text-meg-accent font-bold hover:text-yellow-700">Ver como funciona →</a>
+                </div>
+
+                <!-- PILAR 3: CAPACITAÇÃO -->
+                <div class="card-hover bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-l-4 border-meg-primary">
+                    <div class="w-16 h-16 bg-meg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-meg-primary mb-3">Capacitação Direcionada</h3>
+                    <p class="text-gray-700">
+                        Micro-courses de 10-15 min baseados nas suas lacunas específicas de conhecimento.
+                    </p>
+                    <a href="#" class="inline-block mt-4 text-meg-primary font-bold hover:text-green-700">Entender sistema →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUNCIONALIDADES -->
+    <section id="funcionalidades" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-meg-primary mb-4">Tudo o que Você Precisa</h2>
+                <p class="text-xl text-gray-600">Três pilares que funcionam juntos</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-xl p-6 shadow-md border-t-4 border-meg-primary">
+                    <i class="fas fa-handshake text-4xl text-meg-accent mb-4"></i>
+                    <h4 class="text-xl font-bold text-meg-primary mb-3">Matchmaking B2B</h4>
+                    <p class="text-gray-600">Conectamos você diretamente a corporações que precisam bater metas ESG.</p>
+                </div>
+
+                <div class="card-hover bg-white rounded-xl p-6 shadow-md border-t-4 border-meg-accent">
+                    <i class="fas fa-seedling text-4xl text-meg-primary mb-4"></i>
+                    <h4 class="text-xl font-bold text-meg-primary mb-3">Linhas de Crédito</h4>
+                    <p class="text-gray-600">Algoritmo filtra apenas as linhas de fomento adequadas ao seu perfil.</p>
+                </div>
+
+                <div class="card-hover bg-white rounded-xl p-6 shadow-md border-t-4 border-meg-primary">
+                    <i class="fas fa-graduation-cap text-4xl text-meg-accent mb-4"></i>
+                    <h4 class="text-xl font-bold text-meg-primary mb-3">Mentorias de Impacto</h4>
+                    <p class="text-gray-600">Acesso a mentoras experientes do cenário econômico de Goiás.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="py-20 px-4 bg-white border-t-8 border-meg-primary">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-meg-primary mb-12 text-center">Conexão é Nossa Chave para o Sucesso</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://redacao.rhpravoce.com.br/wp-content/uploads/2025/12/mentoria-feminina-carreiras-brasil.jpg" alt="Mentorias" class="rounded-2xl shadow-2xl w-full">
+                </div>
+
+                <div class="order-1 md:order-2 space-y-6">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-meg-primary text-white flex items-center justify-center font-bold text-lg">1</div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-meg-primary mb-1">Perfil em 1 Minuto</h4>
+                            <p class="text-gray-700">Crie seu cadastro com CNPJ, setor e sua principal necessidade.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-meg-accent text-white flex items-center justify-center font-bold text-lg">2</div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-meg-primary mb-1">A IA Trabalha</h4>
+                            <p class="text-gray-700">Nosso motor varre editais, oportunidades comerciais e mentorias 24/7.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-lg">3</div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-meg-primary mb-1">Match Perfeito</h4>
+                            <p class="text-gray-700">Receba notificações apenas do que você já está pré-aprovada.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-red-500 text-white flex items-center justify-center font-bold text-lg">4</div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-meg-primary mb-1">Feche o Negócio</h4>
+                            <p class="text-gray-700">Use mentoria e capacitação para converter oportunidade em contrato.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEJA MENTOR -->
+    <section id="mentor" class="py-20 px-4 bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">Você é uma Líder?</h2>
+                <h3 class="text-2xl md:text-3xl font-bold text-meg-accent mb-4">Multiplique seu Impacto (e sua Renda)</h3>
+                <p class="text-lg text-gray-200 max-w-2xl mx-auto">
+                    Mentoras MEG ganham até <strong>R$ 500/hora</strong> em mentorias privadas. Expanda sua rede e conquiste visibilidade.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="card-hover bg-white/10 border-2 border-meg-accent rounded-xl p-8 backdrop-blur">
+                    <i class="fas fa-crown text-4xl text-meg-accent mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Status Premium</h4>
+                    <p class="text-gray-200">Seu perfil com badge "Mentora Elite" em destaque.</p>
+                    <p class="text-meg-accent font-bold text-sm mt-3">Ganho: +300% visibilidade</p>
+                </div>
+
+                <div class="card-hover bg-white/10 border-2 border-meg-accent rounded-xl p-8 backdrop-blur">
+                    <i class="fas fa-piggy-bank text-4xl text-meg-accent mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Renda Certificada</h4>
+                    <p class="text-gray-200">Ganhe de R$ 250 até R$ 500+/hora em mentorias privadas.</p>
+                    <p class="text-meg-accent font-bold text-sm mt-3">Potencial 1º ano: +R$ 60 mil</p>
+                </div>
+
+                <div class="card-hover bg-white/10 border-2 border-meg-accent rounded-xl p-8 backdrop-blur">
+                    <i class="fas fa-network-wired text-4xl text-meg-accent mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Rede de Impacto</h4>
+                    <p class="text-gray-200">Acesso exclusivo a 30+ mil empreendedoras e corporações.</p>
+                    <p class="text-meg-accent font-bold text-sm mt-3">Oportunidades B2B: +500%</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="mentor-register.html" class="inline-block bg-gradient-to-r from-meg-accent to-yellow-500 text-gray-900 font-bold px-8 py-4 rounded-full text-lg hover:shadow-xl transition">
+                    <i class="fas fa-rocket mr-2"></i> Quero Ser Mentora MEG Elite
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section class="py-20 px-4 bg-meg-primary text-white border-t-8 border-meg-accent">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="text-4xl md:text-5xl font-black">
+                O Seu Tempo é Ouro. A MEG é o Atalho.
+            </h2>
+            <p class="text-xl">
+                30 mil mulheres empreendedoras esperando a oportunidade certa.<br>
+                <strong>Você será a próxima?</strong>
+            </p>
+            <p class="text-lg text-white/90">
+                Não espere a oportunidade aparecer espalhada pela internet. No MEG, a oportunidade corre atrás de você.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="register-novo.html" class="bg-white text-meg-primary font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition">
+                    <i class="fas fa-rocket mr-2"></i> Criar Perfil Agora
+                </a>
+                <a href="#pilares" class="bg-meg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-green-800 transition">
+                    <i class="fas fa-info-circle mr-2"></i> Como Funciona
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 border-t-4 border-meg-accent">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+                    <div>
+                        <p class="font-bold text-white">MEG</p>
+                        <p class="text-xs">Goianas</p>
+                    </div>
+                </div>
+                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Links Rápidos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#hero" class="hover:text-meg-accent transition">Início</a></li>
+                    <li><a href="#pilares" class="hover:text-meg-accent transition">3 Pilares</a></li>
+                    <li><a href="#funcionalidades" class="hover:text-meg-accent transition">Funcionalidades</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="como-funciona.html" class="hover:text-meg-accent transition">Como Funciona</a></li>
+                    <li><a href="team.html" class="hover:text-meg-accent transition">Equipe</a></li>
+                    <li><a href="contact.html" class="hover:text-meg-accent transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-gray-700 pt-8 text-center text-sm">
+            <p>&copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados. 💚</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

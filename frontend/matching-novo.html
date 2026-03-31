@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches Inteligentes - MEG</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .bg-meg-primary { background-color: #15803d; }
+        .text-meg-primary { color: #15803d; }
+        .bg-meg-accent { background-color: #ca8a04; }
+        .text-meg-accent { color: #ca8a04; }
+        
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(21, 128, 61, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="glass sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
+                <div>
+                    <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
+                    <p class="text-xs text-gray-600">Matches Inteligentes</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="landing-meg.html" class="text-gray-700 hover:text-meg-primary transition">Home</a>
+                <a href="dashboard-novo.html" class="text-gray-700 hover:text-meg-primary transition">Dashboard</a>
+                <button class="text-gray-700 hover:text-meg-primary transition" onclick="document.getElementById('profileMenu').classList.toggle('hidden')">
+                    <i class="fas fa-user-circle text-2xl"></i>
+                </button>
+            </div>
+            <button class="md:hidden text-meg-primary text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        
+        <!-- HEADER SECTION -->
+        <div class="bg-meg-primary text-white rounded-2xl p-8 mb-8 shadow-lg">
+            <h1 class="text-4xl font-black mb-3">🔥 Seu Matching Inteligente</h1>
+            <p class="text-lg text-white/90">Descobrimos as melhores oportunidades para você, com base no seu perfil. Aqui estão seus matches personalizados.</p>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="bg-white rounded-2xl p-6 mb-8 shadow-md">
+            <h2 class="text-lg font-bold text-meg-primary mb-4">🔍 Filtros</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Tipo de Oportunidade</label>
+                    <select class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-meg-primary">
+                        <option>Todos</option>
+                        <option>Editais</option>
+                        <option>B2B</option>
+                        <option>Crédito</option>
+                        <option>Mentoria</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Valor Mínimo</label>
+                    <input type="number" placeholder="Ex: 10000" class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-meg-primary">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Match Score</label>
+                    <select class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-meg-primary">
+                        <option>Qualquer Score</option>
+                        <option>+90%</option>
+                        <option>+80%</option>
+                        <option>+70%</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-meg-primary mb-2">Ordenar Por</label>
+                    <select class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-meg-primary">
+                        <option>Melhor Match</option>
+                        <option>Maior Valor</option>
+                        <option>Mais Recente</option>
+                        <option>Prazo Urgente</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- MATCHES GRID -->
+        <div class="space-y-6">
+            
+            <!-- MATCH CARD 1 - EDITAL -->
+            <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="inline-block bg-blue-400 text-white px-3 py-1 rounded-full text-sm font-bold mb-3">
+                                EDITAL
+                            </div>
+                            <h3 class="text-2xl font-bold">Edital SEBRAE - Modernização Digital</h3>
+                            <p class="text-white/90 mt-2">Apoio para implementação de tecnologia nas micro e pequenas empresas</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="bg-white text-blue-600 rounded-full w-20 h-20 flex items-center justify-center">
+                                <span class="text-2xl font-black">87%</span>
+                            </div>
+                            <p class="text-xs text-white/80 mt-2">Match Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 pb-6 border-b">
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">💰 Valor Disponível</p>
+                            <p class="text-2xl font-bold text-meg-primary">Até R$ 50 mil</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">📅 Prazo Final</p>
+                            <p class="text-l font-bold text-meg-primary">15 de Abril</p>
+                            <p class="text-xs text-red-600">⚠️ 15 dias restantes</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">📍 Abrangência</p>
+                            <p class="text-l font-bold text-meg-primary">Brasil Inteiro</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-meg-primary mb-3">Por que você está aqui?</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>✅ Seu segmento (Tecnologia) está na lista de beneficiados</li>
+                            <li>✅ Seu faturamento enquadra-se perfeitamente</li>
+                            <li>✅ Seu estado (Goiás) tem parceria ativa</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="#" class="flex-1 bg-meg-primary text-white font-bold py-3 rounded-lg hover:bg-green-800 transition text-center">
+                            Ver Detalhes Completos
+                        </a>
+                        <button class="flex-1 border-2 border-meg-primary text-meg-primary font-bold py-3 rounded-lg hover:bg-green-50 transition">
+                            Salvar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MATCH CARD 2 - B2B -->
+            <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl">
+                <div class="bg-gradient-to-r from-green-500 to-green-600 p-6 text-white">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="inline-block bg-green-400 text-white px-3 py-1 rounded-full text-sm font-bold mb-3">
+                                B2B
+                            </div>
+                            <h3 class="text-2xl font-bold">Fornecedores de Brindes Sustentáveis</h3>
+                            <p class="text-white/90 mt-2">Corporação de Goiás contratan fornecedoras de itens em material natural e reciclável</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="bg-white text-green-600 rounded-full w-20 h-20 flex items-center justify-center">
+                                <span class="text-2xl font-black">92%</span>
+                            </div>
+                            <p class="text-xs text-white/80 mt-2">Match Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 pb-6 border-b">
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">💰 Contrato Estimado</p>
+                            <p class="text-2xl font-bold text-meg-primary">R$ 120 mil/ano</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">⏰ Tipo</p>
+                            <p class="text-l font-bold text-meg-primary">Permanente</p>
+                            <p class="text-xs text-green-600">🟢 Sempre Ativa</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">🏢 Empresa</p>
+                            <p class="text-l font-bold text-meg-primary">Multinacional +500FFs</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-meg-primary mb-3">Por que você está aqui?</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>✅ Sua empresa tem certificação sustentável</li>
+                            <li>✅ Você já trabalha com brindes corporativos</li>
+                            <li>✅ Sua localização permite distribuição rápida</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="#" class="flex-1 bg-meg-primary text-white font-bold py-3 rounded-lg hover:bg-green-800 transition text-center">
+                            Ver Detalhes Completos
+                        </a>
+                        <button class="flex-1 border-2 border-meg-primary text-meg-primary font-bold py-3 rounded-lg hover:bg-green-50 transition">
+                            Salvar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MATCH CARD 3 - CRÉDITO -->
+            <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl">
+                <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 p-6 text-white">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="inline-block bg-yellow-400 text-white px-3 py-1 rounded-full text-sm font-bold mb-3">
+                                CRÉDITO
+                            </div>
+                            <h3 class="text-2xl font-bold">Linha BNDES - Expansão e Equipamentos</h3>
+                            <p class="text-white/90 mt-2">Financiamento com taxa reduzida para investimento em tecnologia e ampliação</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="bg-white text-yellow-600 rounded-full w-20 h-20 flex items-center justify-center">
+                                <span class="text-2xl font-black">78%</span>
+                            </div>
+                            <p class="text-xs text-white/80 mt-2">Match Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 pb-6 border-b">
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">💰 Valor Máximo</p>
+                            <p class="text-2xl font-bold text-meg-primary">Até R$ 300 mil</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">💳 Taxa</p>
+                            <p class="text-l font-bold text-meg-primary">2.8% a.a.</p>
+                            <p class="text-xs text-green-600">📉 Abaixo da Média</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">⏱️ Prazo</p>
+                            <p class="text-l font-bold text-meg-primary">Até 84 meses</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-meg-primary mb-3">Por que você está aqui?</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>✅ Seu tempo no mercado enquadra-se perfeitamente</li>
+                            <li>✅ Você tem histórico de crédito aprovado</li>
+                            <li>✅ Sua previsão de crescimento é viável</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="#" class="flex-1 bg-meg-primary text-white font-bold py-3 rounded-lg hover:bg-green-800 transition text-center">
+                            Ver Detalhes Completos
+                        </a>
+                        <button class="flex-1 border-2 border-meg-primary text-meg-primary font-bold py-3 rounded-lg hover:bg-green-50 transition">
+                            Salvar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MATCH CARD 4 - MENTORIA -->
+            <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl">
+                <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-6 text-white">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="inline-block bg-purple-400 text-white px-3 py-1 rounded-full text-sm font-bold mb-3">
+                                MENTORIA
+                            </div>
+                            <h3 class="text-2xl font-bold">Mentorias em Gestão Financeira para Micro</h3>
+                            <p class="text-white/90 mt-2">Programa gratuito de mentoria 1:1 com consultora financeira especializada</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="bg-white text-purple-600 rounded-full w-20 h-20 flex items-center justify-center">
+                                <span class="text-2xl font-black">95%</span>
+                            </div>
+                            <p class="text-xs text-white/80 mt-2">Match Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 pb-6 border-b">
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">💰 Investimento</p>
+                            <p class="text-2xl font-bold text-meg-primary">100% GRÁTIS</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">⏰ Duração</p>
+                            <p class="text-l font-bold text-meg-primary">6 meses</p>
+                            <p class="text-xs text-green-600">🟢 Flexível</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 font-bold">👥 Formato</p>
+                            <p class="text-l font-bold text-meg-primary">1:1 + Grupo</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-meg-primary mb-3">Por que você está aqui?</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>✅ Seu perfil é perfeito para este programa</li>
+                            <li>✅ Você demonstrou interesse em aprender</li>
+                            <li>✅ Sua disponibilidade permite a participação</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="#" class="flex-1 bg-meg-primary text-white font-bold py-3 rounded-lg hover:bg-green-800 transition text-center">
+                            Inscrever-se Agora
+                        </a>
+                        <button class="flex-1 border-2 border-meg-primary text-meg-primary font-bold py-3 rounded-lg hover:bg-green-50 transition">
+                            Salvar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="flex justify-center items-center gap-2 mt-12">
+            <button class="px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-meg-primary transition">←</button>
+            <button class="px-4 py-2 bg-meg-primary text-white rounded-lg">1</button>
+            <button class="px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-meg-primary transition">2</button>
+            <button class="px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-meg-primary transition">3</button>
+            <button class="px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-meg-primary transition">→</button>
+        </div>
+    </div>
+
+    <!-- Auth Scripts -->
+    <script src="js/auth.js"></script>
+    <script>
+        // Verificar autenticação ao carregar a página
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Redirecionar para login se não estiver autenticada
+            if (!megAuth.isAuthenticated()) {
+                window.location.href = 'login-novo.html';
+                return;
+            }
+
+            // Carregar dados da usuária
+            const user = megAuth.getCurrentUser();
+            console.log('Usuária autenticada:', user?.name || user?.email);
+
+            // Carregar matches da API
+            await loadMatches();
+        });
+
+        async function loadMatches() {
+            try {
+                // Buscar mentoras da API
+                const mentors = await megAuth.getMentors();
+                console.log('Mentoras disponíveis:', mentors);
+
+                // Buscar editais
+                const editals = await megAuth.getEditals();
+                console.log('Editais disponíveis:', editals);
+
+                // Aqui você pode atualizar a UI dinamicamente
+            } catch (error) {
+                console.error('Erro ao carregar matches:', error);
+            }
+        }
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 border-t-4 border-meg-accent mt-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+                    <div>
+                        <p class="font-bold text-white">MEG</p>
+                        <p class="text-xs">Goianas</p>
+                    </div>
+                </div>
+                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Links</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-meg-accent transition">Início</a></li>
+                    <li><a href="dashboard-novo.html" class="hover:text-meg-accent transition">Dashboard</a></li>
+                    <li><a href="contact.html" class="hover:text-meg-accent transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-meg-accent transition">Privacidade</a></li>
+                    <li><a href="#" class="hover:text-meg-accent transition">Termos</a></li>
+                    <li><a href="#" class="hover:text-meg-accent transition">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-gray-700 pt-8 text-center text-sm">
+            <p>&copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados. 💚</p>
+        </div>
+    </footer>
+
+</body>
+</html>

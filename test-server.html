@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Servidor MEG</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+            color: white;
+        }
+        .container {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 { color: #15803d; margin-bottom: 10px; }
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .status.ok { background: #d1fae5; color: #065f46; }
+        .status.error { background: #fee2e2; color: #991b1b; }
+        .status.loading { background: #fef3c7; color: #92400e; }
+        button {
+            background: #15803d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        button:hover { background: #166534; }
+        .endpoint {
+            background: #f3f4f6;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 5px 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        pre {
+            background: #1f2937;
+            color: #4ade80;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Teste do Servidor MEG</h1>
+        <p>Esta página testa se o servidor backend está funcionando corretamente.</p>
+
+        <div id="healthStatus" class="status loading">
+            ⏳ Verificando conexão com o servidor...
+        </div>
+
+        <h2>Endpoints Disponíveis</h2>
+        <div class="endpoint">GET  /api/health - Verificar status do servidor</div>
+        <div class="endpoint">POST /login - Autenticação de usuárias</div>
+        <div class="endpoint">POST /register - Registro de novas usuárias</div>
+        <div class="endpoint">GET  /mentors - Listar mentoras disponíveis</div>
+        <div class="endpoint">GET  /api/courses - Listar cursos</div>
+        <div class="endpoint">GET  /api/editals/public - Listar editais públicos</div>
+
+        <h2>Testar Funcionalidades</h2>
+        <button onclick="testHealth()">🔄 Verificar Saúde</button>
+        <button onclick="testLogin()">🔑 Testar Login</button>
+        <button onclick="testMentors()">👩‍🏫 Listar Mentoras</button>
+        <button onclick="testCourses()">📚 Listar Cursos</button>
+        <button onclick="testEditals()">📋 Listar Editais</button>
+
+        <h3>Resultado:</h3>
+        <pre id="result">Clique em um botão acima para testar...</pre>
+
+        <hr>
+
+        <h2>🔗 Links Úteis</h2>
+        <p>
+            <a href="/frontend/landing-meg.html"><button>🌐 Landing Page</button></a>
+            <a href="/frontend/dashboard-novo.html"><button>📊 Dashboard</button></a>
+            <a href="/frontend/login-novo.html"><button>🔐 Login</button></a>
+        </p>
+    </div>
+
+    <script>
+        const API_URL = window.location.origin;
+
+        async function testHealth() {
+            const resultEl = document.getElementById('result');
+            resultEl.textContent = 'Verificando...';
+
+            try {
+                const response = await fetch(`${API_URL}/api/health`);
+                const data = await response.json();
+                resultEl.textContent = JSON.stringify(data, null, 2);
+                updateStatus(true);
+            } catch (error) {
+                resultEl.textContent = `Erro: ${error.message}`;
+                updateStatus(false);
+            }
+        }
+
+        async function testLogin() {
+            const resultEl = document.getElementById('result');
+            resultEl.textContent = 'Testando login com admin@exemplo.com / 123456...';
+
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: 'admin@exemplo.com', password: '123456' })
+                });
+                const data = await response.json();
+                resultEl.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultEl.textContent = `Erro: ${error.message}`;
+            }
+        }
+
+        async function testMentors() {
+            const resultEl = document.getElementById('result');
+            resultEl.textContent = 'Buscando mentoras...';
+
+            try {
+                const response = await fetch(`${API_URL}/mentors`);
+                const data = await response.json();
+                resultEl.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultEl.textContent = `Erro: ${error.message}`;
+            }
+        }
+
+        async function testCourses() {
+            const resultEl = document.getElementById('result');
+            resultEl.textContent = 'Buscando cursos...';
+
+            try {
+                const response = await fetch(`${API_URL}/api/courses`);
+                const data = await response.json();
+                resultEl.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultEl.textContent = `Erro: ${error.message}`;
+            }
+        }
+
+        async function testEditals() {
+            const resultEl = document.getElementById('result');
+            resultEl.textContent = 'Buscando editais...';
+
+            try {
+                const response = await fetch(`${API_URL}/api/editals/public`);
+                const data = await response.json();
+                resultEl.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultEl.textContent = `Erro: ${error.message}`;
+            }
+        }
+
+        function updateStatus(isOk) {
+            const statusEl = document.getElementById('healthStatus');
+            if (isOk) {
+                statusEl.className = 'status ok';
+                statusEl.textContent = '✅ Servidor está rodando corretamente!';
+            } else {
+                statusEl.className = 'status error';
+                statusEl.textContent = '❌ Erro ao conectar com o servidor. Verifique se o backend está rodando na porta 3000.';
+            }
+        }
+
+        // Verificar saúde automaticamente ao carregar
+        testHealth();
+    </script>
+</body>
+</html>

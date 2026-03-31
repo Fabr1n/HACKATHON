@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona - MEG</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .bg-meg-primary { background-color: #15803d; }
+        .text-meg-primary { color: #15803d; }
+        .bg-meg-accent { background-color: #ca8a04; }
+        .text-meg-accent { color: #ca8a04; }
+        
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(21, 128, 61, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="glass sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto drop-shadow">
+                <div>
+                    <h1 class="text-2xl font-bold text-meg-primary">MEG</h1>
+                    <p class="text-xs text-gray-600">Como Funciona</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="landing-meg.html" class="text-gray-700 hover:text-meg-primary transition">Home</a>
+                <a href="login-novo.html" class="text-gray-700 hover:text-meg-primary transition">Login</a>
+            </div>
+            <button class="md:hidden text-meg-primary text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        
+        <!-- HEADER -->
+        <div class="bg-meg-primary text-white rounded-2xl p-8 mb-12 shadow-lg text-center">
+            <h1 class="text-4xl font-black mb-3">Como Funciona a MEG? 🚀</h1>
+            <p class="text-lg text-white/90">Descubra como você pode multiplicar suas oportunidades de negócio em 3 pilares principais</p>
+        </div>
+
+        <!-- PASSO 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 items-center">
+            <div class="card-hover">
+                <div class="h-64 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-person-circle text-9xl text-white opacity-30"></i>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold mb-4">
+                    PASSO 1
+                </div>
+                <h2 class="text-3xl font-black text-meg-primary mb-4">Complete Seu Perfil</h2>
+                <p class="text-gray-700 text-lg mb-6">
+                    Registre-se na plataforma MEG e complemente seu perfil com informações sobre sua empresa, setor, necessidades e objetivos. Quanto mais informação, melhor nosso matching!
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Dados pessoais e profissionais</strong></span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Informações da empresa</strong></span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Necessidades específicas</strong></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PASSO 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 items-center">
+            <div class="order-2 md:order-1">
+                <div class="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-bold mb-4">
+                    PASSO 2
+                </div>
+                <h2 class="text-3xl font-black text-meg-primary mb-4">Receba Matches Inteligentes</h2>
+                <p class="text-gray-700 text-lg mb-6">
+                    Nossa IA analisa seu perfil em tempo real e compara com centenas de oportunidades (editais, crédito, B2B, mentorias). Você recebe apenas as mais relevantes para seu negócio.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Editais públicos personalizados</strong></span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Linhas de crédito pré-aprovadas</strong></span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Oportunidades B2B exclusivas</strong></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2 card-hover">
+                <div class="h-64 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-heart text-9xl text-white opacity-30"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- PASSO 3 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 items-center">
+            <div class="card-hover">
+                <div class="h-64 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-graduation-cap text-9xl text-white opacity-30"></i>
+                </div>
+            </div>
+            <div>
+                <div class="inline-block bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full font-bold mb-4">
+                    PASSO 3
+                </div>
+                <h2 class="text-3xl font-black text-meg-primary mb-4">Aprenda & Escale</h2>
+                <p class="text-gray-700 text-lg mb-6">
+                    Acesse nossa biblioteca de cursos rápidos (10-15 min) sobre gestão, vendas, crédito e marketing. Participe de mentorias 1:1 com especialistas e escale seu negócio.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Cursos de capacitação</strong></span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Mentorias com especialistas</strong></span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-meg-primary text-xl"></i>
+                        <span class="text-gray-700"><strong>Certificações profissionais</strong></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- OS 3 PILARES -->
+        <div class="bg-meg-primary text-white rounded-2xl p-12 mb-12 shadow-lg">
+            <h2 class="text-3xl font-black text-center mb-12">Os 3 Pilares da MEG 💚</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-5xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Oportunidades</h3>
+                    <p class="text-white/90">Editais, crédito, B2B: tudo personalizado com IA</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-5xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Mentorias</h3>
+                    <p class="text-white/90">Conecte com especialistas e escale seu negócio</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-book text-5xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Educação</h3>
+                    <p class="text-white/90">Aprenda em seu ritmo com cursos especializados</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-black text-meg-primary mb-8 text-center">Dúvidas?</h2>
+            <div class="space-y-4">
+                <details class="card-hover bg-white p-6 rounded-xl border-l-4 border-meg-primary shadow-md">
+                    <summary class="font-bold text-meg-primary cursor-pointer flex items-center justify-between">
+                        <span>Quanto custa usar a plataforma?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-700 ml-4">Os primeiros 30 dias são grátis! Depois disso, os planos começam a partir de R$ 49/mês com acesso ilimitado a todas as oportunidades e cursos.</p>
+                </details>
+
+                <details class="card-hover bg-white p-6 rounded-xl border-l-4 border-meg-primary shadow-md">
+                    <summary class="font-bold text-meg-primary cursor-pointer flex items-center justify-between">
+                        <span>As mentorias têm custo?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-700 ml-4">Você como empreendedora acessa a plataforma. Cada mentora define seu próprio preço (geralmente entre R$ 250-500/hora). O MEG não cobra comissão - você paga apenas a mentora.</p>
+                </details>
+
+                <details class="card-hover bg-white p-6 rounded-xl border-l-4 border-meg-primary shadow-md">
+                    <summary class="font-bold text-meg-primary cursor-pointer flex items-center justify-between">
+                        <span>Como faço para ser mentora?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-700 ml-4">Clique em "Ser Mentora" no cadastro. Precisamos de seu currículo, especialidades e disponibilidade. Após aprovação, você aparece no catálogo e começa a receber solicitações de mentorias.</p>
+                </details>
+
+                <details class="card-hover bg-white p-6 rounded-xl border-l-4 border-meg-primary shadow-md">
+                    <summary class="font-bold text-meg-primary cursor-pointer flex items-center justify-between">
+                        <span>Como funciona o matching de oportunidades?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-700 ml-4">Nossa IA analisa seu CNPJ, setor, histórico e necessidades em tempo real. Compara isso com todas as oportunidades disponíveis e envia apenas aquelas com 80%+ de compatibilidade.</p>
+                </details>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-r from-meg-primary to-green-700 text-white rounded-2xl p-12 shadow-lg text-center">
+            <h2 class="text-3xl font-black mb-4">Pronto para Começar? 🎯</h2>
+            <p class="text-lg text-white/90 mb-8">Junte-se a 30+ mil mulheres empreendedoras goianas que já estão escalando seus negócios</p>
+            <a href="register-novo.html" class="inline-block bg-white text-meg-primary font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition text-lg">
+                Criar Minha Conta
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 border-t-4 border-meg-accent mt-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="/logos/2-removebg-preview.png" alt="MEG" class="h-10 w-auto">
+                    <div>
+                        <p class="font-bold text-white">MEG</p>
+                        <p class="text-xs">Goianas</p>
+                    </div>
+                </div>
+                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Links</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-meg-accent transition">Início</a></li>
+                    <li><a href="dashboard-novo.html" class="hover:text-meg-accent transition">Dashboard</a></li>
+                    <li><a href="contact.html" class="hover:text-meg-accent transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="matching-novo.html" class="hover:text-meg-accent transition">Matches</a></li>
+                    <li><a href="courses-novo.html" class="hover:text-meg-accent transition">Cursos</a></li>
+                    <li><a href="#" class="hover:text-meg-accent transition">Privacidade</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-meg-accent transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-gray-700 pt-8 text-center text-sm">
+            <p>&copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados. 💚</p>
+        </div>
+    </footer>
+
+</body>
+</html>

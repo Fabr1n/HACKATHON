@@ -1,0 +1,54 @@
+# Dependências Python para MEG Backend
+# Instale com: pip install -r requirements-auth.txt
+
+# ==================== FRAMEWORK WEB ====================
+Flask==2.3.2
+Flask-CORS==4.0.0
+Flask-RESTful==0.3.10
+
+# ==================== BANCO DE DADOS ====================
+SQLAlchemy==2.0.19
+psycopg2-binary==2.9.6
+python-dotenv==1.0.0
+
+# ==================== AUTENTICAÇÃO E SEGURANÇA ====================
+PyJWT==2.8.0
+bcrypt==4.0.1
+cryptography==41.0.1
+
+# ==================== EMAIL ====================
+python-dotenv==1.0.0
+
+# ==================== VALIDAÇÃO ====================
+email-validator==2.0.0
+python-dateutil==2.8.2
+
+# ==================== AWS (Para S3) ====================
+boto3==1.26.137
+botocore==1.29.137
+
+# ==================== PAGAMENTOS ====================
+stripe==5.14.0
+
+# ==================== ENVIO DE SMS ====================
+twilio==8.10.0
+
+# ==================== CACHE E SESSIONS ====================
+redis==4.5.5
+
+# ==================== LOGGING ====================
+python-json-logger==2.0.7
+
+# ==================== DEPLOYMENT ====================
+gunicorn==21.2.0
+whitenoise==6.5.0
+
+# ==================== TESTES ====================
+pytest==7.3.1
+pytest-cov==4.1.0
+requests==2.31.0
+
+# ==================== DESENVOLVIMENTO ====================
+black==23.7.0
+flake8==6.0.0
+pylint==2.17.4

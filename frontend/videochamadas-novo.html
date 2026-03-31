@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videochamadas e Mentorias - MEG Goianas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="meg-styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #15803d 0%, #ca8a04 100%);
+            color: white;
+            flex-direction: column;
+        }
+        
+        .control-button {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #15803d;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .control-button:hover {
+            background: #0f5c2f;
+            transform: scale(1.1);
+        }
+        
+        .control-button.inactive {
+            background: #dc2626;
+        }
+        
+        .control-button.inactive:hover {
+            background: #b91c1c;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #4ade80;
+            color: white;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        
+        .status-badge.offline {
+            background: #ef4444;
+        }
+        
+        .mentor-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .mentor-card:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+        
+        .mentor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(to right, #15803d, #ca8a04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            margin: 0 auto 16px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="landing-meg.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center shadow-md">
+                    <span class="text-xl font-bold text-white">M</span>
+                </div>
+                <h1 class="text-2xl font-bold text-green-700">MEG <span class="text-sm font-normal text-gray-500">Goianas</span></h1>
+            </a>
+            
+            <div class="hidden md:flex space-x-6 items-center text-gray-700">
+                <a href="landing-meg.html" class="hover:text-green-700 transition">Voltar</a>
+                <a href="dashboard.html" id="navLoginBtn" class="bg-green-700 text-white px-5 py-2 rounded-full hover:bg-green-800 transition shadow-md">Dashboard <i class="fas fa-user-circle ml-1"></i></a>
+            </div>
+            <button class="md:hidden text-green-700 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="p-6 md:p-12 lg:p-20 bg-gradient-to-br from-green-700 to-yellow-600 text-white">
+        <div class="max-w-7xl mx-auto text-center space-y-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold">Videochamadas & Mentorias</h1>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto">Conecte-se com mentoras, faça videochamadas seguras e desenvolva seu negócio em tempo real</p>
+        </div>
+    </section>
+
+    <!-- Video Call Section -->
+    <section class="p-12 lg:p-24 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-green-700 mb-10">Iniciar Videochamada</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Video Area -->
+                <div class="lg:col-span-2">
+                    <div class="video-container mb-6">
+                        <div class="video-placeholder">
+                            <i class="fas fa-camera text-6xl mb-4 opacity-50"></i>
+                            <p class="text-2xl font-bold">Seu Vídeo Aqui</p>
+                            <p class="text-sm opacity-75 mt-2">Clique em "Iniciar Vídeo" para começar</p>
+                        </div>
+                    </div>
+
+                    <!-- Remote Video -->
+                    <div class="video-container mb-6">
+                        <div class="video-placeholder">
+                            <i class="fas fa-user text-6xl mb-4 opacity-50"></i>
+                            <p class="text-2xl font-bold">Vídeo da Mentora</p>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="bg-gray-900 rounded-xl p-6 flex justify-center gap-4 mb-6">
+                        <button class="control-button" id="toggleVideo" title="Ativar/Desativar Câmera">
+                            <i class="fas fa-video"></i>
+                        </button>
+                        <button class="control-button" id="toggleAudio" title="Ativar/Desativar Microfone">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="control-button" id="toggleScreen" title="Compartilhar Tela">
+                            <i class="fas fa-share-square"></i>
+                        </button>
+                        <button class="control-button inactive" id="endCall" title="Encerrar Chamada">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                    </div>
+
+                    <!-- Settings -->
+                    <div class="bg-gray-100 rounded-xl p-6">
+                        <h3 class="font-bold text-lg text-gray-900 mb-4"><i class="fas fa-cog mr-2 text-green-700"></i> Configurações de Câmera e Microfone</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Câmera</label>
+                                <select id="cameraSelect" class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-green-700">
+                                    <option value="">Selecionar câmera...</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Microfone</label>
+                                <select id="audioSelect" class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-green-700">
+                                    <option value="">Selecionar microfone...</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Alto-falante</label>
+                                <select id="speakerSelect" class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-green-700">
+                                    <option value="">Selecionar alto-falante...</option>
+                                </select>
+                            </div>
+
+                            <div class="pt-4">
+                                <button class="w-full bg-green-700 text-white font-bold py-2 rounded-lg hover:bg-green-800 transition" id="testAudio">
+                                    <i class="fas fa-volume-up mr-2"></i> Testar Áudio
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Sidebar -->
+                <div class="space-y-6">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded-r-lg">
+                        <h4 class="font-bold text-yellow-900 mb-2"><i class="fas fa-lightbulb mr-2"></i> Dica</h4>
+                        <p class="text-sm text-yellow-800">Teste seus dispositivos antes de iniciar a mentoria para garantir uma experiência perfeita.</p>
+                    </div>
+
+                    <div class="bg-white border-2 border-green-700 rounded-xl p-6">
+                        <h3 class="font-bold text-lg text-green-700 mb-4">Status da Sessão</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700">Câmera:</span>
+                                <span id="cameraStatus" class="text-sm px-3 py-1 bg-red-100 text-red-700 rounded-full">Desativada</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700">Microfone:</span>
+                                <span id="audioStatus" class="text-sm px-3 py-1 bg-red-100 text-red-700 rounded-full">Desativado</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700">Conexão:</span>
+                                <span id="connectionStatus" class="text-sm px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full">Aguardando...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section class="p-12 lg:p-24 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-green-700 mb-4">Mentoras Disponíveis</h2>
+            <p class="text-gray-700 mb-12">Escolha uma mentora para agendador una sessão de mentoria</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Mentor 1 -->
+                <div class="mentor-card">
+                    <div class="mentor-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-green-700 text-center">Beatriz Silva</h3>
+                    <p class="text-gray-600 text-center mb-2">Especialista em Confeitaria</p>
+                    <p class="text-sm text-gray-500 text-center mb-4">Goiânia, GO • 8 anos de experiência</p>
+                    
+                    <div class="flex items-center justify-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <span class="text-sm text-gray-600 ml-2">(127 avaliações)</span>
+                    </div>
+
+                    <button class="w-full bg-green-700 text-white font-bold py-2 rounded-lg hover:bg-green-800 transition">
+                        <i class="fas fa-video mr-2"></i> Agendar Mentoria
+                    </button>
+                </div>
+
+                <!-- Mentor 2 -->
+                <div class="mentor-card">
+                    <div class="mentor-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-green-700 text-center">Jéssica Costa</h3>
+                    <p class="text-gray-600 text-center mb-2">Especialista em Brindes Sustentáveis</p>
+                    <p class="text-sm text-gray-500 text-center mb-4">Goiânia, GO • 6 anos de experiência</p>
+                    
+                    <div class="flex items-center justify-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <span class="text-sm text-gray-600 ml-2">(89 avaliações)</span>
+                    </div>
+
+                    <button class="w-full bg-green-700 text-white font-bold py-2 rounded-lg hover:bg-green-800 transition">
+                        <i class="fas fa-video mr-2"></i> Agendar Mentoria
+                    </button>
+                </div>
+
+                <!-- Mentor 3 -->
+                <div class="mentor-card">
+                    <div class="mentor-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-green-700 text-center">Ana Paula Santos</h3>
+                    <p class="text-gray-600 text-center mb-2">Especialista em Tecnologia</p>
+                    <p class="text-sm text-gray-500 text-center mb-4">Goiânia, GO • 10 anos de experiência</p>
+                    
+                    <div class="flex items-center justify-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <span class="text-sm text-gray-600 ml-2">(215 avaliações)</span>
+                    </div>
+
+                    <button class="w-full bg-green-700 text-white font-bold py-2 rounded-lg hover:bg-green-800 transition">
+                        <i class="fas fa-video mr-2"></i> Agendar Mentoria
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-10 text-gray-400 border-t-2" style="background-color: #1a1a1a; border-color: #ca8a04;">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                 <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-700 to-yellow-600 rounded-full flex items-center justify-center shadow-md">
+                        <span class="text-xl font-bold text-white">M</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">MEG <span class="text-sm font-normal text-gray-500">Goianas</span></h1>
+                </div>
+                <p class="text-sm">O maior hub produtivo liderado por mulheres de Goiás.</p>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-white mb-3">Links Rápidos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="landing-meg.html" class="hover:text-yellow-400 transition">Início</a></li>
+                    <li><a href="landing-meg.html#features" class="hover:text-yellow-400 transition">Funcionalidades</a></li>
+                    <li><a href="dashboard.html" class="hover:text-yellow-400 transition">Dashboard</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-white mb-3">Recursos</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="videochamadas.html" class="hover:text-yellow-400 transition">Videochamadas</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-400 transition">Contato</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition">Suporte</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h5 class="font-bold text-white mb-3">Siga-nos</h5>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="text-sm">contato@meggoianas.com.br</p>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-10 border-t border-gray-800 pt-6 text-center text-xs text-gray-600">
+            &copy; 2026 MEG - Mulheres Empreendedoras Goianas. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Script de Autenticação -->
+    <script src="js/auth.js"></script>
+
+    <!-- Script de Videochamadas -->
+    <script>
+        // Configuração de Dispositivos
+        class VideoChatConfig {
+            constructor() {
+                this.videoEnabled = false;
+                this.audioEnabled = false;
+                this.stream = null;
+                this.init();
+            }
+
+            async init() {
+                this.loadDevices();
+                this.setupEventListeners();
+            }
+
+            async loadDevices() {
+                try {
+                    const devices = await navigator.mediaDevices.enumerateDevices();
+                    
+                    const cameras = devices.filter(d => d.kind === 'videoinput');
+                    const mics = devices.filter(d => d.kind === 'audioinput');
+                    const speakers = devices.filter(d => d.kind === 'audiooutput');
+
+                    this.populateSelect('cameraSelect', cameras);
+                    this.populateSelect('audioSelect', mics);
+                    this.populateSelect('speakerSelect', speakers);
+                } catch (error) {
+                    console.error('Erro ao carregar dispositivos:', error);
+                }
+            }
+
+            populateSelect(selectId, devices) {
+                const select = document.getElementById(selectId);
+                devices.forEach(device => {
+                    const option = document.createElement('option');
+                    option.value = device.deviceId;
+                    option.text = device.label || `${device.kind} ${devices.indexOf(device) + 1}`;
+                    select.appendChild(option);
+                });
+            }
+
+            setupEventListeners() {
+                document.getElementById('toggleVideo').addEventListener('click', () => this.toggleVideo());
+                document.getElementById('toggleAudio').addEventListener('click', () => this.toggleAudio());
+                document.getElementById('toggleScreen').addEventListener('click', () => this.toggleScreen());
+                document.getElementById('endCall').addEventListener('click', () => this.endCall());
+                document.getElementById('testAudio').addEventListener('click', () => this.testAudio());
+            }
+
+            async toggleVideo() {
+                const button = document.getElementById('toggleVideo');
+                if (this.videoEnabled) {
+                    if (this.stream) {
+                        this.stream.getVideoTracks().forEach(track => track.stop());
+                    }
+                    this.videoEnabled = false;
+                    button.classList.remove('inactive');
+                    document.getElementById('cameraStatus').textContent = 'Desativada';
+                    document.getElementById('cameraStatus').className = 'text-sm px-3 py-1 bg-red-100 text-red-700 rounded-full';
+                } else {
+                    try {
+                        const cameraId = document.getElementById('cameraSelect').value;
+                        const constraints = { 
+                            video: cameraId ? { deviceId: { exact: cameraId } } : true 
+                        };
+                        this.stream = await navigator.mediaDevices.getUserMedia(constraints);
+                        this.videoEnabled = true;
+                        button.classList.add('inactive');
+                        document.getElementById('cameraStatus').textContent = 'Ativa';
+                        document.getElementById('cameraStatus').className = 'text-sm px-3 py-1 bg-green-100 text-green-700 rounded-full';
+                        console.log('✅ Câmera ativada');
+                    } catch (error) {
+                        console.error('Erro ao ativar câmera:', error);
+                        alert('Não foi possível acessar a câmera. Verifique as permissões.');
+                    }
+                }
+            }
+
+            async toggleAudio() {
+                const button = document.getElementById('toggleAudio');
+                if (this.audioEnabled) {
+                    if (this.stream) {
+                        this.stream.getAudioTracks().forEach(track => track.stop());
+                    }
+                    this.audioEnabled = false;
+                    button.classList.remove('inactive');
+                    document.getElementById('audioStatus').textContent = 'Desativado';
+                    document.getElementById('audioStatus').className = 'text-sm px-3 py-1 bg-red-100 text-red-700 rounded-full';
+                } else {
+                    try {
+                        const micId = document.getElementById('audioSelect').value;
+                        const constraints = { 
+                            audio: micId ? { deviceId: { exact: micId } } : true 
+                        };
+                        this.stream = await navigator.mediaDevices.getUserMedia(constraints);
+                        this.audioEnabled = true;
+                        button.classList.add('inactive');
+                        document.getElementById('audioStatus').textContent = 'Ativo';
+                        document.getElementById('audioStatus').className = 'text-sm px-3 py-1 bg-green-100 text-green-700 rounded-full';
+                        console.log('✅ Microfone ativado');
+                    } catch (error) {
+                        console.error('Erro ao ativar microfone:', error);
+                        alert('Não foi possível acessar o microfone. Verifique as permissões.');
+                    }
+                }
+            }
+
+            async toggleScreen() {
+                alert('Compartilhamento de tela - Função será implementada com integração de backend');
+            }
+
+            endCall() {
+                if (this.stream) {
+                    this.stream.getTracks().forEach(track => track.stop());
+                }
+                this.videoEnabled = false;
+                this.audioEnabled = false;
+                document.getElementById('cameraStatus').textContent = 'Desativada';
+                document.getElementById('audioStatus').textContent = 'Desativado';
+                document.getElementById('connectionStatus').textContent = 'Desconectado';
+                alert('Chamada encerrada');
+            }
+
+            testAudio() {
+                const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+                audio.play();
+                alert('Tocando som de teste...');
+            }
+        }
+
+        // Inicializar quando documento carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoChat = new VideoChatConfig();
+            
+            // Simular conexão
+            setTimeout(() => {
+                document.getElementById('connectionStatus').textContent = 'Conectado';
+                document.getElementById('connectionStatus').className = 'text-sm px-3 py-1 bg-green-100 text-green-700 rounded-full';
+            }, 2000);
+        });
+    </script>
+
+</body>
+</html>
