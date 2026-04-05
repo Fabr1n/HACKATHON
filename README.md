@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/MEG-Mulheres%20Empreendedoras%20Goianas-blue?style=for-the-badge&logo=rocket" alt="MEG Logo" />
-  <img src="https://img.shields.io/badge/GO_UAI_TECH-4º_Lugar-FFD700?style=for-the-badge&logo=trophy" alt="4º Lugar Hackathon" />
+  <img src="https://img.shields.io/badge/GO!_Uai_Tech_3-4º_Lugar-FFD700?style=for-the-badge&logo=trophy" alt="4º Lugar Hackathon" />
 </p>
 
 > *Empoderando mulheres, transformando negócios, impactando vidas.*
